@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Customizer } from 'office-ui-fabric-react';
+import { FluentCustomizations } from '@uifabric/fluent-theme';
+import MainApp from './components/MainApp/MainApp';
+import NavSide from './components/Nav/NavSide';
+import MainContent from './components/MainContent/MainContent';
+import Banner from './components/Banner/Banner';
+import ProjectCollection from './components/ProjectCollection/ProjectCollection';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Customizer {...FluentCustomizations}>
+        <MainApp>
+          <NavSide />
+          <MainContent>
+            <div className="MainContentInner">
+              <Banner />
+              <MainContent hasPadding={true}>
+                <ProjectCollection />
+              </MainContent>
+            </div>
+          </MainContent>
+        </MainApp>
+      </Customizer>
+    );
+  }
 }
 
 export default App;

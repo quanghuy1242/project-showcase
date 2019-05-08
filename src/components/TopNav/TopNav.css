@@ -1,0 +1,7 @@
+.TopNav {
+  display: flex;
+  padding: 0rem 1rem 0.3rem 1rem;
+  z-index: 99999999;
+  height: 55px;
+  align-items: center;
+}
