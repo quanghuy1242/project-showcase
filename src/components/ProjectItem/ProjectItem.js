@@ -18,7 +18,7 @@ class ProjectItem extends Component {
         },
         previewImageSrc: this.props.image,
         imageFit: ImageFit.cover,
-        width: 300,
+        // width: 300,
         height: 200
       }]
     };
@@ -26,8 +26,8 @@ class ProjectItem extends Component {
       <DocumentCard 
         onClickHref={this.props.href} 
         style={{
-          marginRight: '0.5rem',
-          marginBottom: '0.5rem'
+          width: '100%',
+          maxWidth: 'inherit' // Do cái component này giới hạn max-width: 320px
         }}
       >
         <DocumentCardPreview {...projectContent} />

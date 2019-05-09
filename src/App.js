@@ -9,6 +9,48 @@ import ProjectCollection from './components/ProjectCollection/ProjectCollection'
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: [
+        {
+          name: 'Project Example',
+          href: 'https://google.com',
+          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+        }, 
+        {
+          name: 'Project Example',
+          href: 'https://google.com',
+          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+        }, 
+        {
+          name: 'Project Example',
+          href: 'https://google.com',
+          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+        }, 
+        {
+          name: 'Project Example',
+          href: 'https://google.com',
+          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+        }, 
+        {
+          name: 'Project Example',
+          href: 'https://google.com',
+          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+        }, 
+        {
+          name: 'Project Example',
+          href: 'https://google.com',
+          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+        }, 
+        {
+          name: 'Project Example',
+          href: 'https://google.com',
+          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+        }
+      ]
+    };
+  }
   render() {
     return (
       <Customizer {...FluentCustomizations}>
@@ -18,7 +60,10 @@ class App extends Component {
             <div className="MainContentInner">
               <Banner />
               <MainContent hasPadding={true}>
-                <ProjectCollection />
+                <ProjectCollection
+                  title="Title Sample Project"
+                  projects={this.state.projects}
+                />
               </MainContent>
             </div>
           </MainContent>
