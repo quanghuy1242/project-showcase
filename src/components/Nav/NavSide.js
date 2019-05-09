@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Nav } from 'office-ui-fabric-react/lib/Nav'
 import { Persona, PersonaSize, PersonaPresence } from 'office-ui-fabric-react/lib/Persona';
-import LocalUser from '../../LocalUser';
 import './NavSide.css';
+import { AppContext } from '../../AppContext';
 
 class NavSide extends Component {
   render() {
     return (
       <div className="navWrapper">
         <Persona 
-          imageUrl={LocalUser.image}
-          imageInitials={LocalUser.shortName}
+          imageUrl={this.context.image}
+          imageInitials={this.context.shortName}
           size={PersonaSize.size100}
           presence={PersonaPresence.busy}
           hidePersonaDetails={true}
@@ -57,5 +57,6 @@ class NavSide extends Component {
     );
   }
 }
+NavSide.contextType = AppContext;
 
 export default NavSide;

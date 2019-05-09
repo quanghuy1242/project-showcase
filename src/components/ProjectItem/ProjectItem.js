@@ -6,7 +6,7 @@ import {
   DocumentCardTitle
 } from 'office-ui-fabric-react/lib/DocumentCard';
 import { ImageFit } from 'office-ui-fabric-react/lib/Image';
-import LocalUser from '../../LocalUser';
+import { AppContext } from '../../AppContext';
 
 class ProjectItem extends Component {
   render() {
@@ -39,8 +39,8 @@ class ProjectItem extends Component {
           activity="Vài phút trước"
           people={[
             {
-              name: LocalUser.name,
-              profileImageSrc: LocalUser.image
+              name: this.context.name,
+              profileImageSrc: this.context.image
             }
           ]}
         />
@@ -48,5 +48,6 @@ class ProjectItem extends Component {
     );
   }
 }
+ProjectItem.contextType = AppContext;
 
 export default ProjectItem;
