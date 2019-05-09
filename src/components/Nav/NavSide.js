@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Nav } from 'office-ui-fabric-react/lib/Nav'
+import { Nav } from 'office-ui-fabric-react/lib/Nav';
+import { initializeIcons } from '@uifabric/icons';
 import { Persona, PersonaSize, PersonaPresence } from 'office-ui-fabric-react/lib/Persona';
 import './NavSide.css';
 import { AppContext } from '../../AppContext';
+initializeIcons()
 
 class NavSide extends Component {
   render() {
@@ -37,17 +39,20 @@ class NavSide extends Component {
                   name: 'Home',
                   url: '/',
                   isExpanded: true,
-                  key: "keyHome"
+                  key: "keyHome",
+                  icon: 'Home'
                 },
                 {
                   name: 'Categories',
                   url: '/',
-                  key: 'keyCategories'
+                  key: 'keyCategories',
+                  icon: 'Taskboard'
                 },
                 {
                   name: 'About',
                   url: '/',
-                  key: 'keyAbout'
+                  key: 'keyAbout',
+                  icon: 'Info'
                 }
               ]
             }
