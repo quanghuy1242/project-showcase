@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from '../../page/Home/Home';
 import Banner from '../Banner/Banner';
+import NotFound from '../../page/NotFound/NotFound';
 
 class RouteContainer extends Component {
   render() {
     return (
-      <div>
+      <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/categories" component={Banner} />
         <Route path="/about" component={Banner} />
-      </div>
+        <Route component={NotFound} />
+      </Switch>
     );
   }
 }
