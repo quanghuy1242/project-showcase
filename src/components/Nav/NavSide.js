@@ -1,28 +1,68 @@
 import React, { Component } from 'react';
 import { Nav } from 'office-ui-fabric-react/lib/Nav';
+import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { initializeIcons } from '@uifabric/icons';
-// import { Persona, PersonaSize, PersonaPresence } from 'office-ui-fabric-react/lib/Persona';
+import { Link } from 'react-router-dom';
 import './NavSide.css';
-import { AppContext } from '../../AppContext';
+import { withRouter } from 'react-router-dom';
 initializeIcons()
 
 class NavSide extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      links: [
+        {
+          name: 'Home',
+          url: '/',
+          key: "keyHome",
+          icon: 'Home'
+        },
+        {
+          name: 'Categories',
+          url: '/categories',
+          key: 'keyCategories',
+          icon: 'Taskboard'
+        },
+        {
+          name: 'About',
+          url: '/about',
+          key: 'keyAbout',
+          icon: 'Info'
+        }
+      ],
+      selectedKey: null
+    };
+  }
+
+  componentDidMount() {
+    this.props.history.listen((location, action) => {
+      this.setState({
+        selectedKey: this.state.links.find(link => link.url === location.pathname).key
+      })
+    })
+  }
+
+  onRenderLink = (props) => {
+    return (
+      <Link className={props.className} style={{color: 'inherit', boxSizing: 'border-box'}} to={props.href}>
+        <span style={{display: 'flex'}}>
+          { props.iconProps && <Icon style={{margin: '0 4px'}} {...props.iconProps} /> }
+          {props.children}
+        </span>
+      </Link>
+    );
+  }
+
   render() {
+    let selectedKey = this.state.selectedKey ? this.state.selectedKey : null;
     return (
       <div className="navWrapper" style={{width: this.props.isCollapsed ? 0 : 250}}>
-        {/* <Persona 
-          imageUrl={this.context.image}
-          imageInitials={this.context.shortName}
-          size={PersonaSize.size100}
-          presence={PersonaPresence.busy}
-          hidePersonaDetails={true}
-          className="persona"
-          style={{opacity: 0}}
-        /> */}
-        <Nav 
+        <Nav
           expandedStateText="expanded"
           collapsedStateText="collapsed"
-          selectedKey="keyHome"
+          {...selectedKey}
+          onLinkClick={() => {console.log('á')}}
           styles={{
             root: {
               width: this.props.isCollapsed ? 0 : 250,
@@ -34,36 +74,12 @@ class NavSide extends Component {
               transition: '0.2s'
             }
           }}
-          groups={[
-            {
-              links: [
-                {
-                  name: 'Home',
-                  url: '/',
-                  isExpanded: true,
-                  key: "keyHome",
-                  icon: 'Home'
-                },
-                {
-                  name: 'Categories',
-                  url: '/',
-                  key: 'keyCategories',
-                  icon: 'Taskboard'
-                },
-                {
-                  name: 'About',
-                  url: '/',
-                  key: 'keyAbout',
-                  icon: 'Info'
-                }
-              ]
-            }
-          ]}
+          groups={[{ links: this.state.links }]}
+          linkAs={this.onRenderLink}
         />
       </div>
     );
   }
 }
-NavSide.contextType = AppContext;
 
-export default NavSide;
+export default withRouter(NavSide);
