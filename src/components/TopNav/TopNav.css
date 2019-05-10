@@ -14,3 +14,12 @@
 .ToggleSideBar i {
   font-size: 20px;
 }
+
+.TopNavAction {
+  display: flex;
+  margin-left: 0.5rem;
+}
+
+.TopNavAction a {
+  margin-right: 0.5rem;
+}
