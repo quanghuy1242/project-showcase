@@ -3,67 +3,16 @@ import { Customizer } from 'office-ui-fabric-react';
 import { FluentCustomizations } from '@uifabric/fluent-theme';
 import MainApp from './components/MainApp/MainApp';
 import MainContent from './components/MainContent/MainContent';
-import Banner from './components/Banner/Banner';
-import ProjectCollection from './components/ProjectCollection/ProjectCollection';
+import Home from './components/Page/Home/Home';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      projects: [
-        {
-          name: 'Project Example',
-          href: 'https://google.com',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'https://google.com',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'https://google.com',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'https://google.com',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'https://google.com',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'https://google.com',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'https://google.com',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
-        }
-      ]
-    };
-  }
   render() {
     return (
       <Customizer {...FluentCustomizations}>
         <MainApp>
           <MainContent>
-            <div className="MainContentInner">
-              <Banner />
-              <MainContent hasPadding={true}>
-                <ProjectCollection
-                  title="Title Sample Project"
-                  projects={this.state.projects}
-                />
-              </MainContent>
-            </div>
+            <Home />
           </MainContent>
         </MainApp>
       </Customizer>
