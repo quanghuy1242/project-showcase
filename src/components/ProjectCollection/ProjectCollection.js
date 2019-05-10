@@ -7,7 +7,7 @@ class ProjectCollection extends Component {
   render() {
     return (
       <div className="ProjectCollectionWrapper">
-        <Text variant="xLarge" className="title">{this.props.title}</Text>
+        <Text variant="xLarge" style={{marginBottom: '0.5rem', fontWeight: 500}}>{this.props.title}</Text>
         <div className="ProjectCollection">
           {this.props.projects.map((project, index) => (
             <ProjectItem

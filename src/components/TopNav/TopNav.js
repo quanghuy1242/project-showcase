@@ -21,7 +21,8 @@ class TopNav extends Component {
       <div className="TopNav" style={{boxShadow: Depths.depth8}}>
         <IconButton
           iconProps={{iconName: "GlobalNavButton"}} 
-          className="ToggleSideBar" 
+          className="ToggleSideBar"
+          style={{color: 'black', marginRight: '0.5rem'}}
           onClick={this.props.onToggleSideBar} 
         />
         <NavLink href="#">

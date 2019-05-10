@@ -6,11 +6,6 @@
   align-items: center;
 }
 
-.ToggleSideBar {
-  margin-right: 0.5rem;
-  color: black
-}
-
 .ToggleSideBar i {
   font-size: 20px;
 }
