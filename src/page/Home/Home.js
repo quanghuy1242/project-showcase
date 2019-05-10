@@ -11,37 +11,37 @@ class Home extends Component {
       projects: [
         {
           name: 'Project Example',
-          href: 'https://google.com',
+          href: '/about',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: 'https://google.com',
+          href: '/about',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: 'https://google.com',
+          href: '/about',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: 'https://google.com',
+          href: '/about',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: 'https://google.com',
+          href: '/about',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: 'https://google.com',
+          href: '/about',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: 'https://google.com',
+          href: '/about',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }
       ]

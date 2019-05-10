@@ -47,7 +47,7 @@ class NavSide extends Component {
     return (
       <Link className={props.className} style={{color: 'inherit', boxSizing: 'border-box'}} to={props.href}>
         <span style={{display: 'flex'}}>
-          { props.iconProps && <Icon style={{margin: '0 4px'}} {...props.iconProps} /> }
+          { props.iconProps && <Icon style={{margin: '0 10px', fontSize: '20px'}} {...props.iconProps} /> }
           {props.children}
         </span>
       </Link>

@@ -6,6 +6,7 @@ import {
   DocumentCardTitle
 } from 'office-ui-fabric-react/lib/DocumentCard';
 import { ImageFit } from 'office-ui-fabric-react/lib/Image';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../../AppContext';
 
 class ProjectItem extends Component {
@@ -18,33 +19,34 @@ class ProjectItem extends Component {
         },
         previewImageSrc: this.props.image,
         imageFit: ImageFit.cover,
-        // width: 300,
         height: 200
       }]
     };
     return (
-      <DocumentCard 
-        onClickHref={this.props.href} 
-        style={{
-          width: '100%',
-          maxWidth: 'inherit' // Do cái component này giới hạn max-width: 320px
-        }}
-      >
-        <DocumentCardPreview {...projectContent} />
-        <DocumentCardTitle
-          title={this.props.name}
-          shouldTruncate={true}
-        />
-        <DocumentCardActivity
-          activity="Vài phút trước"
-          people={[
-            {
-              name: this.context.name,
-              profileImageSrc: this.context.image
-            }
-          ]}
-        />
-      </DocumentCard>
+      <Link style={{width: '100%', textDecoration: 'none'}} to={this.props.href}>
+        <DocumentCard 
+          onClick={() => {}} 
+          style={{
+            maxWidth: 'inherit', // Do cái component này giới hạn max-width: 320px
+            outline: 'none',
+          }}
+        >
+          <DocumentCardPreview {...projectContent} />
+          <DocumentCardTitle
+            title={this.props.name}
+            shouldTruncate={true}
+          />
+          <DocumentCardActivity
+            activity="Vài phút trước"
+            people={[
+              {
+                name: this.context.name,
+                profileImageSrc: this.context.image
+              }
+            ]}
+          />
+        </DocumentCard>
+      </Link>
     );
   }
 }
