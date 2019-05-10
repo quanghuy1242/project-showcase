@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Banner from '../../Banner/Banner';
-import ProjectCollection from '../../ProjectCollection/ProjectCollection';
-import MainContent from '../../MainContent/MainContent';
+import Banner from '../../components/Banner/Banner';
+import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
+import MainContent from '../../components/MainContent/MainContent';
 import './Home.css';
 
 class Home extends Component {

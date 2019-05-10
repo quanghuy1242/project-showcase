@@ -3,10 +3,9 @@ import { Customizer } from 'office-ui-fabric-react';
 import { FluentCustomizations } from '@uifabric/fluent-theme';
 import MainApp from './components/MainApp/MainApp';
 import MainContent from './components/MainContent/MainContent';
-import Home from './components/Page/Home/Home';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import RouteContainer from './components/RouteContainer/RouteContainer';
 import './App.css';
-import Banner from './components/Banner/Banner';
 
 class App extends Component {
   render() {
@@ -15,9 +14,7 @@ class App extends Component {
         <Router>
           <MainApp>
             <MainContent>
-              <Route path="/" exact component={Home} />
-              <Route path="/categories" component={Banner} />
-              <Route path="/about" component={Banner} />
+              <RouteContainer />
             </MainContent>
           </MainApp>
         </Router>
