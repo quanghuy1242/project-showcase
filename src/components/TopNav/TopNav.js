@@ -4,6 +4,7 @@ import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import { Depths } from '@uifabric/fluent-theme/lib/fluent/FluentDepths';
 import NavLink from '../NavLink/NavLink';
 import './TopNav.css'
+import SearchBoxTop from '../SearchBoxTop/SearchBoxTop';
 
 class TopNav extends Component {
   constructor(props) {
@@ -35,6 +36,8 @@ class TopNav extends Component {
           ))
         }
         </div>
+        <div className="spacer"></div>
+        <SearchBoxTop />
       </div>
     );
   }
