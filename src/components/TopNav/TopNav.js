@@ -3,6 +3,7 @@ import { Text } from 'office-ui-fabric-react/lib/Text';
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import { Depths } from '@uifabric/fluent-theme/lib/fluent/FluentDepths';
 import NavLink from '../NavLink/NavLink';
+import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 import './TopNav.css'
 import SearchBoxTop from '../SearchBoxTop/SearchBoxTop';
 
