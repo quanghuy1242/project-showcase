@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
 import { Text } from 'office-ui-fabric-react/lib/Text';
-import './Banner.css'
+import { style } from './Banner.style';
 
 class Banner extends Component {
   render() {
-  	const headerText = {
-			color: 'white',
-		  display: 'block',
-		  marginBottom: '0.5rem'
-  	};
     return (
-      <div className="banner-wrapper">
+      <div className={style.bannerWrapper}>
         <div style={{ textAlign: 'center' }}>
-          <Text variant="superLarge" style={headerText}>
-            Project Showcase
+          <Text variant="superLarge" className={style.headerText}>
+            {this.props.title}
           </Text>
-          <Text variant="xLarge" style={headerText}>
-            How my own world begin
+          <Text variant="xLarge" className={style.headerText}>
+            {this.props.subTitle}
           </Text>
         </div>
       </div>

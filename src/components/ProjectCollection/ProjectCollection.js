@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import { Text } from 'office-ui-fabric-react/lib/Text';
-import './ProjectCollection.css';
+import { style } from './ProjectCollection.style';
 
 class ProjectCollection extends Component {
   render() {
     return (
-      <div className="ProjectCollectionWrapper">
-        <Text variant="xLarge" style={{marginBottom: '0.5rem', fontWeight: 500}}>{this.props.title}</Text>
-        <div className="ProjectCollection">
+      <div className={style.projectCollectionWrapper}>
+        <Text variant="xLarge" className={style.headerText}>{this.props.title}</Text>
+        <div className={style.projectCollection}>
           {this.props.projects.map((project, index) => (
             <ProjectItem
               name={project.name}

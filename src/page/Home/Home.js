@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Banner from '../../components/Banner/Banner';
 import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
 import MainContent from '../../components/MainContent/MainContent';
-import './Home.css';
+import StackPanel from '../../components/StackPanel/StackPanel';
 
 class Home extends Component {
   constructor(props) {
@@ -50,15 +50,15 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="HomeWrapper">
-        <Banner />
+      <StackPanel>
+        <Banner title="Project Showcase" subTitle="How my own world begin" />
         <MainContent hasPadding={true} isChild={true}>
           <ProjectCollection
             title="Title Sample Project"
             projects={this.state.projects}
           />
         </MainContent>
-      </div>
+      </StackPanel>
     );
   }
 }
