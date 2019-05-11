@@ -7,7 +7,7 @@ import {
 } from 'office-ui-fabric-react/lib/DocumentCard';
 import { ImageFit } from 'office-ui-fabric-react/lib/Image';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../../AppContext';
+import { AppContext } from '../../context/AppContext';
 
 class ProjectItem extends Component {
   render() {
