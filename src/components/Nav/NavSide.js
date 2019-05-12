@@ -37,9 +37,12 @@ class NavSide extends Component {
 
   componentDidMount() {
     this.props.history.listen((location, action) => {
-      this.setState({
-        selectedKey: this.state.links.find(link => link.url === location.pathname).key
-      })
+      const currentRoute = this.state.links.find(link => link.url === location.pathname);
+      if (currentRoute) {
+        this.setState({
+          selectedKey: currentRoute.key
+        })
+      };
     })
   }
 

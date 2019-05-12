@@ -6,7 +6,8 @@ class MainContent extends Component {
     const bannerStyle = {
       ...(this.props.hasPadding) && { padding: '0.5rem' },
       height: this.props.isChild ? '' : 'calc(100vh - 55px)',
-      overflow: 'auto'
+      overflow: 'auto',
+      ...this.props.style
     }
     return (
       <div className="MainContent" style={bannerStyle}>

@@ -11,37 +11,37 @@ class Home extends Component {
       projects: [
         {
           name: 'Project Example',
-          href: '/about',
+          href: 'project/123',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: '/about',
+          href: 'project/123',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: '/about',
+          href: 'project/123',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: '/about',
+          href: 'project/123',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: '/about',
+          href: 'project/123',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: '/about',
+          href: 'project/123',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }, 
         {
           name: 'Project Example',
-          href: '/about',
+          href: 'project/123',
           image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
         }
       ]
@@ -52,7 +52,7 @@ class Home extends Component {
     return (
       <StackPanel>
         <Banner title="Project Showcase" subTitle="How my own world begin" />
-        <MainContent hasPadding={true} isChild={true}>
+        <MainContent hasPadding={true} isChild={true} style={{backgroundColor: '#fcfcfc'}}>
           <ProjectCollection
             title="Title Sample Project"
             projects={this.state.projects}
