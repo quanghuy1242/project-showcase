@@ -27,10 +27,10 @@ class ProjectDetail extends Component {
             </div>
             <div className="spacer"></div>
             <div className={style.topDetailAction}>
-              <PrimaryButton 
-                primary={true}
+              <PrimaryButton
                 text="Open"
                 split={true}
+                onClick={() => {}}
                 menuProps={{
                   items: [
                     {
