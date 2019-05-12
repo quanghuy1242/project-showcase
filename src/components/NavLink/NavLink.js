@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './NavLink.css';
+import { style } from './NavLink.style';
 
 class NavLink extends Component {
   render() {
     return (
-      <a href={this.props.href} className="NavLink">
+      <a href={this.props.href} className={style.navLink}>
         {this.props.children}
       </a>
     );

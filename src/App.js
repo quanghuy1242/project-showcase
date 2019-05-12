@@ -6,7 +6,6 @@ import MainContent from './components/MainContent/MainContent';
 import { BrowserRouter as Router } from 'react-router-dom';
 import RouteContainer from './components/RouteContainer/RouteContainer';
 import AppContextProvider from './context/AppContextProvider';
-import './App.css';
 
 class App extends Component {
   render() {

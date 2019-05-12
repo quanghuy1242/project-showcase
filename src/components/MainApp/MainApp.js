@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TopNav from '../TopNav/TopNav';
 import NavSide from '../Nav/NavSide';
-import './MainApp.css';
+import { style } from './MainApp.style';
 
 class MainApp extends Component {
   constructor(props) {
@@ -17,9 +17,9 @@ class MainApp extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={style.app}>
         <TopNav onToggleSideBar={() => this.toggleSideBar()} />
-        <div className="AppMain">
+        <div className={style.appMain}>
           <NavSide isCollapsed={this.state.isCollapsed} />
           {this.props.children}
         </div>

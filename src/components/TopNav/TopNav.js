@@ -3,7 +3,7 @@ import { Text } from 'office-ui-fabric-react/lib/Text';
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import { Depths } from '@uifabric/fluent-theme/lib/fluent/FluentDepths';
 import NavLink from '../NavLink/NavLink';
-import './TopNav.css'
+import { style } from './TopNav.style';
 import SearchBoxTop from '../SearchBoxTop/SearchBoxTop';
 
 class TopNav extends Component {
@@ -18,17 +18,17 @@ class TopNav extends Component {
 
   render() {
     return (
-      <div className="TopNav" style={{boxShadow: Depths.depth8}}>
+      <div className={style.topNav} style={{boxShadow: Depths.depth8}}>
         <IconButton
           iconProps={{iconName: "GlobalNavButton"}} 
-          className="ToggleSideBar"
+          className={style.toggleSideBar}
           style={{color: 'black', marginRight: '0.5rem'}}
           onClick={this.props.onToggleSideBar} 
         />
         <NavLink href="#">
           <Text variant="xxLarge" style={{fontWeight: 400}}>Quang Huy</Text>
         </NavLink>
-        <div className="TopNavAction">
+        <div className={style.topNavAction}>
         {
           this.state.links.map((link, index) => (
             <NavLink href={link.href} key={index}>

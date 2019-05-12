@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Nav } from 'office-ui-fabric-react/lib/Nav';
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { initializeIcons } from '@uifabric/icons';
-import { Link } from 'react-router-dom';
-import './NavSide.css';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { style } from './NavSide.style';
 initializeIcons()
 
 class NavSide extends Component {
@@ -60,7 +59,7 @@ class NavSide extends Component {
   render() {
     let selectedKey = this.state.selectedKey ? this.state.selectedKey : null;
     return (
-      <div className="navWrapper" style={{width: this.props.isCollapsed ? 0 : 250}}>
+      <div className={style.navWrapper} style={{width: this.props.isCollapsed ? 0 : 250}}>
         <Nav
           expandedStateText="expanded"
           collapsedStateText="collapsed"

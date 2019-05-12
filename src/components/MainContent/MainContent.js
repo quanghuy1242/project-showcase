@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './MainContent.css';
 
 class MainContent extends Component {
   render() {
@@ -7,10 +6,11 @@ class MainContent extends Component {
       ...(this.props.hasPadding) && { padding: '0.5rem' },
       height: this.props.isChild ? '' : 'calc(100vh - 55px)',
       overflow: 'auto',
+      flexGrow: 1,
       ...this.props.style
     }
     return (
-      <div className="MainContent" style={bannerStyle}>
+      <div style={bannerStyle}>
         {this.props.children}
       </div>
     );

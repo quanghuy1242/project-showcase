@@ -1,8 +1,8 @@
-import { mergeStyles } from 'office-ui-fabric-react/lib/Styling'
+import { mergeStyleSets } from 'office-ui-fabric-react'
 
-export const style = {
-  StackPanelStyle: mergeStyles({
+export const style = mergeStyleSets({
+  StackPanelStyle: {
     display: 'flex',
     flexDirection: 'column'
-  })
-}
+  }
+})
