@@ -3,49 +3,19 @@ import Banner from '../../components/Banner/Banner';
 import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
 import MainContent from '../../components/MainContent/MainContent';
 import StackPanel from '../../components/StackPanel/StackPanel';
+import { ProjectAPI } from '../../api/projects.api';
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: [
-        {
-          name: 'Project Example',
-          href: 'project/123',
-          image: 'https://via.placeholder.com/1920x1080'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'project/123',
-          image: 'https://via.placeholder.com/1920x1080'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'project/123',
-          image: 'https://via.placeholder.com/1920x1080'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'project/123',
-          image: 'https://via.placeholder.com/1920x1080'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'project/123',
-          image: 'https://via.placeholder.com/1920x1080'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'project/123',
-          image: 'https://via.placeholder.com/1920x1080'
-        }, 
-        {
-          name: 'Project Example',
-          href: 'project/123',
-          image: 'https://via.placeholder.com/1920x1080'
-        }
-      ]
+      projects: []
     };
+  }
+
+  async componentDidMount() {
+    const projects = await ProjectAPI.getProjects();
+    this.setState({ projects: projects });
   }
 
   render() {

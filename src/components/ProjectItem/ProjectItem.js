@@ -23,7 +23,7 @@ class ProjectItem extends Component {
       }]
     };
     return (
-      <Link style={{width: '100%', textDecoration: 'none'}} to={this.props.href}>
+      <Link style={{width: '100%', textDecoration: 'none'}} to={`/project/${this.props._id}`}>
         <DocumentCard 
           onClick={() => {}} 
           style={{
@@ -37,7 +37,7 @@ class ProjectItem extends Component {
             shouldTruncate={true}
           />
           <DocumentCardActivity
-            activity="Vài phút trước"
+            activity={new Date(this.props.date).toLocaleString()}
             people={[
               {
                 name: this.context.name,
