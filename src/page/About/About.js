@@ -8,7 +8,7 @@ import { AppContext } from '../../context/AppContext';
 
 class About extends Component {
   render() {
-    const classNames = getStyle();
+    const classNames = getStyle({image: this.context.image});
     return (
       <StackPanel className={classNames.aboutWrapper}>
         <Banner title="About" subTitle="Who am I?" />

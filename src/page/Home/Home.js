@@ -12,37 +12,37 @@ class Home extends Component {
         {
           name: 'Project Example',
           href: 'project/123',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+          image: 'https://via.placeholder.com/1920x1080'
         }, 
         {
           name: 'Project Example',
           href: 'project/123',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+          image: 'https://via.placeholder.com/1920x1080'
         }, 
         {
           name: 'Project Example',
           href: 'project/123',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+          image: 'https://via.placeholder.com/1920x1080'
         }, 
         {
           name: 'Project Example',
           href: 'project/123',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+          image: 'https://via.placeholder.com/1920x1080'
         }, 
         {
           name: 'Project Example',
           href: 'project/123',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+          image: 'https://via.placeholder.com/1920x1080'
         }, 
         {
           name: 'Project Example',
           href: 'project/123',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+          image: 'https://via.placeholder.com/1920x1080'
         }, 
         {
           name: 'Project Example',
           href: 'project/123',
-          image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/ima2.jpg'
+          image: 'https://via.placeholder.com/1920x1080'
         }
       ]
     };
