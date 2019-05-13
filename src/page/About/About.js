@@ -10,18 +10,18 @@ class About extends Component {
   render() {
     const classNames = getStyle();
     return (
-      <StackPanel style={{height: 'inherit'}}>
+      <StackPanel className={classNames.aboutWrapper}>
         <Banner title="About" subTitle="Who am I?" />
         <MainContent hasPadding={true} isChild={true}>
           <StackPanel isHorizontal={true} style={{height: '100%'}}>
-            <StackPanel style={{justifyContent: 'center', alignItems: 'center'}}>
+            <StackPanel className={classNames.InfoWrapper}>
               <div className={classNames.onwerImage}></div>
               <Text variant="xxLarge">{this.context.name}</Text>
-              <Text variant="Large" style={{width: 300, textAlign: 'center'}}>
+              <Text variant="Large" className={classNames.slogan}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </Text>
             </StackPanel>
-            <StackPanel style={{flexGrow: 1, marginLeft: '1rem'}}>
+            <StackPanel className={classNames.pivotWrapper}>
               <Pivot linkSize={PivotLinkSize.large}>
                 <PivotItem headerText="Giới thiệu">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
