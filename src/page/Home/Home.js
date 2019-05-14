@@ -9,13 +9,20 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: []
+      projects: [],
+      isLoading: false
     };
   }
 
+  onToggleLoading() {
+    this.setState({ isLoading: !this.state.isLoading });
+  }
+
   async componentDidMount() {
+    this.onToggleLoading();
     const projects = await ProjectAPI.getProjects();
     this.setState({ projects: projects });
+    this.onToggleLoading();
   }
 
   render() {
@@ -26,6 +33,7 @@ class Home extends Component {
           <ProjectCollection
             title="Projects List"
             projects={this.state.projects}
+            isLoading={this.state.isLoading}
           />
         </MainContent>
       </StackPanel>
