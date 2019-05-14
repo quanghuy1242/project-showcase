@@ -15,9 +15,9 @@ export const getstyle = ({ image }) => {
       backgroundSize: 'cover'
     },
     topDetailInfo: {
-      marginTop: '1rem',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      justifyContent: 'center'
     },
     topDetailAction: {
       alignSelf: 'center',

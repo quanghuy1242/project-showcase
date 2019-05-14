@@ -54,7 +54,10 @@ class ProjectDetail extends Component {
                 <Text variant="xxLarge">{this.state.project.name}</Text>
               </div>
               <div className={classNames.topDetailProjectId}>
-                <Text variant="xLarge">{this.state.project._id}</Text>
+                <Text variant="xLarge">{this.state.project.technical}</Text>
+              </div>
+              <div className={classNames.topDetailProjectId}>
+                <Text variant="Large">{this.state.project._id}</Text>
               </div>
             </div>
             <div className="spacer" />
