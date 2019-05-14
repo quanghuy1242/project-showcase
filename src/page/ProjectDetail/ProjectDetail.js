@@ -9,22 +9,47 @@ import {
   PrimaryButton,
   css,
   Spinner,
-  SpinnerSize
+  SpinnerSize,
+  Dialog, 
+  DialogType,
+  DialogFooter,
+  DefaultButton
 } from 'office-ui-fabric-react';
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
+import { AppContext } from '../../context/AppContext';
 
 class ProjectDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       project: {},
-      isLoading: false
+      isLoading: false,
+      dialogTitle: "",
+      dialogSubText: "",
+      isDialogHidden: true
     };
   }
 
   onToggleLoading() {
     this.setState({ isLoading: !this.state.isLoading });
+  }
+
+  onCopyText() {
+    navigator.clipboard.writeText(`${this.context.baseUrl}${this.props.match.url}`)
+      .then(() => this.handleOpenDialog("Thành công", "Đã copy thành công link vào bộ nhớ tạm"))
+  }
+
+  handleCloseDialog() {
+    this.setState({ isDialogHidden: true });
+  }
+
+  handleOpenDialog(title, subText) {
+    this.setState({
+      dialogTitle: title,
+      dialogSubText: subText,
+      isDialogHidden: false
+    });
   }
 
   async componentDidMount() {
@@ -46,6 +71,19 @@ class ProjectDetail extends Component {
     });
     return (
       <MainContent hasPadding={true} isChild={true}>
+        <Dialog
+          hidden={this.state.isDialogHidden}
+          onDismiss={() => this.handleCloseDialog()}
+          dialogContentProps={{
+            type: DialogType.normal,
+            title: this.state.dialogTitle,
+            subText: this.state.dialogSubText
+          }}
+        >
+          <DialogFooter>
+            <DefaultButton text="Close" onClick={() => this.handleCloseDialog()} />
+          </DialogFooter>
+        </Dialog>
         <StackPanel>
           <div className={classNames.topDetail}>
             <div className={classNames.topDetailImage} />
@@ -73,7 +111,8 @@ class ProjectDetail extends Component {
                     {
                       key: 'copyUrl',
                       text: 'Copy link',
-                      iconProps: { iconName: 'Copy' }
+                      iconProps: { iconName: 'Copy' },
+                      onClick: this.onCopyText.bind(this)
                     },
                     {
                       key: 'shareFacebook',
@@ -113,5 +152,6 @@ class ProjectDetail extends Component {
     );
   }
 }
+ProjectDetail.contextType = AppContext;
 
 export default ProjectDetail;

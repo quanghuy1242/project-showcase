@@ -7,7 +7,8 @@ export default class AppContextProvider extends Component {
     this.state = {
       name: 'Quang Huy',
       image: 'https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/cover.jpg',
-      shortName: 'QH'
+      shortName: 'QH',
+      baseUrl: 'https://project-showcase.netlify.com'
     };
   }
   
