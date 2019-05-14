@@ -23,6 +23,11 @@ export const getStyle = ({image}) => {
     pivotWrapper: {
       flexGrow: 1, 
       marginLeft: '1rem'
+    },
+    pivotItems: {
+      margin: '0.5rem',
+      height: 'calc(100vh - 349px - 1.5rem)',
+      overflow: 'auto'
     }
   })
 }
