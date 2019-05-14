@@ -6,7 +6,8 @@ import {
   Pivot,
   PivotItem,
   PivotLinkSize,
-  PrimaryButton
+  PrimaryButton,
+  css
 } from 'office-ui-fabric-react';
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
@@ -81,7 +82,7 @@ class ProjectDetail extends Component {
                 </div>
               </PivotItem>
               <PivotItem headerText="Screenshots">
-                <div className={classNames.pivotItem}>
+                <div className={css(classNames.pivotItem, classNames.screenshotWrapper)}>
                   {this.state.project.screenshots
                     ? this.state.project.screenshots.map(
                         (screenshot, index) => (

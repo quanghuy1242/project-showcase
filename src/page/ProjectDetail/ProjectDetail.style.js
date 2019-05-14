@@ -31,7 +31,10 @@ export const getstyle = ({ image }) => {
     },
     screenshot: {
       width: '100%',
-      margin: '0 5remS'
+    },
+    screenshotWrapper: {
+      height: 'calc(100vh - 164px - 6rem)',
+      overflow: 'auto'
     }
   })
 }
