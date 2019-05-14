@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { style } from './NavLink.style';
+import { Link } from 'react-router-dom';
 
 class NavLink extends Component {
   render() {
     return (
-      <a href={this.props.href} className={style.navLink}>
+      <Link to={this.props.href} className={style.navLink}>
         {this.props.children}
-      </a>
+      </Link>
     );
   }
 }

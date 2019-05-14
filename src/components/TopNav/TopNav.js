@@ -11,7 +11,7 @@ class TopNav extends Component {
     super(props);
     this.state = {
       links: [
-        { name: 'Project Showcase', href: '#' },
+        { name: 'Project Showcase', href: '/' },
       ]
     };
   }
@@ -25,7 +25,7 @@ class TopNav extends Component {
           style={{color: 'black', marginRight: '0.5rem'}}
           onClick={this.props.onToggleSideBar} 
         />
-        <NavLink href="#">
+        <NavLink href="/">
           <Text variant="xxLarge" style={{fontWeight: 400}}>Quang Huy</Text>
         </NavLink>
         <div className={style.topNavAction}>
