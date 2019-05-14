@@ -2,8 +2,8 @@ import api from './api';
 
 export class ProjectAPI {
   static async getProjects() {
-    let projectRespone = await api.get('/projects');
-    return projectRespone.data.projects;
+    let projectsRespone = await api.get('/projects');
+    return projectsRespone.data.projects;
   }
 
   static async getProject(projectsId) {
