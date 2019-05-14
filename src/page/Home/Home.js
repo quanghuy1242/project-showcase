@@ -24,7 +24,7 @@ class Home extends Component {
         <Banner title="Project Showcase" subTitle="How my own world begin" />
         <MainContent hasPadding={true} isChild={true} style={{backgroundColor: '#fcfcfc'}}>
           <ProjectCollection
-            title="Title Sample Project"
+            title="Projects List"
             projects={this.state.projects}
           />
         </MainContent>
