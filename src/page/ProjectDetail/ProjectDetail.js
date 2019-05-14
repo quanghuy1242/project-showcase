@@ -7,7 +7,9 @@ import {
   PivotItem,
   PivotLinkSize,
   PrimaryButton,
-  css
+  css,
+  Spinner,
+  SpinnerSize
 } from 'office-ui-fabric-react';
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
@@ -16,16 +18,23 @@ class ProjectDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      project: {}
+      project: {},
+      isLoading: false
     };
+  }
+
+  onToggleLoading() {
+    this.setState({ isLoading: !this.state.isLoading });
   }
 
   async componentDidMount() {
     try {
+      this.onToggleLoading();
       const project = await ProjectAPI.getProject(this.props.match.params.id);
       this.setState({
         project: project
       });
+      this.onToggleLoading();
     } catch (error) {
       this.props.history.push('/404');
     }
@@ -78,7 +87,9 @@ class ProjectDetail extends Component {
             <Pivot linkSize={PivotLinkSize.large}>
               <PivotItem headerText="Description">
                 <div className={classNames.pivotItem}>
-                  {this.state.project.description}
+                  {this.state.isLoading
+                    ? <Spinner size={SpinnerSize.large} />
+                    : this.state.project.description}
                 </div>
               </PivotItem>
               <PivotItem headerText="Screenshots">
