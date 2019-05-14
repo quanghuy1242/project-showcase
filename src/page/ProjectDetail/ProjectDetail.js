@@ -8,54 +8,88 @@ import {
   PivotLinkSize,
   PrimaryButton
 } from 'office-ui-fabric-react';
-import { style } from './ProjectDetail.style'
+import { getstyle } from './ProjectDetail.style'
+import { ProjectAPI } from '../../api/projects.api';
 
 class ProjectDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      project: {}
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      const project = await ProjectAPI.getProject(this.props.match.params.id);
+      this.setState({
+        project: project
+      });
+    } catch (error) {
+      this.props.history.push('/404');
+    }
+  }
+
   render() {
+    const classNames = getstyle({
+      image: this.state.project.image
+    });
     return (
       <MainContent hasPadding={true} isChild={true}>
         <StackPanel>
-          <div className={style.topDetail}>
-            <div className={style.topDetailImage}></div>
-            <div className={style.topDetailInfo}>
-              <div className={style.topDetailTitle}>
-                <Text variant="xxLarge">Project Name</Text>
+          <div className={classNames.topDetail}>
+            <div className={classNames.topDetailImage} />
+            <div className={classNames.topDetailInfo}>
+              <div className={classNames.topDetailTitle}>
+                <Text variant="xxLarge">{this.state.project.name}</Text>
               </div>
-              <div className={style.topDetailProjectId}>
-                <Text variant="xLarge">{this.props.match.params.id}</Text>
+              <div className={classNames.topDetailProjectId}>
+                <Text variant="xLarge">{this.state.project._id}</Text>
               </div>
             </div>
-            <div className="spacer"></div>
-            <div className={style.topDetailAction}>
+            <div className="spacer" />
+            <div className={classNames.topDetailAction}>
               <PrimaryButton
                 text="Open"
                 split={true}
-                onClick={() => {}}
+                onClick={() => {
+                  window.open(this.state.project.url, '_blank');
+                }}
                 menuProps={{
                   items: [
                     {
-                      key: 'emailMessage',
-                      text: 'Email message',
-                      iconProps: { iconName: 'Mail' }
+                      key: 'copyUrl',
+                      text: 'Copy link',
+                      iconProps: { iconName: 'Copy' }
                     },
                     {
-                      key: 'calendarEvent',
-                      text: 'Calendar event',
-                      iconProps: { iconName: 'Calendar' }
-                    }    
+                      key: 'shareFacebook',
+                      text: 'Share link',
+                      iconProps: { iconName: 'Share' }
+                    }
                   ],
                   alignTargetEdge: true
                 }}
               />
             </div>
           </div>
-          <div className={style.pivotWrapper}>
+          <div className={classNames.pivotWrapper}>
             <Pivot linkSize={PivotLinkSize.large}>
               <PivotItem headerText="Description">
-                Nội dung 1
+                <div className={classNames.pivotItem}>
+                  {this.state.project.description}
+                </div>
               </PivotItem>
               <PivotItem headerText="Screenshots">
-                Nội dung 2
+                <div className={classNames.pivotItem}>
+                  {this.state.project.screenshots
+                    ? this.state.project.screenshots.map(
+                        (screenshot, index) => (
+                          <img src={screenshot} key={index} alt="Hmmmm" className={classNames.screenshot} />
+                        )
+                      )
+                    : (<div>Không có ảnh chụp màn hình</div>)}
+                </div>
               </PivotItem>
             </Pivot>
           </div>
