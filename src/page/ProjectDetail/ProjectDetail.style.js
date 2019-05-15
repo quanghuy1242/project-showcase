@@ -40,6 +40,13 @@ export const getstyle = ({ image }) => {
     screenshotWrapper: {
       height: 'calc(100vh - 164px - 6rem)',
       overflow: 'auto'
+    },
+    topDetailProjectId: {
+      selectors: {
+        '& a': {
+          textDecoration: 'none'
+        }
+      }
     }
   })
 }
