@@ -18,12 +18,15 @@ import {
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
 import { AppContext } from '../../context/AppContext';
+import { Link } from 'react-router-dom';
 
 class ProjectDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      project: {},
+      project: {
+        technical: {}
+      },
       isLoading: false,
       dialogTitle: "",
       dialogSubText: "",
@@ -92,7 +95,9 @@ class ProjectDetail extends Component {
                 <Text variant="xxLarge">{this.state.project.name}</Text>
               </div>
               <div className={classNames.topDetailProjectId}>
-                <Text variant="xLarge">{this.state.project.technical}</Text>
+                <Link to={`/technical/${this.state.project.technical.nameId}`}>
+                  <Text variant="Large">{this.state.project.technical.name}</Text>
+                </Link>
               </div>
               <div className={classNames.topDetailProjectId}>
                 <Text variant="Large">{this.state.project._id}</Text>
