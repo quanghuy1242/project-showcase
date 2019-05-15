@@ -70,7 +70,7 @@ class ProjectDetail extends Component {
       image: this.state.project.image
     });
     return (
-      <MainContent hasPadding={true} isChild={true}>
+      <MainContent hasPadding={true} isChild={true} className={classNames.projectDetailWrapper}>
         <Dialog
           hidden={this.state.isDialogHidden}
           onDismiss={() => this.handleCloseDialog()}

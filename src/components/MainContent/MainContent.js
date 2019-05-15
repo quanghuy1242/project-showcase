@@ -10,7 +10,7 @@ class MainContent extends Component {
       ...this.props.style
     }
     return (
-      <div style={bannerStyle}>
+      <div style={bannerStyle} className={this.props.className}>
         {this.props.children}
       </div>
     );

@@ -1,4 +1,5 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
+import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
 
 export const getStyle = ({image}) => {
   return mergeStyleSets({
@@ -10,7 +11,9 @@ export const getStyle = ({image}) => {
       backgroundSize: '100%'
     },
     aboutWrapper: {
-      height: 'inherit'
+      height: 'inherit',
+      animation: MotionAnimations.scaleDownIn,
+      animationDuration: MotionDurations.duration3,
     },
     InfoWrapper: {
       justifyContent: 'center', 

@@ -4,6 +4,7 @@ import ProjectCollection from '../../components/ProjectCollection/ProjectCollect
 import MainContent from '../../components/MainContent/MainContent';
 import StackPanel from '../../components/StackPanel/StackPanel';
 import { ProjectAPI } from '../../api/projects.api';
+import { getStyle } from './Home.style';
 
 class Home extends Component {
   constructor(props) {
@@ -26,8 +27,9 @@ class Home extends Component {
   }
 
   render() {
+    const classNames = getStyle();
     return (
-      <StackPanel>
+      <StackPanel className={classNames.homeWrapper}>
         <Banner title="Project Showcase" subTitle="How my own world begin" />
         <MainContent hasPadding={true} isChild={true} style={{backgroundColor: '#fcfcfc'}}>
           <ProjectCollection
