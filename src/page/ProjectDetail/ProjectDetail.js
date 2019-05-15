@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import MainContent from '../../components/MainContent/MainContent';
 import StackPanel from '../../components/StackPanel/StackPanel';
 import {
@@ -40,7 +40,7 @@ class ProjectDetail extends Component {
 
   onCopyText() {
     navigator.clipboard.writeText(`${this.context.baseUrl}${this.props.match.url}`)
-      .then(() => this.handleOpenDialog("Thành công", "Đã copy thành công link vào bộ nhớ tạm"))
+      .then(() => this.handleOpenDialog("Thành công", "Đã copy thành công link vào bộ nhớ tạm"));
   }
 
   handleCloseDialog() {
