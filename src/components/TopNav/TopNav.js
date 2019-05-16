@@ -25,17 +25,19 @@ class TopNav extends Component {
           style={{color: 'black', marginRight: '0.5rem'}}
           onClick={this.props.onToggleSideBar} 
         />
-        <NavLink href="/">
-          <Text variant="xxLarge" style={{fontWeight: 400}}>Quang Huy</Text>
-        </NavLink>
-        <div className={classNames.topNavAction}>
-        {
-          this.state.links.map((link, index) => (
-            <NavLink href={link.href} key={index}>
-              <Text variant="xLarge">{link.name}</Text>
-            </NavLink>
-          ))
-        }
+        <div className={classNames.topNavInner}>
+          <NavLink href="/">
+            <Text variant="xLarge" style={{fontWeight: 400}}>Quang Huy</Text>
+          </NavLink>
+          <div className={classNames.topNavAction}>
+          {
+            this.state.links.map((link, index) => (
+              <NavLink href={link.href} key={index}>
+                <Text variant="Large">{link.name}</Text>
+              </NavLink>
+            ))
+          }
+          </div>
         </div>
       </div>
     );

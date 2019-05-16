@@ -9,6 +9,12 @@ export const getStyle = () => {
       height: 55,
       alignItems: 'center',
     },
+    topNavInner: {
+      display: 'flex',
+      alignItems: 'flex-end',
+      flexGrow: 1,
+      overflowX: 'auto',
+    },
     toggleSideBar: {
       selectors: {
         '& i': {
@@ -20,7 +26,7 @@ export const getStyle = () => {
       display: 'flex',
       marginLeft: '0.5rem',
       flexGrow: 1,
-      overflowX: 'auto',
+      marginBottom: 1,
       selectors: {
         '& a': {
           marginRight: '0.5rem',
