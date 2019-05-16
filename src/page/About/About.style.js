@@ -28,7 +28,13 @@ export const getStyle = ({image}) => {
     },
     pivotWrapper: {
       flexGrow: 1, 
-      marginLeft: '1rem'
+      marginLeft: '1rem',
+      selectors: {
+        "& > div > div": {
+          overflowX: 'auto',
+          overflowY: 'hidden'
+        }
+      }
     },
     pivotItems: {
       margin: '0.5rem',
