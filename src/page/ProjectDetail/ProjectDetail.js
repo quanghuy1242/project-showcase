@@ -99,9 +99,6 @@ class ProjectDetail extends Component {
                   <Text variant="Large">{this.state.project.technical.name}</Text>
                 </Link>
               </div>
-              <div className={classNames.topDetailProjectId}>
-                <Text variant="Large">{this.state.project._id}</Text>
-              </div>
             </div>
             <div className="spacer" />
             <div className={classNames.topDetailAction}>
