@@ -61,27 +61,37 @@ class NavSide extends Component {
     let selectedKey = this.state.selectedKey ? this.state.selectedKey : null;
     const classNames = getStyle(this.props);
     return (
-      <div className={classNames.navWrapper}>
-        <div className={classNames.searchBoxWrapper}>
-          <SearchBoxTop />
+      <div>
+        <div className={classNames.navWrapper}>
+          <div className={classNames.searchBoxWrapper}>
+            <SearchBoxTop />
+          </div>
+          <Nav
+            expandedStateText="expanded"
+            collapsedStateText="collapsed"
+            {...selectedKey}
+            onLinkClick={() => {}}
+            styles={{
+              root: {
+                width: this.props.isCollapsed ? 0 : 250,
+                height: 'calc(100vh - 55px)',
+                boxSizing: 'border-box',
+                overflowY: 'auto',
+                transition: '0.2s',
+                zIndex: 98
+              }
+            }}
+            groups={[{ links: this.state.links }]}
+            linkAs={this.onRenderLink}
+          />
         </div>
-        <Nav
-          expandedStateText="expanded"
-          collapsedStateText="collapsed"
-          {...selectedKey}
-          onLinkClick={() => {}}
-          styles={{
-            root: {
-              width: this.props.isCollapsed ? 0 : 250,
-              height: 'calc(100vh - 55px)',
-              boxSizing: 'border-box',
-              overflowY: 'auto',
-              transition: '0.2s'
-            }
-          }}
-          groups={[{ links: this.state.links }]}
-          linkAs={this.onRenderLink}
-        />
+        {
+          this.props.isOverlay
+            ? !this.props.isCollapsed
+              ? <div className={classNames.navOverlay} onClick={this.props.onDismiss}></div>
+              : <></>
+            : <></>
+        }
       </div>
     );
   }

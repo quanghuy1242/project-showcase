@@ -8,6 +8,7 @@ export const getStyle = () => {
       zIndex: 99999999,
       height: 55,
       alignItems: 'center',
+      backgroundColor: 'white'
     },
     topNavInner: {
       display: 'flex',

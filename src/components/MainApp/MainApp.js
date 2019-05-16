@@ -38,7 +38,11 @@ class MainApp extends Component {
       <div className={style.app}>
         <TopNav onToggleSideBar={() => this.toggleSideBar()} />
         <div className={style.appMain}>
-          <NavSide isCollapsed={this.state.isCollapsed} isOverlay={this.state.isOverlay} />
+          <NavSide
+            isCollapsed={this.state.isCollapsed} 
+            isOverlay={this.state.isOverlay} 
+            onDismiss={() => this.toggleSideBar()}
+          />
           {this.props.children}
         </div>
       </div>
