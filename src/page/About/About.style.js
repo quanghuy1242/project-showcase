@@ -15,6 +15,9 @@ export const getStyle = ({image}) => {
       animation: MotionAnimations.scaleDownIn,
       animationDuration: MotionDurations.duration3,
     },
+    aboutWrapperInner: {
+      overflow: 'initial !important'
+    },
     InfoWrapper: {
       justifyContent: 'center', 
       alignItems: 'center'

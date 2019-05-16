@@ -7,13 +7,35 @@ import { Text, Pivot, PivotItem, PivotLinkSize } from 'office-ui-fabric-react';
 import { AppContext } from '../../context/AppContext';
 
 class About extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHorizontal: true
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleScreenResize.bind(this), false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleScreenResize.bind(this), false);
+  }
+
+  handleScreenResize() {
+    this.setState({
+      isHorizontal: !window.matchMedia("(max-width: 599px)").matches
+    });
+  }
+
   render() {
     const classNames = getStyle({image: this.context.image});
+    const isMobile = window.matchMedia("(max-width: 599px)").matches;
     return (
       <StackPanel className={classNames.aboutWrapper}>
         <Banner title="About" subTitle="Who am I?" />
-        <MainContent hasPadding={true} isChild={true}>
-          <StackPanel isHorizontal={true} style={{height: '100%'}}>
+        <MainContent hasPadding={true} isChild={true} className={classNames.aboutWrapperInner}>
+          <StackPanel isHorizontal={!isMobile} style={{height: '100%'}}>
             <StackPanel className={classNames.InfoWrapper}>
               <div className={classNames.onwerImage}></div>
               <Text variant="xxLarge">{this.context.name}</Text>
