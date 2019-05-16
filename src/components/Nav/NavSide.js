@@ -42,7 +42,7 @@ class NavSide extends Component {
         this.setState({
           selectedKey: currentRoute.key
         });
-        !this.props.isCollapsed && this.props.onDismiss(); // đóng navside chỉ khi navside đang mở
+        this.props.isOverlay && !this.props.isCollapsed && this.props.onDismiss(); // đóng navside chỉ khi navside đang mở
       };
     })
   }
