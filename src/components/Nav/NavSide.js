@@ -58,8 +58,13 @@ class NavSide extends Component {
 
   render() {
     let selectedKey = this.state.selectedKey ? this.state.selectedKey : null;
+    const customDepth = 'rgba(0, 0, 0, 0.22) 0px 50px 55px 0px, rgba(0, 0, 0, 0.18) 0px 15px 15px 0px';
     return (
-      <div className={style.navWrapper} style={{width: this.props.isCollapsed ? 0 : 250}}>
+      <div className={style.navWrapper} style={{
+        width: this.props.isCollapsed ? 0 : 250,
+        position: this.props.isOverlay ? 'absolute' : 'initial',
+        boxShadow: this.props.isOverlay ? customDepth : 'none'
+      }}>
         <Nav
           expandedStateText="expanded"
           collapsedStateText="collapsed"
