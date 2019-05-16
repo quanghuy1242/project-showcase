@@ -3,7 +3,7 @@ import { Nav } from 'office-ui-fabric-react/lib/Nav';
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { initializeIcons } from '@uifabric/icons';
 import { Link, withRouter } from 'react-router-dom';
-import { style } from './NavSide.style';
+import { getStyle } from './NavSide.style';
 import SearchBoxTop from '../SearchBoxTop/SearchBoxTop';
 initializeIcons()
 
@@ -59,16 +59,10 @@ class NavSide extends Component {
 
   render() {
     let selectedKey = this.state.selectedKey ? this.state.selectedKey : null;
-    const customDepth = 'rgba(0, 0, 0, 0.22) 0px 50px 55px 0px, rgba(0, 0, 0, 0.18) 0px 15px 15px 0px';
+    const classNames = getStyle(this.props);
     return (
-      <div className={style.navWrapper} style={{
-        width: this.props.isCollapsed ? 0 : 250,
-        position: this.props.isOverlay ? 'absolute' : 'initial',
-        boxShadow: this.props.isOverlay ? customDepth : 'none'
-      }}>
-        <div className={style.searchBoxWrapper} style={{
-          display: this.props.isCollapsed ? 'none' : 'initial'
-        }}>
+      <div className={classNames.navWrapper}>
+        <div className={classNames.searchBoxWrapper}>
           <SearchBoxTop />
         </div>
         <Nav
