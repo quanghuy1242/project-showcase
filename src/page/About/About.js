@@ -10,22 +10,27 @@ class About extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHorizontal: true
+      isHorizontal: true,
+      isMounted: false
     };
   }
 
   componentDidMount() {
+    this.setState({ isMounted: true });
     window.addEventListener('resize', this.handleScreenResize.bind(this), false);
   }
 
   componentWillUnmount() {
+    this.setState({ isMounted: false });
     window.removeEventListener('resize', this.handleScreenResize.bind(this), false);
   }
 
   handleScreenResize() {
-    this.setState({
-      isHorizontal: !window.matchMedia("(max-width: 599px)").matches
-    });
+    if (this.state.isMounted) {
+      this.setState({
+        isHorizontal: !window.matchMedia("(max-width: 599px)").matches
+      });
+    }
   }
 
   render() {
