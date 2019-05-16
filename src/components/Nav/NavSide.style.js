@@ -7,5 +7,6 @@ export const style = mergeStyleSets({
     alignItems: 'center',
     height: 'calc(100vh - 55px)',
     transition: '0.2s',
+    backgroundColor: 'white'
   }
 })
