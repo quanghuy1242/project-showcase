@@ -75,8 +75,6 @@ class NavSide extends Component {
               width: this.props.isCollapsed ? 0 : 250,
               height: 'calc(100vh - 55px)',
               boxSizing: 'border-box',
-              border: '1px solid #eee',
-              borderTop: 'none',
               overflowY: 'auto',
               transition: '0.2s'
             }
