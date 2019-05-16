@@ -4,7 +4,7 @@ import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 class SearchBoxTop extends Component {
   render() {
     return (
-      <div style={{width: 300, justifySelf: 'flex-end'}} className="SearchWrapper">
+      <div style={{margin: '0.5rem 0.5rem 0rem 0.5rem'}} className="SearchWrapper">
         <SearchBox placeholder="Search" />
       </div>
     );

@@ -4,6 +4,7 @@ import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { initializeIcons } from '@uifabric/icons';
 import { Link, withRouter } from 'react-router-dom';
 import { style } from './NavSide.style';
+import SearchBoxTop from '../SearchBoxTop/SearchBoxTop';
 initializeIcons()
 
 class NavSide extends Component {
@@ -65,6 +66,11 @@ class NavSide extends Component {
         position: this.props.isOverlay ? 'absolute' : 'initial',
         boxShadow: this.props.isOverlay ? customDepth : 'none'
       }}>
+        <div className={style.searchBoxWrapper} style={{
+          display: this.props.isCollapsed ? 'none' : 'initial'
+        }}>
+          <SearchBoxTop />
+        </div>
         <Nav
           expandedStateText="expanded"
           collapsedStateText="collapsed"

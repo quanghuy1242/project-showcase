@@ -9,5 +9,8 @@ export const style = mergeStyleSets({
     transition: '0.2s',
     backgroundColor: 'white',
     zIndex: 100
+  },
+  searchBoxWrapper: {
+    width: '100%'
   }
 })
