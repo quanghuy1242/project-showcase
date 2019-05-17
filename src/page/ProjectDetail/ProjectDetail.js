@@ -25,7 +25,7 @@ class ProjectDetail extends Component {
     super(props);
     this.state = {
       project: {
-        technical: {}
+        technology: {}
       },
       isLoading: false,
       dialogTitle: "",
