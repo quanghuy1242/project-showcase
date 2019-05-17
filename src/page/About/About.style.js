@@ -38,7 +38,7 @@ export const getStyle = ({image}) => {
     },
     pivotItems: {
       margin: '0.5rem',
-      height: 'calc(100vh - 349px - 1.5rem)',
+      height: 'calc(100vh - 349px - 2rem)',
       overflow: 'auto'
     }
   })
