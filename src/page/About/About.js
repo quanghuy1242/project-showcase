@@ -34,7 +34,7 @@ class About extends Component {
   }
 
   render() {
-    const classNames = getStyle({image: this.context.image});
+    const classNames = getStyle({image: this.context.administrator.image});
     const isMobile = window.matchMedia("(max-width: 599px)").matches;
     return (
       <StackPanel className={classNames.aboutWrapper}>
@@ -43,7 +43,7 @@ class About extends Component {
           <StackPanel isHorizontal={!isMobile} style={{height: '100%'}}>
             <StackPanel className={classNames.InfoWrapper}>
               <div className={classNames.onwerImage}></div>
-              <Text variant="xxLarge">{this.context.name}</Text>
+              <Text variant="xxLarge">{this.context.administrator.name}</Text>
               <Text variant="Large" className={classNames.slogan}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </Text>

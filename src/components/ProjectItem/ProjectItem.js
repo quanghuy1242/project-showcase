@@ -40,8 +40,8 @@ class ProjectItem extends Component {
             activity={new Date(this.props.date).toLocaleString()}
             people={[
               {
-                name: this.context.name,
-                profileImageSrc: this.context.image
+                name: this.context.administrator.name,
+                profileImageSrc: this.context.administrator.image
               }
             ]}
           />
