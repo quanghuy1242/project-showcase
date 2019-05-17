@@ -30,7 +30,7 @@ class Home extends Component {
     const classNames = getStyle();
     return (
       <StackPanel className={classNames.homeWrapper}>
-        <Banner title="Project Showcase" subTitle="How my own world begin" />
+        <Banner title="Project Showcase" subTitle="How my own world begins" />
         <MainContent hasPadding={true} isChild={true} style={{backgroundColor: '#fcfcfc'}}>
           <ProjectCollection
             title="Projects List"
