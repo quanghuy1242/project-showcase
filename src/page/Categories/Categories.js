@@ -10,13 +10,20 @@ class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: []
+      categories: [],
+      isLoading: false
     };
   }
 
+  onToggleLoading() {
+    this.setState({ isLoading: !this.state.isLoading });
+  }
+
   async componentDidMount() {
+    this.onToggleLoading();
     const categories = await CategoryAPI.getCategories();
     this.setState({ categories: categories });
+    this.onToggleLoading();
   }
 
   render() {
@@ -25,7 +32,10 @@ class Categories extends Component {
       <MainContent hasPadding={true} isChild={true}>
         <StackPanel>
           <Text variant="xxLarge" className={classNames.headerText}>Categories</Text>
-          <CategorieCollection categoriesList={this.state.categories} />
+          <CategorieCollection 
+            categoriesList={this.state.categories}
+            isLoading={this.state.isLoading}
+          />
         </StackPanel>
       </MainContent>
     );
