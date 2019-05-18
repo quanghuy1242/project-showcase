@@ -10,6 +10,7 @@ class CategorieCollection extends Component {
         {this.props.categoriesList.map((category, index) => (
           <CategoryItem
             name={category.name}
+            id={category.id}
             key={index}
           />
         ))}
