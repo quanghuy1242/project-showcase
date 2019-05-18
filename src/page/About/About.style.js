@@ -1,5 +1,4 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
-import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
 
 export const getStyle = ({image}) => {
   return mergeStyleSets({
@@ -12,8 +11,6 @@ export const getStyle = ({image}) => {
     },
     aboutWrapper: {
       height: 'inherit',
-      animation: MotionAnimations.scaleDownIn,
-      animationDuration: MotionDurations.duration3,
     },
     aboutWrapperInner: {
       overflow: 'initial !important'

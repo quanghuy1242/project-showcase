@@ -1,12 +1,9 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
-import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
 
 export const getstyle = ({ image }) => {
   const isMobile = window.matchMedia("(max-width: 599px)").matches;
   return mergeStyleSets({
     projectDetailWrapper: {
-      animation: MotionAnimations.scaleDownIn,
-      animationDuration: MotionDurations.duration3
     },
     topDetail: {
       display: 'flex',
