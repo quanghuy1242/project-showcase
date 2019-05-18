@@ -4,18 +4,21 @@ import { Text } from 'office-ui-fabric-react';
 import StackPanel from '../../components/StackPanel/StackPanel';
 import CategorieCollection from '../../components/CategoryCollection/CategoryCollection';
 import { getStyle } from './Categories.style';
+import { CategoryAPI } from '../../api/categories.api';
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: [
-        { id: 1, name: 'Á' },
-        { id: 2, name: 'B' },
-        { id: 3, name: 'Đ' },
-      ]
+      categories: []
     };
   }
+
+  async componentDidMount() {
+    const categories = await CategoryAPI.getCategories();
+    this.setState({ categories: categories });
+  }
+
   render() {
     const classNames = getStyle();
     return (
