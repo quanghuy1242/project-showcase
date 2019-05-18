@@ -14,7 +14,8 @@ export const getStyle = ({ image }) => {
       alignItems: 'center',
       width: '100%',
       textDecoration: 'none',
-      boxSizing: 'border-box',
+      border: '2px solid transparent',
+      backgroundPosition: 'center center',
       selectors: {
         ':hover': {
           border: '2px solid #afa9a5',

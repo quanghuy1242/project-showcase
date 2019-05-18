@@ -7,7 +7,7 @@ class CategoryItem extends Component {
   render() {
     const classNames = getStyle(this.props);
     return (
-      <Link className={classNames.itemWrapper} to={`/categories/${this.props.id}`}>
+      <Link className={classNames.itemWrapper} to={`/categories/${this.props.nameId}`}>
         <Text className={classNames.text} variant="xxLarge">{this.props.name}</Text>
         <div className={css(classNames.overlay, 'overlay')}></div>
       </Link>

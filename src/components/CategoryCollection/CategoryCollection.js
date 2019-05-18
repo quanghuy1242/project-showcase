@@ -11,6 +11,8 @@ class CategorieCollection extends Component {
           <CategoryItem
             name={category.name}
             id={category.id}
+            nameId={category.nameId}
+            image={category.image}
             key={index}
           />
         ))}
