@@ -95,7 +95,7 @@ class ProjectDetail extends Component {
                 <Text variant="xxLarge">{this.state.project.name}</Text>
               </div>
               <div className={classNames.topDetailProjectId}>
-                <Link to={`/technical/${this.state.project.technology.nameId}`}>
+                <Link to={`/categories/${this.state.project.technology.nameId}`}>
                   <Text variant="Large">{this.state.project.technology.name}</Text>
                 </Link>
               </div>
