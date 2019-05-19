@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from '../../page/Home/Home';
-import NotFound from '../../page/NotFound/NotFound';
-import About from '../../page/About/About';
-import ProjectDetail from '../../page/ProjectDetail/ProjectDetail';
-import Categories from '../../page/Categories/Categories';
-import CategoryDetail from '../../page/CategoryDetail/CategoryDetail';
+import Home from '../../pages/Home/Home';
+import NotFound from '../../pages/NotFound/NotFound';
+import About from '../../pages/About/About';
+import ProjectDetail from '../../pages/ProjectDetail/ProjectDetail';
+import Categories from '../../pages/Categories/Categories';
+import CategoryDetail from '../../pages/CategoryDetail/CategoryDetail';
 
 class RouteContainer extends Component {
   render() {
