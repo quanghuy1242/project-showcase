@@ -17,18 +17,24 @@ export const getStyle = ({ image }) => {
       border: '2px solid transparent',
       backgroundPosition: 'center center',
       selectors: {
-        ':hover': {
-          border: '2px solid #afa9a5',
-        },
         ':hover .overlay': {
-          opacity: 0.2,
-          transition: '0.2s'
+          opacity: 0.4,
+          transition: '0.5s'
+        },
+        ':hover .text': {
+          width: '100%',
+          transition: '0.4s'
         }
       }
     },
     text: {
       color: '#fff',
-      zIndex: 20
+      zIndex: 20,
+      width: 0,
+      display: 'block',
+      overflow: 'hidden',
+      textAlign: 'center',
+      transition: '0.4s'
     },
     overlay: {
       position: 'absolute',
@@ -37,8 +43,8 @@ export const getStyle = ({ image }) => {
       right: 0,
       bottom: 0,
       left: 0,
-      opacity: '0.3',
-      transition: '0.2s'
+      opacity: '0',
+      transition: '0.5s'
     }
   })
 }
