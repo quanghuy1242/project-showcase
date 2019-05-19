@@ -38,7 +38,7 @@ class About extends Component {
     const isMobile = window.matchMedia("(max-width: 599px)").matches;
     return (
       <StackPanel className={classNames.aboutWrapper}>
-        <Banner title="About" subTitle="Who am I?" />
+        <Banner title="About" subTitle="Who am I?" height={150} />
         <MainContent hasPadding={true} isChild={true} className={classNames.aboutWrapperInner}>
           <StackPanel isHorizontal={!isMobile} style={{height: '100%'}}>
             <StackPanel className={classNames.InfoWrapper}>
