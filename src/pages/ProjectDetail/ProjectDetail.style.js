@@ -3,7 +3,7 @@ import { Depths } from '@uifabric/fluent-theme';
 import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
 
 export const getstyle = ({ image }) => {
-  const isMobile = window.matchMedia("(max-width: 599px)").matches;
+  // const isMobile = window.matchMedia("(max-width: 599px)").matches;
   return mergeStyleSets({
     projectDetailWrapper: {
       height: 'calc(100% - 0.5rem)',
@@ -30,8 +30,7 @@ export const getstyle = ({ image }) => {
       overflow: 'auto'
     },
     topDetailAction: {
-      alignSelf: 'center',
-      marginRight: isMobile ? '0.5rem' : '2rem'
+      alignSelf: 'center'
     },
     pivotWrapper: {
       marginTop: '0.5rem',
