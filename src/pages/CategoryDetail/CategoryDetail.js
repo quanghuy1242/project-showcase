@@ -69,7 +69,7 @@ class CategoryDetail extends Component {
           height={150}
           hasOverlay={true}
         />
-        <MainContent hasPadding={true} isChild={true} style={{backgroundColor: '#fcfcfc'}}>
+        <MainContent hasPadding={true} isChild={true}>
           <ProjectCollection
             title="Projects List"
             projects={this.state.category.projects}

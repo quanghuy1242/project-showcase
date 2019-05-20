@@ -53,7 +53,7 @@ class Home extends Component {
           image="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1517511620798-cec17d428bc0.jpg"
           hasOverlay={true}
           />
-        <MainContent hasPadding={true} isChild={true} style={{backgroundColor: '#fcfcfc'}}>
+        <MainContent hasPadding={true} isChild={true}>
           <ProjectCollection
             title="Projects List"
             projects={this.state.projects}
