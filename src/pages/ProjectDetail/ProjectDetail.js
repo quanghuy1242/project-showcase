@@ -20,6 +20,7 @@ import { ProjectAPI } from '../../api/projects.api';
 import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Banner from '../../components/Banner/Banner';
 
 class ProjectDetail extends Component {
   constructor(props) {
@@ -80,7 +81,7 @@ class ProjectDetail extends Component {
       image: this.state.project.image
     });
     return (
-      <MainContent hasPadding={true} isChild={true} className={classNames.projectDetailWrapper}>
+      <MainContent isChild={true} className={classNames.projectDetailWrapper}>
         <Helmet>
           <title>{this.state.seoData.title}</title>
           <meta name="keywords" content={this.state.seoData.title} />
@@ -111,72 +112,77 @@ class ProjectDetail extends Component {
           </DialogFooter>
         </Dialog>
         <StackPanel>
-          <div className={classNames.topDetail}>
-            <div className={classNames.topDetailImage} />
-            <div className={classNames.topDetailInfo}>
-              <div className={classNames.topDetailTitle}>
-                <Text variant="xxLarge">{this.state.project.name}</Text>
+          <div className={classNames.pdw}>
+            <Banner image={this.state.project.image} className={classNames.banner} />
+            <div className={classNames.maincontentw}>
+              <div className={classNames.topDetail}>
+                <div className={classNames.topDetailImage} />
+                <div className={classNames.topDetailInfo}>
+                  <div className={classNames.topDetailTitle}>
+                    <Text variant="xxLarge">{this.state.project.name}</Text>
+                  </div>
+                  <div className={classNames.topDetailProjectId}>
+                    <Link to={`/categories/${this.state.project.technology.nameId}`}>
+                      <Text variant="Large">{this.state.project.technology.name}</Text>
+                    </Link>
+                  </div>
+                </div>
+                <div className="spacer" />
+                <div className={classNames.topDetailAction}>
+                  <PrimaryButton
+                    text="Open"
+                    split={true}
+                    onClick={() => {
+                      window.open(this.state.project.url, '_blank');
+                    }}
+                    menuProps={{
+                      items: [
+                        {
+                          key: 'copyUrl',
+                          text: 'Copy link',
+                          iconProps: { iconName: 'Copy' },
+                          onClick: this.onCopyText.bind(this)
+                        },
+                        {
+                          key: 'shareFacebook',
+                          text: 'Share link',
+                          iconProps: { iconName: 'Share' }
+                        }
+                      ],
+                      alignTargetEdge: true
+                    }}
+                  />
+                </div>
               </div>
-              <div className={classNames.topDetailProjectId}>
-                <Link to={`/categories/${this.state.project.technology.nameId}`}>
-                  <Text variant="Large">{this.state.project.technology.name}</Text>
-                </Link>
+              <div className={classNames.pivotWrapper}>
+                <Pivot linkSize={PivotLinkSize.large}>
+                  <PivotItem headerText="Description">
+                    <div className={classNames.pivotItem}>
+                      {this.state.isLoading
+                        ? <Spinner size={SpinnerSize.large} />
+                        : this.state.project.description}
+                    </div>
+                  </PivotItem>
+                  <PivotItem headerText="Screenshots">
+                    <div className={css(classNames.pivotItem, classNames.screenshotWrapper)}>
+                      {this.state.project.screenshots
+                        ? this.state.project.screenshots.map(
+                            (screenshot, index) => (
+                              <img src={screenshot} key={index} alt="Hmmmm" className={classNames.screenshot} />
+                            )
+                          )
+                        : (<div>Không có ảnh chụp màn hình</div>)}
+                    </div>
+                  </PivotItem>
+                  <PivotItem headerText="Changelog">
+                    Changelog
+                  </PivotItem>
+                  <PivotItem headerText="Upcoming features">
+                    Upcoming features
+                  </PivotItem>
+                </Pivot>
               </div>
             </div>
-            <div className="spacer" />
-            <div className={classNames.topDetailAction}>
-              <PrimaryButton
-                text="Open"
-                split={true}
-                onClick={() => {
-                  window.open(this.state.project.url, '_blank');
-                }}
-                menuProps={{
-                  items: [
-                    {
-                      key: 'copyUrl',
-                      text: 'Copy link',
-                      iconProps: { iconName: 'Copy' },
-                      onClick: this.onCopyText.bind(this)
-                    },
-                    {
-                      key: 'shareFacebook',
-                      text: 'Share link',
-                      iconProps: { iconName: 'Share' }
-                    }
-                  ],
-                  alignTargetEdge: true
-                }}
-              />
-            </div>
-          </div>
-          <div className={classNames.pivotWrapper}>
-            <Pivot linkSize={PivotLinkSize.large}>
-              <PivotItem headerText="Description">
-                <div className={classNames.pivotItem}>
-                  {this.state.isLoading
-                    ? <Spinner size={SpinnerSize.large} />
-                    : this.state.project.description}
-                </div>
-              </PivotItem>
-              <PivotItem headerText="Screenshots">
-                <div className={css(classNames.pivotItem, classNames.screenshotWrapper)}>
-                  {this.state.project.screenshots
-                    ? this.state.project.screenshots.map(
-                        (screenshot, index) => (
-                          <img src={screenshot} key={index} alt="Hmmmm" className={classNames.screenshot} />
-                        )
-                      )
-                    : (<div>Không có ảnh chụp màn hình</div>)}
-                </div>
-              </PivotItem>
-              <PivotItem headerText="Changelog">
-                Changelog
-              </PivotItem>
-              <PivotItem headerText="Upcoming features">
-                Upcoming features
-              </PivotItem>
-            </Pivot>
           </div>
         </StackPanel>
       </MainContent>

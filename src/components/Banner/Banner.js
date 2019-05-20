@@ -7,7 +7,7 @@ class Banner extends Component {
   render() {
     const classNames = getStyle(this.props);
     return (
-      <div className={classNames.bannerWrapper}>
+      <div className={css(classNames.bannerWrapper, this.props.className)}>
         <div className={classNames.textWrapper}>
           <Text variant="superLarge" className={classNames.headerText}>
             {this.props.title}
