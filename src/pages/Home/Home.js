@@ -47,7 +47,12 @@ class Home extends Component {
           <meta name="twitter:image:alt" content="Project Showcase" />
           <meta name="twitter:description" content="How my own world begins" />
         </Helmet>
-        <Banner title="Project Showcase" subTitle="How my own world begins" />
+        <Banner 
+          title="Project Showcase" 
+          subTitle="How my own world begins"
+          image="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1517511620798-cec17d428bc0.jpg"
+          hasOverlay={true}
+          />
         <MainContent hasPadding={true} isChild={true} style={{backgroundColor: '#fcfcfc'}}>
           <ProjectCollection
             title="Projects List"
