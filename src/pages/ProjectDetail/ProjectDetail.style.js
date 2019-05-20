@@ -1,5 +1,6 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
 import { Depths } from '@uifabric/fluent-theme';
+import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
 
 export const getstyle = ({ image }) => {
   const isMobile = window.matchMedia("(max-width: 599px)").matches;
@@ -36,13 +37,14 @@ export const getstyle = ({ image }) => {
       marginTop: '0.5rem',
       selectors: {
         "& > div > div": {
-          overflowX: 'auto',
-          overflowY: 'hidden'
+          overflow: 'hidden'
         }
       }
     },
     pivotItem: {
-      padding: '0.5rem'
+      padding: '0.5rem',
+      animation: MotionAnimations.slideLeftIn,
+      animationDuration: MotionDurations.duration4
     },
     screenshot: {
       width: '100%',

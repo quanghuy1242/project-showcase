@@ -174,10 +174,10 @@ class ProjectDetail extends Component {
                         : (<div>Không có ảnh chụp màn hình</div>)}
                     </div>
                   </PivotItem>
-                  <PivotItem headerText="Changelog">
+                  <PivotItem headerText="Changelog" className={classNames.pivotItem}>
                     Changelog
                   </PivotItem>
-                  <PivotItem headerText="Upcoming features">
+                  <PivotItem headerText="Upcoming features" className={classNames.pivotItem}>
                     Upcoming features
                   </PivotItem>
                 </Pivot>

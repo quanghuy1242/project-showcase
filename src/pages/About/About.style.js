@@ -1,4 +1,5 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
+import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
 
 export const getStyle = ({image}) => {
   return mergeStyleSets({
@@ -28,15 +29,16 @@ export const getStyle = ({image}) => {
       marginLeft: '1rem',
       selectors: {
         "& > div > div": {
-          overflowX: 'auto',
-          overflowY: 'hidden'
+          overflow: 'hidden'
         }
       }
     },
     pivotItems: {
       margin: '0.5rem',
       height: 'calc(100vh - 349px - 2rem)',
-      overflow: 'auto'
+      overflow: 'auto',
+      animation: MotionAnimations.slideLeftIn,
+      animationDuration: MotionDurations.duration4
     }
   })
 }
