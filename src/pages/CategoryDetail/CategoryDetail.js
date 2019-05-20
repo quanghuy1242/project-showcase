@@ -52,13 +52,13 @@ class CategoryDetail extends Component {
           <meta name="description" content={this.state.seoData.description} />
           <meta property="og:title" content={this.state.seoData.title} />
           <meta property="og:url" content={this.state.seoData.url} />
-          <meta property="og:image" content={this.state.image} />
+          <meta property="og:image" content={this.state.seoData.image} />
           <meta property="og:image:alt" content={this.state.seoData.description} />
           <meta property="og:description" content={this.state.seoData.description} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={this.state.seoData.title} />
           <meta name="twitter:text:title" content={this.state.seoData.title} />
-          <meta name="twitter:image" content={this.state.image} />
+          <meta name="twitter:image" content={this.state.seoData.image} />
           <meta name="twitter:image:alt" content={this.state.seoData.description} />
           <meta name="twitter:description" content={this.state.seoData.description} />
         </Helmet>
