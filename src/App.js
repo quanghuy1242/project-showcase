@@ -17,6 +17,7 @@ class App extends Component {
             <MainApp>
               <Helmet>
                 <title>Project Showcase!</title>
+                <meta property="fb:app_id" content="535340733663959" />
                 <meta name="description" content="Project showcase" />
                 <meta property="og:type" content="article" />
                 <meta name="twitter:site" content="@corysmc" />
