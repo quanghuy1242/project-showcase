@@ -15,7 +15,7 @@ export const getStyle = ({ isCollapsed, isOverlay }) => {
       width: isCollapsed ? 0 : 250,
       position: isOverlay ? 'absolute' : 'initial',
       boxShadow: isOverlay ? customDepth : 'none',
-      border: '1px solid #eee',
+      border: isCollapsed ? 'none' : '1px solid #eee',
     },
     searchBoxWrapper: {
       width: '100%',
