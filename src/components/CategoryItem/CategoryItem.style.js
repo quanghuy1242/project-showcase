@@ -22,19 +22,20 @@ export const getStyle = ({ image }) => {
           transition: '0.5s'
         },
         ':hover .text': {
-          width: '100%',
-          transition: '0.4s'
+          transition: '0.7s',
+          opacity: 1
         }
       }
     },
     text: {
       color: '#fff',
       zIndex: 20,
-      width: 0,
       display: 'block',
       overflow: 'hidden',
       textAlign: 'center',
-      transition: '0.4s'
+      transition: '0.7s',
+      opacity: 0,
+      fontWeight: 400
     },
     overlay: {
       position: 'absolute',
