@@ -19,6 +19,7 @@ import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
 import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 class ProjectDetail extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class ProjectDetail extends Component {
       project: {
         technology: {}
       },
+      seoData: {},
       isLoading: false,
       dialogTitle: "",
       dialogSubText: "",
@@ -60,7 +62,12 @@ class ProjectDetail extends Component {
       this.onToggleLoading();
       const project = await ProjectAPI.getProject(this.props.match.params.id);
       this.setState({
-        project: project
+        project: project,
+        seoData: {
+          title: `${project.name} - ${project.technology.name}`,
+          description: project.description.split(' ').slice(0, 40).join(' '),
+          url: `${this.context.baseUrl}${this.props.match.url}`
+        }
       });
       this.onToggleLoading();
     } catch (error) {
@@ -74,6 +81,22 @@ class ProjectDetail extends Component {
     });
     return (
       <MainContent hasPadding={true} isChild={true} className={classNames.projectDetailWrapper}>
+        <Helmet>
+          <title>{this.state.seoData.title}</title>
+          <meta name="keywords" content={this.state.seoData.title} />
+          <meta name="description" content={this.state.seoData.description} />
+          <meta property="og:title" content={this.state.seoData.title} />
+          <meta property="og:url" content={this.state.seoData.url} />
+          <meta property="og:image" content={this.state.project.image} />
+          <meta property="og:image:alt" content={this.state.seoData.description} />
+          <meta property="og:description" content={this.state.seoData.description} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={this.state.seoData.title} />
+          <meta name="twitter:text:title" content={this.state.seoData.title} />
+          <meta name="twitter:image" content={this.state.project.image} />
+          <meta name="twitter:image:alt" content={this.state.seoData.description} />
+          <meta name="twitter:description" content={this.state.seoData.description} />
+        </Helmet>
         <Dialog
           hidden={this.state.isDialogHidden}
           onDismiss={() => this.handleCloseDialog()}
