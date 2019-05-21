@@ -29,7 +29,11 @@ export const getStyle = ({image}) => {
       marginLeft: '1rem',
       selectors: {
         "& > div > div": {
-          overflow: 'hidden'
+          overflowX: 'hidden'
+        },
+        "& > div > div > div": {
+          overflowX: 'auto',
+          overflowY: 'hidden'
         }
       }
     },

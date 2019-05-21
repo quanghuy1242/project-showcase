@@ -36,7 +36,14 @@ export const getstyle = ({ image }) => {
       marginTop: '0.5rem',
       selectors: {
         "& > div > div": {
-          overflow: 'hidden'
+          overflowX: 'hidden'
+        },
+        "& > div > div:first-child > div": {
+          overflowX: 'auto',
+          overflowY: 'hidden'
+        },
+        "& > div > div:nth-child(2) > div": {
+          overflowX: 'hidden',
         }
       }
     },
