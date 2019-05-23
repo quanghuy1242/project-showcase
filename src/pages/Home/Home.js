@@ -22,7 +22,7 @@ class Home extends Component {
 
   async componentDidMount() {
     this.onToggleLoading();
-    const projects = await ProjectAPI.getProjects();
+    const projects = await ProjectAPI.getProjects(true);
     this.setState({ projects: projects });
     this.onToggleLoading();
   }

@@ -1,8 +1,8 @@
 import api from './api';
 
 export class ProjectAPI {
-  static async getProjects() {
-    let projectsRespone = await api.get('/projects');
+  static async getProjects(isCompact = false) {
+    let projectsRespone = await api.get('/projects', { params: { compact: isCompact } });
     return projectsRespone.data.projects;
   }
 
