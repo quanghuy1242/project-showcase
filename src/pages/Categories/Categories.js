@@ -39,7 +39,7 @@ class Categories extends Component {
   render() {
     const classNames = getStyle();
     return (
-      <MainContent hasPadding={true} isChild={true}>
+      <MainContent hasPadding={true} isChild={true} className={classNames.categoryWrapper}>
         <Helmet>
           <title>{this.state.seoData.title}</title>
           <meta name="keywords" content={this.state.seoData.title} />

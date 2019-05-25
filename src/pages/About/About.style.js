@@ -12,6 +12,8 @@ export const getStyle = ({image}) => {
     },
     aboutWrapper: {
       height: 'inherit',
+      animation: MotionAnimations.slideUpIn,
+      animationDuration: MotionDurations.duration4
     },
     aboutWrapperInner: {
       overflow: 'initial !important'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CategoryAPI } from '../../api/categories.api';
 import StackPanel from '../../components/StackPanel/StackPanel';
-// import { getStyle } from './CategoryDetail.style';
+import { getStyle } from './CategoryDetail.style';
 import Banner from '../../components/Banner/Banner';
 import MainContent from '../../components/MainContent/MainContent';
 import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
@@ -43,9 +43,9 @@ class CategoryDetail extends Component {
   }
 
   render() {
-    // const classNames = getStyle();
+    const classNames = getStyle();
     return (
-      <StackPanel>
+      <StackPanel className={classNames.categoryDetailWrapper}>
         <Helmet>
           <title>{this.state.seoData.title}</title>
           <meta name="keywords" content={this.state.seoData.title} />

@@ -7,7 +7,9 @@ export const getstyle = ({ image }) => {
   return mergeStyleSets({
     projectDetailWrapper: {
       height: 'calc(100% - 0.5rem)',
-      overflowY: 'auto'
+      overflowY: 'auto',
+      animation: MotionAnimations.slideUpIn,
+      animationDuration: MotionDurations.duration4
     },
     topDetail: {
       display: 'flex',
