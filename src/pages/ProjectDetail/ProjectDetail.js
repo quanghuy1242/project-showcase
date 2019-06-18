@@ -1,6 +1,5 @@
 ﻿import React, { Component } from 'react';
 import MainContent from '../../components/MainContent/MainContent';
-import StackPanel from '../../components/StackPanel/StackPanel';
 import {
   Text,
   Pivot,
@@ -111,96 +110,92 @@ class ProjectDetail extends Component {
             <DefaultButton text="Close" onClick={() => this.handleCloseDialog()} />
           </DialogFooter>
         </Dialog>
-        <StackPanel>
-          <div className={classNames.pdw}>
-            <Stack className={classNames.outerWrapper} tokens={{ childrenGap: 20 }}>
+        <Stack className={classNames.outerWrapper} tokens={{ childrenGap: 20 }}>
+          <Stack.Item>
+            <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
               <Stack.Item>
-                <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
-                  <Stack.Item>
-                    <div className={classNames.imagePreview}></div>
-                  </Stack.Item>
+                <div className={classNames.imagePreview}></div>
+              </Stack.Item>
+              <Stack.Item grow disableShrink>
+                <Stack horizontal={!isMobile} style={{ height: '100%' }}>
                   <Stack.Item grow disableShrink>
-                    <Stack horizontal={!isMobile} style={{ height: '100%' }}>
-                      <Stack.Item grow disableShrink>
-                        <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
-                          <Text variant="xxLarge">{this.state.project.name}</Text>
-                          <Text variant="large">
-                            {
-                              this.state.project.date
-                                ? new Date(this.state.project.date).toLocaleDateString()
-                                : ''
-                            }
-                          </Text>
-                          <Link
-                            to={`/categories/${this.state.project.technology.nameId}`}
-                            className={classNames.link}
-                          >
-                            <Text variant="Large">{this.state.project.technology.name}</Text>
-                          </Link>
-                        </Stack>
-                      </Stack.Item>
-                      <Stack.Item>
-                        <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
-                        <PrimaryButton
-                          text="Project's Website"
-                          split={true}
-                          onClick={() => {
-                            window.open(this.state.project.url, '_blank');
-                          }}
-                          menuProps={{
-                            items: [
-                              {
-                                key: 'copyUrl',
-                                text: 'Copy link',
-                                iconProps: { iconName: 'Copy' },
-                                onClick: this.onCopyText.bind(this)
-                              },
-                              {
-                                key: 'shareFacebook',
-                                text: 'Share link',
-                                iconProps: { iconName: 'Share' }
-                              }
-                            ],
-                            alignTargetEdge: true
-                          }}
-                        />
-                        </Stack>
-                      </Stack.Item>
+                    <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
+                      <Text variant="xxLarge">{this.state.project.name}</Text>
+                      <Text variant="large">
+                        {
+                          this.state.project.date
+                            ? new Date(this.state.project.date).toLocaleDateString()
+                            : ''
+                        }
+                      </Text>
+                      <Link
+                        to={`/categories/${this.state.project.technology.nameId}`}
+                        className={classNames.link}
+                      >
+                        <Text variant="Large">{this.state.project.technology.name}</Text>
+                      </Link>
+                    </Stack>
+                  </Stack.Item>
+                  <Stack.Item>
+                    <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
+                    <PrimaryButton
+                      text="Project's Website"
+                      split={true}
+                      onClick={() => {
+                        window.open(this.state.project.url, '_blank');
+                      }}
+                      menuProps={{
+                        items: [
+                          {
+                            key: 'copyUrl',
+                            text: 'Copy link',
+                            iconProps: { iconName: 'Copy' },
+                            onClick: this.onCopyText.bind(this)
+                          },
+                          {
+                            key: 'shareFacebook',
+                            text: 'Share link',
+                            iconProps: { iconName: 'Share' }
+                          }
+                        ],
+                        alignTargetEdge: true
+                      }}
+                    />
                     </Stack>
                   </Stack.Item>
                 </Stack>
               </Stack.Item>
-              <Stack.Item>
-                <Pivot className={classNames.othersWrapper}>
-                  <PivotItem headerText="Description">
-                    <div className={classNames.pivotItem}>
-                      {this.state.isLoading
-                        ? <Spinner size={SpinnerSize.large} />
-                        : this.state.project.description}
-                    </div>
-                  </PivotItem>
-                  <PivotItem headerText="Screenshots">
-                    <div className={css(classNames.pivotItem, classNames.screenshotWrapper)}>
-                      {this.state.project.screenshots
-                        ? this.state.project.screenshots.map(
-                            (screenshot, index) => (
-                              <img src={screenshot} key={index} alt="Hmmmm" className={classNames.screenshot} />
-                            )
-                          )
-                        : (<div>Không có ảnh chụp màn hình</div>)}
-                    </div>
-                  </PivotItem>
-                  <PivotItem headerText="Changelog" className={classNames.pivotItem}>
-                    Changelog
-                  </PivotItem>
-                  <PivotItem headerText="Upcoming features" className={classNames.pivotItem}>
-                    Upcoming features
-                  </PivotItem>
-                </Pivot>
-              </Stack.Item>
             </Stack>
-          </div>
-        </StackPanel>
+          </Stack.Item>
+          <Stack.Item>
+            <Pivot className={classNames.othersWrapper}>
+              <PivotItem headerText="Description">
+                <div className={classNames.pivotItem}>
+                  {this.state.isLoading
+                    ? <Spinner size={SpinnerSize.large} />
+                    : this.state.project.description}
+                </div>
+              </PivotItem>
+              <PivotItem headerText="Screenshots">
+                <div className={css(classNames.pivotItem, classNames.screenshotWrapper)}>
+                  {this.state.project.screenshots
+                    ? this.state.project.screenshots.map(
+                        (screenshot, index) => (
+                          <img src={screenshot} key={index} alt="Hmmmm" className={classNames.screenshot} />
+                        )
+                      )
+                    : (<div>Không có ảnh chụp màn hình</div>)}
+                </div>
+              </PivotItem>
+              <PivotItem headerText="Changelog" className={classNames.pivotItem}>
+                Changelog
+              </PivotItem>
+              <PivotItem headerText="Upcoming features" className={classNames.pivotItem}>
+                Upcoming features
+              </PivotItem>
+            </Pivot>
+          </Stack.Item>
+        </Stack>
       </MainContent>
     );
   }
