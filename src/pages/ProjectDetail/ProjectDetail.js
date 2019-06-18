@@ -5,7 +5,6 @@ import {
   Text,
   Pivot,
   PivotItem,
-  PivotLinkSize,
   PrimaryButton,
   css,
   Spinner,
@@ -13,14 +12,14 @@ import {
   Dialog, 
   DialogType,
   DialogFooter,
-  DefaultButton
+  DefaultButton,
+  Stack
 } from 'office-ui-fabric-react';
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
 import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Banner from '../../components/Banner/Banner';
 
 class ProjectDetail extends Component {
   constructor(props) {
@@ -80,6 +79,7 @@ class ProjectDetail extends Component {
     const classNames = getstyle({
       image: this.state.project.image
     });
+    const isMobile = window.matchMedia("(max-width: 599px)").matches;
     return (
       <MainContent isChild={true} className={classNames.projectDetailWrapper}>
         <Helmet>
@@ -113,49 +113,65 @@ class ProjectDetail extends Component {
         </Dialog>
         <StackPanel>
           <div className={classNames.pdw}>
-            <Banner image={this.state.project.image} className={classNames.banner} />
-            <div className={classNames.maincontentw}>
-              <div className={classNames.topDetail}>
-                <div className={classNames.topDetailImage} />
-                <div className={classNames.topDetailInfo}>
-                  <div className={classNames.topDetailTitle}>
-                    <Text variant="xxLarge">{this.state.project.name}</Text>
-                  </div>
-                  <div className={classNames.topDetailProjectId}>
-                    <Link to={`/categories/${this.state.project.technology.nameId}`}>
-                      <Text variant="Large">{this.state.project.technology.name}</Text>
-                    </Link>
-                  </div>
-                </div>
-                <div className="spacer" />
-                <div className={classNames.topDetailAction}>
-                  <PrimaryButton
-                    text="Open"
-                    split={true}
-                    onClick={() => {
-                      window.open(this.state.project.url, '_blank');
-                    }}
-                    menuProps={{
-                      items: [
-                        {
-                          key: 'copyUrl',
-                          text: 'Copy link',
-                          iconProps: { iconName: 'Copy' },
-                          onClick: this.onCopyText.bind(this)
-                        },
-                        {
-                          key: 'shareFacebook',
-                          text: 'Share link',
-                          iconProps: { iconName: 'Share' }
-                        }
-                      ],
-                      alignTargetEdge: true
-                    }}
-                  />
-                </div>
-              </div>
-              <div className={classNames.pivotWrapper}>
-                <Pivot linkSize={PivotLinkSize.large}>
+            <Stack className={classNames.outerWrapper} tokens={{ childrenGap: 20 }}>
+              <Stack.Item>
+                <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
+                  <Stack.Item>
+                    <div className={classNames.imagePreview}></div>
+                  </Stack.Item>
+                  <Stack.Item grow disableShrink>
+                    <Stack horizontal={!isMobile} style={{ height: '100%' }}>
+                      <Stack.Item grow disableShrink>
+                        <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
+                          <Text variant="xxLarge">{this.state.project.name}</Text>
+                          <Text variant="large">
+                            {
+                              this.state.project.date
+                                ? new Date(this.state.project.date).toLocaleDateString()
+                                : ''
+                            }
+                          </Text>
+                          <Link
+                            to={`/categories/${this.state.project.technology.nameId}`}
+                            className={classNames.link}
+                          >
+                            <Text variant="Large">{this.state.project.technology.name}</Text>
+                          </Link>
+                        </Stack>
+                      </Stack.Item>
+                      <Stack.Item>
+                        <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
+                        <PrimaryButton
+                          text="Project's Website"
+                          split={true}
+                          onClick={() => {
+                            window.open(this.state.project.url, '_blank');
+                          }}
+                          menuProps={{
+                            items: [
+                              {
+                                key: 'copyUrl',
+                                text: 'Copy link',
+                                iconProps: { iconName: 'Copy' },
+                                onClick: this.onCopyText.bind(this)
+                              },
+                              {
+                                key: 'shareFacebook',
+                                text: 'Share link',
+                                iconProps: { iconName: 'Share' }
+                              }
+                            ],
+                            alignTargetEdge: true
+                          }}
+                        />
+                        </Stack>
+                      </Stack.Item>
+                    </Stack>
+                  </Stack.Item>
+                </Stack>
+              </Stack.Item>
+              <Stack.Item>
+                <Pivot className={classNames.othersWrapper}>
                   <PivotItem headerText="Description">
                     <div className={classNames.pivotItem}>
                       {this.state.isLoading
@@ -181,8 +197,8 @@ class ProjectDetail extends Component {
                     Upcoming features
                   </PivotItem>
                 </Pivot>
-              </div>
-            </div>
+              </Stack.Item>
+            </Stack>
           </div>
         </StackPanel>
       </MainContent>
