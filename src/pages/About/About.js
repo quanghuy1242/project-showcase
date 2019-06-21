@@ -64,7 +64,12 @@ class About extends Component {
           <meta name="twitter:image:alt" content={this.state.seoData.description} />
           <meta name="twitter:description" content={this.state.seoData.description} />
         </Helmet>
-        <Banner title="About" subTitle="Who am I?" height={150} />
+        <Banner
+          title="About" 
+          subTitle="Who am I?" 
+          height={150}
+          image={this.context.administrator.image}
+        />
         <MainContent hasPadding={true} isChild={true} className={classNames.aboutWrapperInner}>
           <StackPanel isHorizontal={!isMobile} style={{height: '100%'}}>
             <StackPanel className={classNames.InfoWrapper}>
