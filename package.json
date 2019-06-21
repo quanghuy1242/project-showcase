@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@uifabric/fluent-theme": "^0.16.12",
+    "@uifabric/fluent-theme": "^7.0.2",
     "axios": "^0.18.1",
-    "office-ui-fabric-react": "^6.189.5",
+    "office-ui-fabric-react": "^7.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
