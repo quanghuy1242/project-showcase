@@ -5,6 +5,7 @@ import { initializeIcons } from '@uifabric/icons';
 import { Link, withRouter } from 'react-router-dom';
 import { getStyle } from './NavSide.style';
 import SearchBoxTop from '../SearchBoxTop/SearchBoxTop';
+import { Stack, Text, Separator } from 'office-ui-fabric-react';
 initializeIcons()
 
 class NavSide extends Component {
@@ -75,16 +76,21 @@ class NavSide extends Component {
             styles={{
               root: {
                 width: this.props.isCollapsed ? 0 : 250,
-                height: 'calc(100vh - 55px)',
                 boxSizing: 'border-box',
                 overflowY: 'auto',
                 transition: '0.2s',
-                zIndex: 98
+                zIndex: 98,
+                height: 'calc(100vh - 180px)'
               }
             }}
             groups={[{ links: this.state.links }]}
             linkAs={this.onRenderLink}
           />
+          <Separator />
+          <Stack className={classNames.credit} verticalAlign="center" horizontalAlign="center">
+            <Text nowrap>Project Showcase</Text>
+            <Text nowrap>2019</Text>
+          </Stack>
         </div>
         {
           this.props.isOverlay

@@ -7,8 +7,7 @@ export const getStyle = ({ isCollapsed, isOverlay }) => {
     navWrapper: {
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
-      height: 'calc(100vh - 55px)',
+      height: 'calc(100vh - 57px)',
       transition: '0.2s',
       backgroundColor: 'white',
       zIndex: 100,
@@ -16,6 +15,12 @@ export const getStyle = ({ isCollapsed, isOverlay }) => {
       position: isOverlay ? 'absolute' : 'initial',
       boxShadow: isOverlay ? customDepth : 'none',
       border: isCollapsed ? 'none' : '1px solid #eee',
+      overflowY: 'auto',
+      selectors: {
+        '& .ms-FocusZone': {
+          flexGrow: 1
+        }
+      }
     },
     searchBoxWrapper: {
       width: '100%',
@@ -30,6 +35,11 @@ export const getStyle = ({ isCollapsed, isOverlay }) => {
       backgroundColor: '#eee',
       opacity: 0.3,
       zIndex: 97
+    },
+    credit: {
+      width: '100%',
+      height: 40,
+      marginBottom: '1rem'
     }
   })
 }
