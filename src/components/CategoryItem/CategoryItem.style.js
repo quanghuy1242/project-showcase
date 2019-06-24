@@ -16,14 +16,18 @@ export const getStyle = ({ image }) => {
       textDecoration: 'none',
       border: '2px solid transparent',
       backgroundPosition: 'center center',
+      boxSizing: 'border-box',
       selectors: {
-        ':hover .overlay': {
-          opacity: 0.4,
-          transition: '0.5s'
-        },
-        ':hover .text': {
-          transition: '0.7s',
-          opacity: 1
+        // ':hover .overlay': {
+        //   opacity: 0.4,
+        //   transition: '0.5s'
+        // },
+        // ':hover .text': {
+        //   transition: '0.7s',
+        //   opacity: 1
+        // },
+        ':hover': {
+          border: '3px solid rgba(0, 0, 0, 0.3)'
         }
       }
     },
