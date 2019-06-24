@@ -13,11 +13,13 @@ import {
   DialogFooter,
   DefaultButton,
   Stack,
+  Image,
+  ImageFit,
 } from 'office-ui-fabric-react';
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
 import { AppContext } from '../../context/AppContext';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 class ProjectDetail extends Component {
@@ -116,60 +118,72 @@ class ProjectDetail extends Component {
           : (
             <Stack className={classNames.outerWrapper} tokens={{ childrenGap: 20 }}>
               <Stack.Item>
-                <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
-                  <Stack.Item>
-                    <div className={classNames.imagePreview}></div>
-                  </Stack.Item>
-                  <Stack.Item grow disableShrink>
-                    <Stack horizontal={!isMobile} style={{ height: '100%' }}>
-                      <Stack.Item grow disableShrink>
-                        <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
-                          <Text variant="xxLarge">{this.state.project.name}</Text>
-                          <Text variant="large">
-                            {
-                              this.state.project.date
-                                ? new Date(this.state.project.date).toLocaleDateString()
-                                : ''
-                            }
-                          </Text>
-                          <Link
-                            to={`/categories/${this.state.project.technology.nameId}`}
-                            className={classNames.link}
-                          >
-                            <Text variant="Large">{this.state.project.technology.name}</Text>
-                          </Link>
-                        </Stack>
-                      </Stack.Item>
-                      <Stack.Item>
-                        <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
-                        <PrimaryButton
-                          text="Project's Website"
-                          split={true}
-                          onClick={() => {
-                            window.open(this.state.project.url, '_blank');
-                          }}
-                          menuProps={{
-                            items: [
+                <div className={classNames.topWrapper}>
+                  <Image
+                    src={this.state.project.image}
+                    alt="image"
+                    width="100%"
+                    height={400}
+                    imageFit={ImageFit.cover}
+                    className={classNames.bigImage}
+                  />
+                  <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
+                    <Stack.Item>
+                      <div className={classNames.imagePreview}></div>
+                    </Stack.Item>
+                    <Stack.Item grow disableShrink>
+                      <Stack horizontal={!isMobile} style={{ height: '100%' }}>
+                        <Stack.Item grow disableShrink>
+                          <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
+                            <Text variant="superLarge" className={classNames.whiteText}>{this.state.project.name}</Text>
+                            <Text variant="mediumPlus" className={css(classNames.whiteText, classNames.date)}>
                               {
-                                key: 'copyUrl',
-                                text: 'Copy link',
-                                iconProps: { iconName: 'Copy' },
-                                onClick: this.onCopyText.bind(this)
-                              },
-                              {
-                                key: 'shareFacebook',
-                                text: 'Share link',
-                                iconProps: { iconName: 'Share' }
+                                this.state.project.date
+                                  ? new Date(this.state.project.date).toLocaleDateString()
+                                  : ''
                               }
-                            ],
-                            alignTargetEdge: true
-                          }}
-                        />
-                        </Stack>
-                      </Stack.Item>
-                    </Stack>
-                  </Stack.Item>
-                </Stack>
+                            </Text>
+                            <DefaultButton
+                              text={this.state.project.technology.name}
+                              className={classNames.buttonTech}
+                              onClick={() => this.props.history.push(`/categories/${this.state.project.technology.nameId}`)}
+                            />
+                            <Text block className={css(classNames.whiteText, classNames.basicDes)} nowrap>
+                              {this.state.project.description}
+                            </Text>
+                          </Stack>
+                        </Stack.Item>
+                        <Stack.Item>
+                          <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
+                          <PrimaryButton
+                            text="Project's Website"
+                            split={true}
+                            onClick={() => {
+                              window.open(this.state.project.url, '_blank');
+                            }}
+                            menuProps={{
+                              items: [
+                                {
+                                  key: 'copyUrl',
+                                  text: 'Copy link',
+                                  iconProps: { iconName: 'Copy' },
+                                  onClick: this.onCopyText.bind(this)
+                                },
+                                {
+                                  key: 'shareFacebook',
+                                  text: 'Share link',
+                                  iconProps: { iconName: 'Share' }
+                                }
+                              ],
+                              alignTargetEdge: true
+                            }}
+                          />
+                          </Stack>
+                        </Stack.Item>
+                      </Stack>
+                    </Stack.Item>
+                  </Stack>
+                </div>
               </Stack.Item>
               <Stack.Item>
                 <Pivot className={classNames.othersWrapper}>
@@ -206,4 +220,4 @@ class ProjectDetail extends Component {
 }
 ProjectDetail.contextType = AppContext;
 
-export default ProjectDetail;
+export default withRouter(ProjectDetail);

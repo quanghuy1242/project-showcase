@@ -15,25 +15,31 @@ export const getstyle = ({ image }) => {
     },
     imagePreview: {
       backgroundColor: CommunicationColors.primary,
-      width: 120,
-      height: 120,
+      width: 200,
+      height: 200,
       backgroundImage: `url(${image})`,
-      backgroundSize: 'cover'
+      backgroundSize: 'cover',
+      border: '4px solid white',
+      borderRadius: 2
     },
     basicInfoWrapper: {
-      padding: '0.5rem',
-      boxShadow: Depths.depth8
+      padding: '1rem',
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      left: 0,
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7))'
     },
     othersWrapper: {
-      padding: '0.5rem',
-      boxShadow: Depths.depth8,
       height: 'calc(100vh - 260px)',
       selectors: {
         '& .ms-Pivot': {
           display: 'flex',
           justifyContent: 'center',
           overflowX: 'auto',
-          overflowY: 'hidden'
+          overflowY: 'hidden',
+          boxShadow: Depths.depth8,
+          backgroundColor: 'rgba(165, 181, 192, 0.082)'
         },
         '& div:nth-child(2)': {
           height: 'calc(100vh - 305px)',
@@ -52,6 +58,34 @@ export const getstyle = ({ image }) => {
     },
     link: {
       textDecoration: 'none'
+    },
+    bigImage: {
+      boxShadow: Depths.depth8,
+      borderRadius: 2
+    },
+    topWrapper: {
+      position: 'relative'
+    },
+    whiteText: {
+      color: 'white'
+    },
+    buttonTech: {
+      backgroundColor: 'transparent', 
+      color: 'lightgray',
+      marginTop: '0.5rem !important',
+      transition: '0.3s',
+      selectors: {
+        ':hover': {
+          backgroundColor: 'rgba(243, 242, 241, 0.2)',
+          color: '#fff'
+        }
+      }
+    },
+    date: {
+      color: 'lightgray'
+    },
+    basicDes: {
+      marginTop: '0.5rem !important'
     }
   })
 }
