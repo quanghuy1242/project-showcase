@@ -99,7 +99,7 @@ class About extends Component {
             <PivotItem headerText="Kỹ năng" className={classNames.pivotItems}>
               {this.context.administrator.skill}
             </PivotItem>
-            <PivotItem headerText="Thông tin liên hệ" className={classNames.pivotItems}>
+            <PivotItem headerText="Liên hệ" className={classNames.pivotItems}>
               {this.context.administrator.contact}
             </PivotItem>
           </Pivot>

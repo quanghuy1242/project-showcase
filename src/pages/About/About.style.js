@@ -21,7 +21,8 @@ export const getStyle = ({image}) => {
         },
         '& div:nth-child(2)': {
           overflowY: 'auto',
-          overflowX: 'hidden'
+          overflowX: 'hidden',
+          minHeight: 400
         }
       }
     },
