@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text } from 'office-ui-fabric-react/lib/Text';
 import { getStyle } from './NotFound.style';
-import { css } from '@uifabric/utilities';
 
 class NotFound extends Component {
   render() {
@@ -10,11 +9,12 @@ class NotFound extends Component {
       <div className={classNames.notFoundWrapper}>
         <Text
           variant="superLarge" 
-          className={css(classNames.headerText, classNames.blockText)}
+          className={classNames.headerText}
+          block
         >
           NOT FOUND
         </Text>
-        <Text variant="large" className={classNames.blockText}>The link does not exist</Text>
+        <Text variant="large" block>The link does not exist</Text>
       </div>
     );
   }
