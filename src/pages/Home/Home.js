@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import Banner from '../../components/Banner/Banner';
 import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
 import MainContent from '../../components/MainContent/MainContent';
-import StackPanel from '../../components/StackPanel/StackPanel';
 import { ProjectAPI } from '../../api/projects.api';
 import { getStyle } from './Home.style';
 import { Helmet } from 'react-helmet';
+import { Stack, Image, ImageFit, css, Text } from 'office-ui-fabric-react';
 
 class Home extends Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class Home extends Component {
   render() {
     const classNames = getStyle();
     return (
-      <StackPanel className={classNames.homeWrapper}>
+      <Stack className={classNames.homeWrapper}>
         <Helmet>
           <title>Home - Project Showcase</title>
           <meta name="keywords" content="Project showcase Home" />
@@ -47,20 +46,27 @@ class Home extends Component {
           <meta name="twitter:image:alt" content="Project Showcase" />
           <meta name="twitter:description" content="How my own world begins" />
         </Helmet>
-        <Banner 
-          title="Project Showcase" 
-          subTitle="How my own world begins"
-          image="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1517511620798-cec17d428bc0.jpg"
-          hasOverlay={true}
+        <div className={classNames.imageWrapper}>
+          <Image
+            src="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1517511620798-cec17d428bc0.jpg"
+            alt="image"
+            height={350}
+            imageFit={ImageFit.cover}
+            className={classNames.image}
           />
-        <MainContent hasPadding={true} isChild={true}>
+          <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
+            <Text variant="superLarge" className={classNames.headerText}>Project Showcase</Text>
+            <Text variant="xLarge" className={classNames.headerText}>How my own world begins</Text>
+          </Stack>
+        </div>
+        <MainContent isChild={true}>
           <ProjectCollection
             title="Projects List"
             projects={this.state.projects}
             isLoading={this.state.isLoading}
           />
         </MainContent>
-      </StackPanel>
+      </Stack>
     );
   }
 }
