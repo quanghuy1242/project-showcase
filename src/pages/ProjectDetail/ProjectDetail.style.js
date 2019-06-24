@@ -24,7 +24,7 @@ export const getstyle = ({ image }) => {
       borderRadius: 2
     },
     basicInfoWrapper: {
-      padding: '1rem',
+      padding: isMobile ? '0.5rem' : '1rem',
       position: 'absolute',
       bottom: 0,
       right: 0,
