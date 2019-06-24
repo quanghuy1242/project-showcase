@@ -3,6 +3,7 @@ import { Depths } from '@uifabric/fluent-theme';
 import { MotionAnimations, MotionDurations, CommunicationColors } from '@uifabric/fluent-theme';
 
 export const getstyle = ({ image }) => {
+  const isMobile = window.matchMedia("(max-width: 599px)").matches;
   return mergeStyleSets({
     projectDetailWrapper: {
       height: 'calc(100vh - 55px)',
@@ -15,8 +16,8 @@ export const getstyle = ({ image }) => {
     },
     imagePreview: {
       backgroundColor: CommunicationColors.primary,
-      width: 200,
-      height: 200,
+      width: isMobile ? 150: 200,
+      height: isMobile ? 150: 200,
       backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
       border: '4px solid white',
@@ -35,7 +36,7 @@ export const getstyle = ({ image }) => {
       selectors: {
         '& .ms-Pivot': {
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: isMobile ? 'flex-start' : 'center',
           overflowX: 'auto',
           overflowY: 'hidden',
           borderBottom: '1px solid rgb(218, 218, 218)',
@@ -85,7 +86,8 @@ export const getstyle = ({ image }) => {
       color: 'lightgray'
     },
     basicDes: {
-      marginTop: '0.5rem !important'
+      marginTop: '0.5rem !important',
+      width: '100%'
     }
   })
 }

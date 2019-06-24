@@ -127,7 +127,7 @@ class ProjectDetail extends Component {
                     imageFit={ImageFit.cover}
                     className={classNames.bigImage}
                   />
-                  <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
+                  <Stack horizontal={!isMobile} tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
                     <Stack.Item>
                       <div className={classNames.imagePreview}></div>
                     </Stack.Item>
@@ -154,7 +154,10 @@ class ProjectDetail extends Component {
                           </Stack>
                         </Stack.Item>
                         <Stack.Item>
-                          <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
+                          <Stack 
+                            horizontalAlign="start" 
+                            verticalAlign="center" 
+                            style={{ height: '100%', marginTop: isMobile ? '0.5rem' : 0 }}>
                             <PrimaryButton
                               text="Website"
                               split={true}
