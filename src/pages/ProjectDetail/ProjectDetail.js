@@ -155,29 +155,34 @@ class ProjectDetail extends Component {
                         </Stack.Item>
                         <Stack.Item>
                           <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
-                          <PrimaryButton
-                            text="Project's Website"
-                            split={true}
-                            onClick={() => {
-                              window.open(this.state.project.url, '_blank');
-                            }}
-                            menuProps={{
-                              items: [
-                                {
-                                  key: 'copyUrl',
-                                  text: 'Copy link',
-                                  iconProps: { iconName: 'Copy' },
-                                  onClick: this.onCopyText.bind(this)
-                                },
-                                {
-                                  key: 'shareFacebook',
-                                  text: 'Share link',
-                                  iconProps: { iconName: 'Share' }
-                                }
-                              ],
-                              alignTargetEdge: true
-                            }}
-                          />
+                            <PrimaryButton
+                              text="Website"
+                              split={true}
+                              onClick={() => {
+                                window.open(this.state.project.url, '_blank');
+                              }}
+                              menuProps={{
+                                items: [
+                                  {
+                                    key: 'copyUrl',
+                                    text: 'Copy Url',
+                                    iconProps: { iconName: 'Copy' },
+                                    onClick: this.onCopyText.bind(this)
+                                  },
+                                  {
+                                    key: 'repository',
+                                    text: 'Repository',
+                                    iconProps: { iconName: 'Repo' },
+                                  },
+                                  {
+                                    key: 'shareFacebook',
+                                    text: 'Share',
+                                    iconProps: { iconName: 'Share' }
+                                  }
+                                ],
+                                alignTargetEdge: true
+                              }}
+                            />
                           </Stack>
                         </Stack.Item>
                       </Stack>
