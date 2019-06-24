@@ -14,9 +14,10 @@ export const getStyle = ({ image }) => {
       alignItems: 'center',
       width: '100%',
       textDecoration: 'none',
-      border: '2px solid transparent',
+      border: '3px solid transparent',
       backgroundPosition: 'center center',
-      boxSizing: 'border-box',
+      // boxSizing: 'border-box',
+      borderRadius: 2,
       selectors: {
         // ':hover .overlay': {
         //   opacity: 0.4,
@@ -27,7 +28,7 @@ export const getStyle = ({ image }) => {
         //   opacity: 1
         // },
         ':hover': {
-          border: '3px solid rgba(0, 0, 0, 0.3)'
+          border: '3px solid rgba(0, 0, 0, 0.2)'
         }
       }
     },
