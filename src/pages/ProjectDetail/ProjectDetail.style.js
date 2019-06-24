@@ -4,6 +4,7 @@ import { MotionAnimations, MotionDurations, CommunicationColors } from '@uifabri
 
 export const getstyle = ({ image }) => {
   const isMobile = window.matchMedia("(max-width: 599px)").matches;
+  const isMobile2 = window.matchMedia("(max-width: 1115px)").matches;
   return mergeStyleSets({
     projectDetailWrapper: {
       height: 'calc(100vh - 55px)',
@@ -92,7 +93,7 @@ export const getstyle = ({ image }) => {
     },
     basicDes: {
       marginTop: '0.5rem !important',
-      width: '100%'
+      width: isMobile2 ? '100%' : 'calc(100vw - 250px - 280px - 123px)'
     }
   })
 }
