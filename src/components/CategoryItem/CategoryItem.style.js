@@ -4,8 +4,6 @@ export const getStyle = ({ image }) => {
   return mergeStyleSets({
     itemWrapper: {
       height: 150,
-      ...(image) && { backgroundImage: `url(${image})` },
-      ...(!image) && { backgroundColor: 'violet' },
       backgroundSize: 'cover',
       display: 'flex',
       flexDirection: 'column',
@@ -14,21 +12,13 @@ export const getStyle = ({ image }) => {
       alignItems: 'center',
       width: '100%',
       textDecoration: 'none',
-      border: '3px solid transparent',
+      border: '2px solid transparent',
       backgroundPosition: 'center center',
-      // boxSizing: 'border-box',
       borderRadius: 2,
+      transition: '0.2s',
       selectors: {
-        // ':hover .overlay': {
-        //   opacity: 0.4,
-        //   transition: '0.5s'
-        // },
-        // ':hover .text': {
-        //   transition: '0.7s',
-        //   opacity: 1
-        // },
         ':hover': {
-          border: '3px solid rgba(0, 0, 0, 0.2)'
+          border: '2px solid rgba(0, 0, 0, 0.4)'
         }
       }
     },

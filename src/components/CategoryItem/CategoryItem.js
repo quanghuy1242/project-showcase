@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, css } from 'office-ui-fabric-react';
+import { Image, ImageFit } from 'office-ui-fabric-react';
 import { getStyle } from './CategoryItem.style';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +8,13 @@ class CategoryItem extends Component {
     const classNames = getStyle(this.props);
     return (
       <Link className={classNames.itemWrapper} to={`/categories/${this.props.nameId}`}>
-        <Text className={css(classNames.text, 'text')} variant="xxLarge">{this.props.name}</Text>
-        <div className={css(classNames.overlay, 'overlay')}></div>
+        <Image
+          src={this.props.image}
+          alt={this.props.name}
+          width="100%"
+          height="100%"
+          imageFit={ImageFit.cover}
+        />
       </Link>
     );
   }
