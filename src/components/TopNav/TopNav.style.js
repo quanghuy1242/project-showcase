@@ -1,14 +1,14 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
+import { Depths } from '@uifabric/fluent-theme/lib/fluent/FluentDepths';
 
 export const getStyle = () => {
   return mergeStyleSets({
     topNav: {
-      display: 'flex',
-      padding: '0rem 1rem 0rem 1rem',
-      zIndex: 99999999,
+      zIndex: 1000,
       height: 55,
-      alignItems: 'center',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+      boxShadow: Depths.depth8,
+      padding: '0 1rem'
     },
     topNavInner: {
       display: 'flex',
