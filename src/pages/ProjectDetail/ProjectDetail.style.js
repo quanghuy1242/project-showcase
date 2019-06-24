@@ -32,18 +32,23 @@ export const getstyle = ({ image }) => {
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7))'
     },
     othersWrapper: {
-      height: 'calc(100vh - 260px)',
       selectors: {
+        '& .ms-FocusZone': {
+          position: 'sticky',
+          top: 0,
+          backgroundColor: 'white'
+        },
         '& .ms-Pivot': {
           display: 'flex',
           justifyContent: isMobile ? 'flex-start' : 'center',
           overflowX: 'auto',
           overflowY: 'hidden',
           borderBottom: '1px solid rgb(218, 218, 218)',
-          borderTop: '1px solid rgb(218, 218, 218)'
+          borderTop: '1px solid rgb(218, 218, 218)',
+          position: 'sticky'
         },
         '& div:nth-child(2)': {
-          height: 'calc(100vh - 305px)',
+          // minHeight: 'calc(100vh - 305px)',
           overflowY: 'auto',
           overflowX: 'hidden'
         }

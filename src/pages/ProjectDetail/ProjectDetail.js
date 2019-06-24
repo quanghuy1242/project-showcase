@@ -81,6 +81,7 @@ class ProjectDetail extends Component {
       image: this.state.project.image
     });
     const isMobile = window.matchMedia("(max-width: 599px)").matches;
+    const isMobile2 = window.matchMedia("(max-width: 1115px)").matches;
     return (
       <MainContent isChild={true} className={classNames.projectDetailWrapper}>
         <Helmet>
@@ -132,7 +133,7 @@ class ProjectDetail extends Component {
                       <div className={classNames.imagePreview}></div>
                     </Stack.Item>
                     <Stack.Item grow disableShrink>
-                      <Stack horizontal={!isMobile} style={{ height: '100%' }}>
+                      <Stack horizontal={!isMobile2} style={{ height: '100%' }}>
                         <Stack.Item grow disableShrink>
                           <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
                             <Text variant="superLarge" className={classNames.whiteText}>{this.state.project.name}</Text>
