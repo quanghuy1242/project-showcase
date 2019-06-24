@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { CategoryAPI } from '../../api/categories.api';
-import StackPanel from '../../components/StackPanel/StackPanel';
 import { getStyle } from './CategoryDetail.style';
-import Banner from '../../components/Banner/Banner';
 import MainContent from '../../components/MainContent/MainContent';
 import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
 import { Helmet } from 'react-helmet';
+import { Stack, Image, ImageFit, css, Text } from 'office-ui-fabric-react';
 
 class CategoryDetail extends Component {
   constructor(props) {
@@ -45,7 +44,7 @@ class CategoryDetail extends Component {
   render() {
     const classNames = getStyle();
     return (
-      <StackPanel className={classNames.categoryDetailWrapper}>
+      <Stack className={classNames.categoryDetailWrapper}>
         <Helmet>
           <title>{this.state.seoData.title}</title>
           <meta name="keywords" content={this.state.seoData.title} />
@@ -62,21 +61,27 @@ class CategoryDetail extends Component {
           <meta name="twitter:image:alt" content={this.state.seoData.description} />
           <meta name="twitter:description" content={this.state.seoData.description} />
         </Helmet>
-        <Banner 
-          title={this.state.category.name} 
-          subTitle={this.state.category.description}
-          image={this.state.category.image}
-          height={150}
-          hasOverlay={true}
-        />
-        <MainContent hasPadding={true} isChild={true}>
+        <div className={classNames.imageWrapper}>
+          <Image
+            src={this.state.category.image}
+            alt="image"
+            height={350}
+            imageFit={ImageFit.cover}
+            className={classNames.image}
+          />
+          <Stack className={css("detail")}>
+            <Text variant="xxLarge" className={classNames.headerText}>{this.state.category.name}</Text>
+            <Text variant="mediumPlus" className={classNames.headerText}>{this.state.category.description}</Text>
+          </Stack>
+        </div>
+        <MainContent isChild={true}>
           <ProjectCollection
             title="Projects List"
             projects={this.state.category.projects}
             isLoading={this.state.isLoading}
           />
         </MainContent>
-      </StackPanel>
+      </Stack>
     );
   }
 }
