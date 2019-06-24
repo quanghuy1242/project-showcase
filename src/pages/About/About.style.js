@@ -1,50 +1,60 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
-import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
+import { MotionAnimations, MotionDurations, Depths } from '@uifabric/fluent-theme';
 
 export const getStyle = ({image}) => {
   return mergeStyleSets({
-    onwerImage: {
-      width: 150,
-      height: 150,
-      backgroundColor: 'rgb(0, 120, 212)',
-      backgroundImage: `url(${image})`,
-      backgroundSize: '100%'
-    },
     aboutWrapper: {
-      height: 'inherit',
+      // height: 'inherit',
       animation: MotionAnimations.slideUpIn,
-      animationDuration: MotionDurations.duration4
-    },
-    aboutWrapperInner: {
-      overflow: 'initial !important'
-    },
-    InfoWrapper: {
-      justifyContent: 'center', 
-      alignItems: 'center'
-    },
-    slogan: {
-      width: 300, 
-      textAlign: 'center'
+      animationDuration: MotionDurations.duration4,
+      padding: '1rem'
     },
     pivotWrapper: {
-      flexGrow: 1, 
-      marginLeft: '1rem',
       selectors: {
-        "& > div > div": {
-          overflowX: 'hidden'
-        },
-        "& > div > div > div": {
+        '& .ms-Pivot': {
+          display: 'flex',
+          justifyContent: 'center',
           overflowX: 'auto',
-          overflowY: 'hidden'
+          overflowY: 'hidden',
+          borderBottom: '1px solid rgb(218, 218, 218)',
+          borderTop: '1px solid rgb(218, 218, 218)'
+        },
+        '& div:nth-child(2)': {
+          overflowY: 'auto',
+          overflowX: 'hidden'
         }
       }
     },
     pivotItems: {
       margin: '0.5rem',
-      height: 'calc(100vh - 349px - 2rem)',
       overflow: 'auto',
       animation: MotionAnimations.slideLeftIn,
       animationDuration: MotionDurations.duration4
-    }
+    },
+    // Redemption besomorph coopex
+    bigImage: {
+      boxShadow: Depths.depth8,
+      borderRadius: 2
+    },
+    image: {
+      border: '5px solid #fff',
+      borderRadius: 2,
+      boxShadow: Depths.depth8,
+    },
+    imageWrapperParent: {
+      position: 'relative',
+      marginBottom: 100,
+      selectors: {
+        '& .child': {
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: '-100px'
+        }
+      }
+    },
+    slogan: {
+      textAlign: 'center'
+    },
   })
 }

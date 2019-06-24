@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import Banner from '../../components/Banner/Banner';
-import StackPanel from '../../components/StackPanel/StackPanel';
-import MainContent from '../../components/MainContent/MainContent';
 import { getStyle } from './About.style';
-import { Text, Pivot, PivotItem, PivotLinkSize } from 'office-ui-fabric-react';
+import { Text, Pivot, PivotItem, Stack, Image, ImageFit } from 'office-ui-fabric-react';
 import { AppContext } from '../../context/AppContext';
 import { Helmet } from 'react-helmet';
 
@@ -45,9 +42,9 @@ class About extends Component {
 
   render() {
     const classNames = getStyle({image: this.context.administrator.image});
-    const isMobile = window.matchMedia("(max-width: 599px)").matches;
+    // const isMobile = window.matchMedia("(max-width: 599px)").matches;
     return (
-      <StackPanel className={classNames.aboutWrapper}>
+      <Stack className={classNames.aboutWrapper} tokens={{ childrenGap: 15 }}>
         <Helmet>
           <title>{this.state.seoData.title}</title>
           <meta name="keywords" content={this.state.seoData.title} />
@@ -64,37 +61,50 @@ class About extends Component {
           <meta name="twitter:image:alt" content={this.state.seoData.description} />
           <meta name="twitter:description" content={this.state.seoData.description} />
         </Helmet>
-        <Banner
-          title="About" 
-          subTitle="Who am I?" 
-          height={150}
-          image={this.context.administrator.image}
-        />
-        <MainContent hasPadding={true} isChild={true} className={classNames.aboutWrapperInner}>
-          <StackPanel isHorizontal={!isMobile} style={{height: '100%'}}>
-            <StackPanel className={classNames.InfoWrapper}>
-              <div className={classNames.onwerImage}></div>
-              <Text variant="xxLarge">{this.context.administrator.name}</Text>
-              <Text variant="Large" className={classNames.slogan}>
-                {this.context.administrator.slogan}
-              </Text>
-            </StackPanel>
-            <StackPanel className={classNames.pivotWrapper}>
-              <Pivot linkSize={PivotLinkSize.large}>
-                <PivotItem headerText="Giới thiệu" className={classNames.pivotItems}>
-                  {this.context.administrator.introduction}
-                </PivotItem>
-                <PivotItem headerText="Kỹ năng" className={classNames.pivotItems}>
-                  {this.context.administrator.skill}
-                </PivotItem>
-                <PivotItem headerText="Thông tin liên hệ" className={classNames.pivotItems}>
-                  {this.context.administrator.contact}
-                </PivotItem>
-              </Pivot>
-            </StackPanel>
-          </StackPanel>
-        </MainContent>
-      </StackPanel>
+        <Stack.Item>
+          <div className={classNames.imageWrapperParent}>
+            <Image
+              src={this.context.administrator.coverImage}
+              alt="image"
+              width="100%"
+              height={350}
+              imageFit={ImageFit.cover}
+              className={classNames.bigImage}
+            />
+            <Stack className="child" horizontalAlign="center">
+              <Image
+                src={this.context.administrator.image}
+                alt="image"
+                width={200}
+                height={200}
+                imageFit={ImageFit.cover}
+                className={classNames.image}
+              />
+            </Stack>
+          </div>
+        </Stack.Item>
+        <Stack.Item>
+          <Stack horizontalAlign="center">
+            <Text variant="xxLarge">{this.context.administrator.name}</Text>
+            <Text variant="Large" className={classNames.slogan}>
+              {this.context.administrator.slogan}
+            </Text>
+          </Stack>
+        </Stack.Item>
+        <Stack.Item>
+          <Pivot className={classNames.pivotWrapper}>
+            <PivotItem headerText="Giới thiệu" className={classNames.pivotItems}>
+              {this.context.administrator.introduction}
+            </PivotItem>
+            <PivotItem headerText="Kỹ năng" className={classNames.pivotItems}>
+              {this.context.administrator.skill}
+            </PivotItem>
+            <PivotItem headerText="Thông tin liên hệ" className={classNames.pivotItems}>
+              {this.context.administrator.contact}
+            </PivotItem>
+          </Pivot>
+        </Stack.Item>
+      </Stack>
     );
   }
 }
