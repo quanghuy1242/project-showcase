@@ -38,8 +38,8 @@ export const getstyle = ({ image }) => {
           justifyContent: 'center',
           overflowX: 'auto',
           overflowY: 'hidden',
-          boxShadow: Depths.depth8,
-          backgroundColor: 'rgba(165, 181, 192, 0.082)'
+          borderBottom: '1px solid rgb(218, 218, 218)',
+          borderTop: '1px solid rgb(218, 218, 218)'
         },
         '& div:nth-child(2)': {
           height: 'calc(100vh - 305px)',
