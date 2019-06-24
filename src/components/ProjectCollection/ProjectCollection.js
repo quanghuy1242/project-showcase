@@ -8,7 +8,7 @@ class ProjectCollection extends Component {
   render() {
     return (
       <div className={style.projectCollectionWrapper}>
-        <Text variant="xLarge" className={style.headerText}>{this.props.title}</Text>
+        <Text variant="xxLarge" className={style.headerText}>{this.props.title}</Text>
         {
           this.props.isLoading
             ? <Spinner size={SpinnerSize.large} />
