@@ -57,7 +57,7 @@ class Categories extends Component {
           <meta name="twitter:description" content={this.state.seoData.description} />
         </Helmet>
         <StackPanel>
-          <Text variant="xxLarge" className={classNames.headerText}>Categories</Text>
+          <Text variant="xLarge" className={classNames.headerText}>Categories</Text>
           <CategorieCollection 
             categoriesList={this.state.categories}
             isLoading={this.state.isLoading}
