@@ -15,6 +15,7 @@ import {
   Stack,
   Image,
   ImageFit,
+  IconButton,
 } from 'office-ui-fabric-react';
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
@@ -128,7 +129,7 @@ class ProjectDetail extends Component {
                     imageFit={ImageFit.cover}
                     className={classNames.bigImage}
                   />
-                  <Stack horizontal={!isMobile} tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
+                  <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
                     <Stack.Item>
                       <div className={classNames.imagePreview}></div>
                     </Stack.Item>
@@ -136,35 +137,40 @@ class ProjectDetail extends Component {
                       <Stack horizontal={!isMobile2} style={{ height: '100%' }}>
                         <Stack.Item grow disableShrink>
                           <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
-                            <Text variant="superLarge" className={classNames.whiteText}>{this.state.project.name}</Text>
-                            <Text variant="mediumPlus" className={css(classNames.whiteText, classNames.date)}>
-                              {
-                                this.state.project.date
-                                  ? new Date(this.state.project.date).toLocaleDateString()
-                                  : ''
-                              }
-                            </Text>
+                            <Text variant={isMobile ? "xLarge" : "superLarge"} className={classNames.whiteText}>{this.state.project.name}</Text>
+                            {!isMobile
+                              ? (
+                                  <Text variant="mediumPlus" className={css(classNames.whiteText, classNames.date)}>
+                                    {
+                                      this.state.project.date
+                                        ? new Date(this.state.project.date).toLocaleDateString()
+                                        : ''
+                                    }
+                                  </Text>
+                                )
+                              : <></>}
                             <DefaultButton
                               text={this.state.project.technology.name}
                               className={classNames.buttonTech}
                               onClick={() => this.props.history.push(`/categories/${this.state.project.technology.nameId}`)}
                             />
-                            <Text block className={css(classNames.whiteText, classNames.basicDes)} nowrap>
-                              {this.state.project.description}
-                            </Text>
                           </Stack>
                         </Stack.Item>
                         <Stack.Item>
                           <Stack 
+                            horizontal
                             horizontalAlign="start" 
                             verticalAlign="center" 
-                            style={{ height: '100%', marginTop: isMobile ? '0.5rem' : 0 }}>
+                            style={{ height: '100%' }}
+                          >
                             <PrimaryButton
                               text="Website"
-                              split={true}
-                              onClick={() => {
-                                window.open(this.state.project.url, '_blank');
-                              }}
+                              href={this.state.project.url}
+                              target="_blank"
+                            />
+                            <IconButton
+                              onRenderMenuIcon={() => false}
+                              iconProps={{ iconName: 'MoreVertical' }}
                               menuProps={{
                                 items: [
                                   {
@@ -193,6 +199,11 @@ class ProjectDetail extends Component {
                     </Stack.Item>
                   </Stack>
                 </div>
+              </Stack.Item>
+              <Stack.Item>
+                <Text block className={css(classNames.basicDes)}>
+                  {this.state.project.description}
+                </Text>
               </Stack.Item>
               <Stack.Item>
                 <Pivot className={classNames.othersWrapper}>

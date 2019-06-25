@@ -17,8 +17,8 @@ export const getstyle = ({ image }) => {
     },
     imagePreview: {
       backgroundColor: CommunicationColors.primary,
-      width: isMobile ? 150: 200,
-      height: isMobile ? 150: 200,
+      width: isMobile ? 100: 200,
+      height: isMobile ? 100: 200,
       backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
       border: '4px solid white',
