@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { 
   DocumentCard, 
-  DocumentCardActivity,
   DocumentCardPreview,
   DocumentCardTitle
 } from 'office-ui-fabric-react/lib/DocumentCard';
@@ -19,7 +18,7 @@ class ProjectItem extends Component {
         },
         previewImageSrc: this.props.image,
         imageFit: ImageFit.cover,
-        height: 200
+        height: 150
       }]
     };
     return (
@@ -36,7 +35,7 @@ class ProjectItem extends Component {
             title={this.props.name}
             shouldTruncate={true}
           />
-          <DocumentCardActivity
+          {/* <DocumentCardActivity
             activity={new Date(this.props.date).toLocaleString()}
             people={[
               {
@@ -44,7 +43,7 @@ class ProjectItem extends Component {
                 profileImageSrc: this.context.administrator.image
               }
             ]}
-          />
+          /> */}
         </DocumentCard>
       </Link>
     );
