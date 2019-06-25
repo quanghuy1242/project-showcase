@@ -92,7 +92,6 @@ export const getstyle = ({ image }) => {
       color: 'lightgray'
     },
     basicDes: {
-      marginTop: '0.5rem !important',
       textAlign: 'center'
     }
   })

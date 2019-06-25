@@ -118,7 +118,7 @@ class ProjectDetail extends Component {
           this.state.isLoading
           ? <Spinner size={SpinnerSize.large} style={{ height: 'calc(100vh - 55px)' }} />
           : (
-            <Stack className={classNames.outerWrapper} tokens={{ childrenGap: 20 }}>
+            <Stack className={classNames.outerWrapper} tokens={{ childrenGap: 15 }}>
               <Stack.Item>
                 <div className={classNames.topWrapper}>
                   <Image
