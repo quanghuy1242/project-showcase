@@ -28,7 +28,8 @@ export const getStyle = () => {
       }
     },
     headerText: {
-      color: 'white'
+      color: 'white',
+      textAlign: 'center'
     }
   })
 }
