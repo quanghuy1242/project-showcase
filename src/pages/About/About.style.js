@@ -1,7 +1,7 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
 import { MotionAnimations, MotionDurations, Depths } from '@uifabric/fluent-theme';
 
-export const getStyle = ({image}) => {
+export const getStyle = () => {
   return mergeStyleSets({
     aboutWrapper: {
       // height: 'inherit',
@@ -21,8 +21,7 @@ export const getStyle = ({image}) => {
         },
         '& div:nth-child(2)': {
           overflowY: 'auto',
-          overflowX: 'hidden',
-          minHeight: 400
+          overflowX: 'hidden'
         }
       }
     },
@@ -44,18 +43,40 @@ export const getStyle = ({image}) => {
     },
     imageWrapperParent: {
       position: 'relative',
-      marginBottom: 100,
       selectors: {
         '& .child': {
           position: 'absolute',
           left: 0,
           right: 0,
-          bottom: '-100px'
+          bottom: 0,
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))'
         }
       }
     },
-    slogan: {
-      textAlign: 'center'
+    info: {
+      padding: '0.5rem'
     },
+    slogan: {
+      color: 'white'
+    },
+    nameHeader: {
+      color: 'white'
+    },
+    actionButton: {
+      selectors: {
+        '& button': {
+          backgroundColor: 'transparent', 
+          color: 'lightgray',
+          marginTop: '0.5rem !important',
+          transition: '0.3s',
+          selectors: {
+            ':hover': {
+              backgroundColor: 'rgba(243, 242, 241, 0.2)',
+              color: '#fff'
+            }
+          }
+        }
+      }
+    }
   })
 }

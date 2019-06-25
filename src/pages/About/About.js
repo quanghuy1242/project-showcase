@@ -41,7 +41,7 @@ class About extends Component {
   }
 
   render() {
-    const classNames = getStyle({image: this.context.administrator.image});
+    const classNames = getStyle();
     // const isMobile = window.matchMedia("(max-width: 599px)").matches;
     return (
       <Stack className={classNames.aboutWrapper} tokens={{ childrenGap: 15 }}>
@@ -67,29 +67,32 @@ class About extends Component {
               src={this.context.administrator.coverImage}
               alt="image"
               width="100%"
-              height={350}
+              height={250}
               imageFit={ImageFit.cover}
               className={classNames.bigImage}
             />
-            <Stack className="child" horizontalAlign="center">
-              <Image
-                src={this.context.administrator.image}
-                alt="image"
-                width={200}
-                height={200}
-                imageFit={ImageFit.cover}
-                className={classNames.image}
-              />
-            </Stack>
+            <div className="child">
+              <Stack horizontal className={classNames.info} tokens={{ childrenGap: 20 }}>
+                <Image
+                  src={this.context.administrator.image}
+                  alt="image"
+                  width={150}
+                  height={150}
+                  imageFit={ImageFit.cover}
+                  className={classNames.image}
+                />
+                <Stack verticalAlign="center">
+                  <Text variant="superLarge" className={classNames.nameHeader}>{this.context.administrator.name}</Text>
+                  <Text variant="Large" className={classNames.slogan}>
+                    {this.context.administrator.slogan}
+                  </Text>
+                  <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.actionButton}>
+                    {/* <DefaultButton text="Facebook" /> */}
+                  </Stack>
+                </Stack>
+              </Stack>
+            </div>
           </div>
-        </Stack.Item>
-        <Stack.Item>
-          <Stack horizontalAlign="center">
-            <Text variant="xxLarge">{this.context.administrator.name}</Text>
-            <Text variant="Large" className={classNames.slogan}>
-              {this.context.administrator.slogan}
-            </Text>
-          </Stack>
         </Stack.Item>
         <Stack.Item>
           <Pivot className={classNames.pivotWrapper}>
