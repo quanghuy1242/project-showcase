@@ -50,7 +50,7 @@ class Home extends Component {
           <Image
             src="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1517511620798-cec17d428bc0.jpg"
             alt="image"
-            height={350}
+            height={250}
             imageFit={ImageFit.cover}
             className={classNames.image}
           />
