@@ -57,10 +57,11 @@ export const getStyle = () => {
       padding: '0.5rem'
     },
     slogan: {
-      color: 'white'
+      textAlign: 'center'
     },
     nameHeader: {
-      color: 'white'
+      color: 'white',
+      textAlign: 'center'
     },
     actionButton: {
       selectors: {
