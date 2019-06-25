@@ -30,7 +30,7 @@ export const getstyle = ({ image }) => {
       bottom: 0,
       right: 0,
       left: 0,
-      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7))'
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))'
     },
     othersWrapper: {
       selectors: {
@@ -93,7 +93,7 @@ export const getstyle = ({ image }) => {
     },
     basicDes: {
       marginTop: '0.5rem !important',
-      width: isMobile2 ? '100%' : 'calc(100vw - 250px - 280px - 123px)'
+      width: isMobile2 ? '100%' : 'calc(100vw - 250px - 280px - 130px)'
     }
   })
 }

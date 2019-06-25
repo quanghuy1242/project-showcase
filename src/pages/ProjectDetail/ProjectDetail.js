@@ -124,7 +124,7 @@ class ProjectDetail extends Component {
                     src={this.state.project.image}
                     alt="image"
                     width="100%"
-                    height={400}
+                    height={300}
                     imageFit={ImageFit.cover}
                     className={classNames.bigImage}
                   />
