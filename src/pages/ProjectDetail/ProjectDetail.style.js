@@ -22,7 +22,8 @@ export const getstyle = ({ image }) => {
       backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
       border: '4px solid white',
-      borderRadius: 2
+      borderRadius: 2,
+      backgroundPosition: 'center'
     },
     basicInfoWrapper: {
       padding: isMobile ? '0.5rem' : '1rem',
