@@ -3,7 +3,8 @@ import { mergeStyleSets } from 'office-ui-fabric-react';
 export const style = mergeStyleSets({
   projectCollectionWrapper: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    minHeight: 210
   },
   projectCollection: {
     display: 'grid',
