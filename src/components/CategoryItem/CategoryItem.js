@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 class CategoryItem extends Component {
   render() {
-    const classNames = getStyle(this.props);
+    const classNames = getStyle();
     return (
       <Link className={classNames.itemWrapper} to={`/categories/${this.props.nameId}`}>
         <Image

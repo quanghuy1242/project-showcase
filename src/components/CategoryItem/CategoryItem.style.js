@@ -1,6 +1,6 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
 
-export const getStyle = ({ image }) => {
+export const getStyle = () => {
   return mergeStyleSets({
     itemWrapper: {
       height: 150,
