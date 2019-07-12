@@ -12,7 +12,7 @@ export const getStyle = ({ image }) => {
       alignItems: 'center',
       width: '100%',
       textDecoration: 'none',
-      border: '2px solid transparent',
+      border: '2px solid rgba(0, 0, 0, 0.1)',
       backgroundPosition: 'center center',
       borderRadius: 2,
       transition: '0.2s',
