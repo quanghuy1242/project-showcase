@@ -14,8 +14,7 @@ import {
   DefaultButton,
   Stack,
   Image,
-  ImageFit,
-  IconButton,
+  ImageFit
 } from 'office-ui-fabric-react';
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
