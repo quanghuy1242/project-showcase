@@ -162,15 +162,17 @@ class ProjectDetail extends Component {
                             horizontalAlign="start" 
                             verticalAlign="center" 
                             style={{ height: '100%' }}
+                            tokens={{ childrenGap: 5 }}
                           >
                             <PrimaryButton
                               text="Website"
                               href={this.state.project.url}
                               target="_blank"
                             />
-                            <IconButton
+                            <PrimaryButton
                               onRenderMenuIcon={() => false}
                               iconProps={{ iconName: 'MoreVertical' }}
+                              style={{ minWidth: 0, padding: '0 0.3rem' }}
                               menuProps={{
                                 items: [
                                   {
