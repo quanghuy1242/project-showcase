@@ -37,13 +37,14 @@ class TopNav extends Component {
             <CommandButton
               text="Find me"
               menuProps={{
+                className: classNames.findMeButtonMenu,
                 styles: { root: { zIndex: 1001 } },
                 items: [
-                  { key: 'fb', text: "Facebook" },
-                  { key: 'tw', text: "Twitter" },
-                  { key: 'ig', text: "Instagram" },
-                  { key: 'wp', text: "Wordpress" },
-                  { key: 'gh', text: "Github" },
+                  { key: 'fb', text: "Facebook", iconProps: { iconName: 'facebook' } },
+                  { key: 'tw', text: "Twitter", iconProps: { iconName: 'twitter' } },
+                  { key: 'ig', text: "Instagram", iconProps: { iconName: 'instagram' } },
+                  { key: 'wp', text: "Wordpress", iconProps: { iconName: 'wordpress' } },
+                  { key: 'gh', text: "Github", iconProps: { iconName: 'github' } },
                 ]
               }}
             />

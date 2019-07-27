@@ -5,7 +5,19 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import RouteContainer from './components/RouteContainer/RouteContainer';
 import AppContextProvider from './context/AppContextProvider';
 import { Helmet } from 'react-helmet';
-import { Fabric } from 'office-ui-fabric-react';
+import { Fabric, registerIcons } from 'office-ui-fabric-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faInstagram, faWordpress, faGithub } from '@fortawesome/free-brands-svg-icons';
+
+registerIcons({
+  icons: {
+    'facebook': <FontAwesomeIcon icon={faFacebookF} />,
+    'twitter': <FontAwesomeIcon icon={faTwitter} />,
+    'instagram': <FontAwesomeIcon icon={faInstagram} />,
+    'wordpress': <FontAwesomeIcon icon={faWordpress} />,
+    'github': <FontAwesomeIcon icon={faGithub} />
+  }
+});
 
 class App extends Component {
   render() {

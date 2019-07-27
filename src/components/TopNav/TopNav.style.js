@@ -33,6 +33,13 @@ export const getStyle = () => {
           marginRight: '0.5rem',
         }
       }
+    },
+    findMeButtonMenu: {
+      selectors: {
+        '& .ms-ContextualMenu-icon': {
+          color: 'black'
+        }
+      }
     }
   })
 }
