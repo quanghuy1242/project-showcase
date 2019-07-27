@@ -40,6 +40,13 @@ export const getStyle = () => {
           color: 'black'
         }
       }
+    },
+    findMeButton: {
+      selectors: {
+        '& .ms-Button-icon': {
+          color: 'black'
+        }
+      }
     }
   })
 }

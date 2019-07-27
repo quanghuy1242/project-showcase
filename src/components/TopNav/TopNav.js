@@ -36,6 +36,8 @@ class TopNav extends Component {
           <Stack horizontal horizontalAlign="end">
             <CommandButton
               text="Find me"
+              className={classNames.findMeButton}
+              iconProps={{ iconName: 'World' }}
               menuProps={{
                 className: classNames.findMeButtonMenu,
                 styles: { root: { zIndex: 1001 } },
