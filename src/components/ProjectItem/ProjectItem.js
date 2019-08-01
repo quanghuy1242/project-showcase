@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { 
   DocumentCard, 
   DocumentCardPreview,
-  DocumentCardTitle
+  DocumentCardTitle,
+  DocumentCardActivity
 } from 'office-ui-fabric-react/lib/DocumentCard';
 import { ImageFit } from 'office-ui-fabric-react/lib/Image';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
+import { Text } from 'office-ui-fabric-react';
 
 class ProjectItem extends Component {
   render() {
@@ -32,10 +34,15 @@ class ProjectItem extends Component {
         >
           <DocumentCardPreview {...projectContent} />
           <DocumentCardTitle
-            title={this.props.name}
+            title={
+              <>
+                <Text variant='xLarge' block>{this.props.name}</Text>
+                <Text variant='medium' block>{this.props.technology}</Text>
+              </>
+            }
             shouldTruncate={true}
           />
-          {/* <DocumentCardActivity
+          <DocumentCardActivity
             activity={new Date(this.props.date).toLocaleString()}
             people={[
               {
@@ -43,7 +50,7 @@ class ProjectItem extends Component {
                 profileImageSrc: this.context.administrator.image
               }
             ]}
-          /> */}
+          />
         </DocumentCard>
       </Link>
     );

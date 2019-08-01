@@ -19,6 +19,7 @@ class ProjectCollection extends Component {
                     href={project.href}
                     image={project.image}
                     date={project.date}
+                    technology={project.technology}
                     _id={project._id}
                     key={index}
                   />
