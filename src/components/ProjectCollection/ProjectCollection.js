@@ -12,19 +12,22 @@ class ProjectCollection extends Component {
         {
           this.props.isLoading
             ? <Spinner size={SpinnerSize.large} />
-            : <div className={style.projectCollection}>
-                {this.props.projects.map((project, index) => (
-                  <ProjectItem
-                    name={project.name}
-                    href={project.href}
-                    image={project.image}
-                    date={project.date}
-                    technology={project.technology.name}
-                    _id={project._id}
-                    key={index}
-                  />
-                ))}
-              </div>
+            : this.props.projects.length
+              ? (<div className={style.projectCollection}>
+                  {this.props.projects.map((project, index) => (
+                    <ProjectItem
+                      name={project.name}
+                      href={project.href}
+                      image={project.image}
+                      date={project.date}
+                      technology={project.technology.name}
+                      _id={project._id}
+                      key={index}
+                    />
+                  ))}
+                </div>)
+              : <Text>Không có project nào! Hãy quay trở lại sau!</Text>
+              
         }
       </div>
     );
