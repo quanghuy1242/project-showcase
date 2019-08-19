@@ -216,12 +216,19 @@ class ProjectDetail extends Component {
                   <PivotItem headerText="Screenshots">
                     <div className={css(classNames.pivotItem, classNames.screenshotWrapper)}>
                       {this.state.project.screenshots
-                        ? this.state.project.screenshots.map(
-                            (screenshot, index) => (
-                              <img src={screenshot} key={index} alt="Hmmmm" className={classNames.screenshot} />
-                            )
-                          )
-                        : (<div>Không có ảnh chụp màn hình</div>)}
+                        ? this.state.project.screenshots.length !== 0
+                          ? this.state.project.screenshots.map(
+                                (screenshot, index) => (
+                                  <img
+                                    src={screenshot}
+                                    key={index}
+                                    alt="Hmmmm"
+                                    className={classNames.screenshot}
+                                  />
+                                )
+                              )
+                            : (<div>Không có ảnh chụp màn hình</div>)
+                        : <></>}
                     </div>
                   </PivotItem>
                   <PivotItem headerText="Changelog" className={classNames.pivotItem}>
