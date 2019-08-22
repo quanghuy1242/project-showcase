@@ -38,14 +38,17 @@ class TopNav extends Component {
             : <></>}
         </Stack.Item>
         <Stack.Item grow disableShrink>
-          <Stack horizontal verticalAlign='center' style={{ marginLeft: '0.5rem' }}>
+          <Stack horizontal verticalAlign='center'>
             <Stack.Item disableShrink grow>
               <Stack horizontal verticalAlign='center'>
                 <Stack.Item disableShrink grow>
                   {this.state.isSearchBoxShow ? <SearchBox className={classNames.searchBox} /> : <></>}
                 </Stack.Item>
                 <CommandButton
-                  iconProps={{ iconName: this.state.isSearchBoxShow ? 'Cancel' : 'Search' }}
+                  iconProps={{
+                    iconName: this.state.isSearchBoxShow ? 'Cancel' : 'Search',
+                    styles: { root: { color: 'black' } } 
+                  }}
                   onClick={() => {
                     this.setState({ isSearchBoxShow: !this.state.isSearchBoxShow })
                   }}
@@ -55,6 +58,7 @@ class TopNav extends Component {
             <CommandButton
               className={classNames.findMeButton}
               iconProps={{ iconName: 'World' }}
+              onRenderMenuIcon={() => false}
               menuProps={{
                 className: classNames.findMeButtonMenu,
                 styles: { root: { zIndex: 1001 } },
