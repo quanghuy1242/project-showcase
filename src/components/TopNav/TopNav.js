@@ -29,7 +29,7 @@ class TopNav extends Component {
         </Stack.Item>
         <Stack.Item>
           <NavLink href="/">
-            <Text variant="xLarge">Project Showcase</Text>
+            <Text variant="xLarge">Showcase</Text>
           </NavLink>
         </Stack.Item>
         <Stack.Item grow disableShrink>
