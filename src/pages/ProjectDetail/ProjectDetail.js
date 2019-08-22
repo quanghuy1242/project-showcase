@@ -209,8 +209,10 @@ class ProjectDetail extends Component {
               <Stack.Item>
                 <Pivot className={classNames.othersWrapper}>
                   <PivotItem headerText="Description">
-                    <div className={classNames.pivotItem}>
-                      {this.state.project.description}
+                    <div 
+                      className={classNames.pivotItem}
+                      dangerouslySetInnerHTML={{ __html: this.state.project.description }}
+                    >
                     </div>
                   </PivotItem>
                   <PivotItem headerText="Screenshots">
