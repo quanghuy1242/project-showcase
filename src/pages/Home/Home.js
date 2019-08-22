@@ -3,12 +3,16 @@ import { Text } from 'office-ui-fabric-react/lib/Text';
 import { getStyle } from './Home.style';
 import { PrimaryButton } from 'office-ui-fabric-react';
 import { withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 class Home extends Component {
   render() {
     const classNames = getStyle();
     return (
       <div className={classNames.homeWrapper}>
+        <Helmet>
+          <title>Home - Project Showcase</title>
+        </Helmet>
         <Text
           variant="superLarge" 
           className={classNames.headerText}
