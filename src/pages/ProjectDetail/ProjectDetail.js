@@ -203,7 +203,7 @@ class ProjectDetail extends Component {
               </Stack.Item>
               <Stack.Item>
                 <Text block className={css(classNames.basicDes)}>
-                  {this.state.project.description}
+                  {this.state.project.briefDescription}
                 </Text>
               </Stack.Item>
               <Stack.Item>
