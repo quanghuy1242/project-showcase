@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
 import MainContent from '../../components/MainContent/MainContent';
 import { ProjectAPI } from '../../api/projects.api';
-import { getStyle } from './Home.style';
+import { getStyle } from './Projects.style';
 import { Helmet } from 'react-helmet';
 import { Stack, Image, ImageFit, css, Text } from 'office-ui-fabric-react';
 

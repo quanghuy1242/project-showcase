@@ -4,7 +4,6 @@ import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { initializeIcons } from '@uifabric/icons';
 import { Link, withRouter } from 'react-router-dom';
 import { getStyle } from './NavSide.style';
-import SearchBoxTop from '../SearchBoxTop/SearchBoxTop';
 import { Stack, Text, Separator } from 'office-ui-fabric-react';
 initializeIcons()
 
@@ -18,6 +17,12 @@ class NavSide extends Component {
           url: '/',
           key: "keyHome",
           icon: 'Home'
+        },
+        {
+          name: 'Projects',
+          url: '/projects',
+          key: "keyProjects",
+          icon: 'TimelineProgress'
         },
         {
           name: 'Categories',
