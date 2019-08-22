@@ -65,9 +65,9 @@ class NavSide extends Component {
     return (
       <div>
         <div className={classNames.navWrapper}>
-          <div className={classNames.searchBoxWrapper}>
+          {/* <div className={classNames.searchBoxWrapper}>
             <SearchBoxTop />
-          </div>
+          </div> */}
           <Nav
             expandedStateText="expanded"
             collapsedStateText="collapsed"
