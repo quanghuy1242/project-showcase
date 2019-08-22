@@ -3,7 +3,7 @@ import { Text } from 'office-ui-fabric-react/lib/Text';
 import { IconButton, CommandButton } from 'office-ui-fabric-react/lib/Button';
 import NavLink from '../NavLink/NavLink';
 import { getStyle } from './TopNav.style';
-import { Stack } from 'office-ui-fabric-react';
+import { Stack, SearchBox } from 'office-ui-fabric-react';
 
 class TopNav extends Component {
   constructor(props) {
@@ -11,7 +11,8 @@ class TopNav extends Component {
     this.state = {
       links: [
         { name: 'Project Showcase', href: '/' },
-      ]
+      ],
+      isSearchBoxShow: false
     };
   }
 
@@ -28,14 +29,30 @@ class TopNav extends Component {
           />
         </Stack.Item>
         <Stack.Item>
-          <NavLink href="/">
-            <Text variant="xLarge">Showcase</Text>
-          </NavLink>
+          {!this.state.isSearchBoxShow
+            ? (
+              <NavLink href="/">
+                <Text variant="xLarge">Showcase</Text>
+              </NavLink>
+            )
+            : <></>}
         </Stack.Item>
         <Stack.Item grow disableShrink>
-          <Stack horizontal horizontalAlign="end">
+          <Stack horizontal verticalAlign='center' style={{ marginLeft: '0.5rem' }}>
+            <Stack.Item disableShrink grow>
+              <Stack horizontal verticalAlign='center'>
+                <Stack.Item disableShrink grow>
+                  {this.state.isSearchBoxShow ? <SearchBox className={classNames.searchBox} /> : <></>}
+                </Stack.Item>
+                <CommandButton
+                  iconProps={{ iconName: this.state.isSearchBoxShow ? 'Cancel' : 'Search' }}
+                  onClick={() => {
+                    this.setState({ isSearchBoxShow: !this.state.isSearchBoxShow })
+                  }}
+                />
+              </Stack>
+            </Stack.Item>
             <CommandButton
-              text="Find me"
               className={classNames.findMeButton}
               iconProps={{ iconName: 'World' }}
               menuProps={{

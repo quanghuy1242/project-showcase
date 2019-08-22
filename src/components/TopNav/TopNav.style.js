@@ -47,6 +47,13 @@ export const getStyle = () => {
           color: 'black'
         }
       }
+    },
+    searchBox: {
+      selectors: {
+        '& input': {
+          width: 20
+        }
+      }
     }
   })
 }
