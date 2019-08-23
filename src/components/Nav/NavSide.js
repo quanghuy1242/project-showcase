@@ -85,7 +85,8 @@ class NavSide extends Component {
                 overflowY: 'auto',
                 transition: '0.2s',
                 zIndex: 98,
-                height: 'calc(100vh - 180px)'
+                height: 'calc(100vh - 180px)',
+                marginTop: '0.5rem'
               }
             }}
             groups={[{ links: this.state.links }]}
