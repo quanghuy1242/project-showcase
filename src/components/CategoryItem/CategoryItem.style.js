@@ -16,6 +16,7 @@ export const getStyle = () => {
       backgroundPosition: 'center center',
       borderRadius: 2,
       transition: '0.2s',
+      boxSizing: 'border-box',
       selectors: {
         ':hover': {
           border: '2px solid rgba(0, 0, 0, 0.4)'
