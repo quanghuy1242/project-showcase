@@ -28,7 +28,7 @@ class Home extends Component {
           </Stack>
         </div>
         <MainContent isChild={true}>
-          <Stack verticalAlign='center' horizontalAlign='center' style={{ marginTop: '1rem' }}>
+          <Stack verticalAlign='center' horizontalAlign='center' style={{ marginTop: '1rem', textAlign: 'center' }}>
             <Text
               variant="superLarge" 
               className={classNames.headerText}
