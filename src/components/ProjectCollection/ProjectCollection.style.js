@@ -13,7 +13,6 @@ export const style = mergeStyleSets({
     justifyItems: 'center'
   },
   headerText: {
-    marginBottom: '0.5rem', 
-    fontWeight: 500
+    marginBottom: '0.5rem'
   }
 })
