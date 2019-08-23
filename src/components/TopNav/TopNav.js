@@ -20,23 +20,25 @@ class TopNav extends Component {
     const classNames = getStyle();
     return (
       <Stack verticalAlign="center" horizontal className={classNames.topNav}>
-        <Stack.Item>
-          <IconButton
-            iconProps={{iconName: "GlobalNavButton"}} 
-            className={classNames.toggleSideBar}
-            style={{color: 'black', marginRight: '0.5rem'}}
-            onClick={this.props.onToggleSideBar} 
-          />
-        </Stack.Item>
-        <Stack.Item>
-          {!this.state.isSearchBoxShow
+        {!this.state.isSearchBoxShow
             ? (
-              <NavLink href="/">
-                <Text variant="xLarge">Showcase</Text>
-              </NavLink>
+              <>
+                <Stack.Item>
+                  <IconButton
+                    iconProps={{iconName: "GlobalNavButton"}} 
+                    className={classNames.toggleSideBar}
+                    style={{color: 'black', marginRight: '0.5rem'}}
+                    onClick={this.props.onToggleSideBar} 
+                  />
+                </Stack.Item>
+                <Stack.Item>
+                  <NavLink href="/">
+                    <Text variant="xLarge">Showcase</Text>
+                  </NavLink>
+                </Stack.Item>
+              </>
             )
             : <></>}
-        </Stack.Item>
         <Stack.Item grow disableShrink>
           <Stack horizontal verticalAlign='center'>
             <Stack.Item disableShrink grow>
@@ -55,22 +57,35 @@ class TopNav extends Component {
                 />
               </Stack>
             </Stack.Item>
-            <CommandButton
-              className={classNames.findMeButton}
-              iconProps={{ iconName: 'World' }}
-              onRenderMenuIcon={() => false}
-              menuProps={{
-                className: classNames.findMeButtonMenu,
-                styles: { root: { zIndex: 1001 } },
-                items: [
-                  { key: 'fb', text: "Facebook", iconProps: { iconName: 'facebook' } },
-                  { key: 'tw', text: "Twitter", iconProps: { iconName: 'twitter' } },
-                  { key: 'ig', text: "Instagram", iconProps: { iconName: 'instagram' } },
-                  { key: 'wp', text: "Wordpress", iconProps: { iconName: 'wordpress' } },
-                  { key: 'gh', text: "Github", iconProps: { iconName: 'github' } },
-                ]
-              }}
-            />
+            {!this.state.isSearchBoxShow
+            ? (
+              <CommandButton
+                className={classNames.findMeButton}
+                iconProps={{ iconName: 'World' }}
+                onRenderMenuIcon={() => false}
+                menuProps={{
+                  className: classNames.findMeButtonMenu,
+                  styles: { root: { zIndex: 1001 } },
+                  items: [
+                    { key: 'fb', text: "Facebook", iconProps: { iconName: 'facebook' } },
+                    { key: 'tw', text: "Twitter", iconProps: { iconName: 'twitter' } },
+                    { key: 'ig', text: "Instagram", iconProps: { iconName: 'instagram' } },
+                    { key: 'wp', text: "Wordpress", iconProps: { iconName: 'wordpress' } },
+                    { key: 'gh', text: "Github", iconProps: { iconName: 'github' } },
+                  ]
+                }}
+              />
+            )
+            : <></>}
+            {this.state.isSearchBoxShow
+              ? <div 
+                  className={classNames.overlay}
+                  onClick={() => {
+                    this.setState({ isSearchBoxShow: !this.state.isSearchBoxShow })
+                  }}
+                >
+                </div>
+              : null}
           </Stack>
         </Stack.Item>
       </Stack>

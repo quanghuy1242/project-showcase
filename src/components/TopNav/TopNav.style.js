@@ -54,6 +54,13 @@ export const getStyle = () => {
           width: 20
         }
       }
+    },
+    overlay: {
+      position: 'absolute',
+      top: 55,
+      bottom: 0,
+      right: 0,
+      left: 0
     }
   })
 }
