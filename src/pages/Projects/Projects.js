@@ -48,15 +48,14 @@ class Home extends Component {
         </Helmet>
         <div className={classNames.imageWrapper}>
           <Image
-            src="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1517511620798-cec17d428bc0.jpg"
+            src="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/8/23/photo-1566545455366-bcae28fd3929.jpeg"
             alt="image"
             height={250}
             imageFit={ImageFit.cover}
             className={classNames.image}
           />
           <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
-            <Text variant="superLarge" className={classNames.headerText}>Project Showcase</Text>
-            <Text variant="xLarge" className={classNames.headerText}>How my own world begins</Text>
+            <Text variant="superLarge" className={classNames.headerText}>Projects</Text>
           </Stack>
         </div>
         <MainContent isChild={true}>

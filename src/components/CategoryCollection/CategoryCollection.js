@@ -7,7 +7,7 @@ class CategorieCollection extends Component {
   render() {
     const classNames = getStyle();
     return (
-      <div>
+      <div className={classNames.categoriesWrapper}>
         {this.props.isLoading
           ? <Spinner size={SpinnerSize.large} />
           : <div className={classNames.categoriesListWrapper}>
