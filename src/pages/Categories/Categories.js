@@ -6,6 +6,7 @@ import CategorieCollection from '../../components/CategoryCollection/CategoryCol
 import { getStyle } from './Categories.style';
 import { CategoryAPI } from '../../api/categories.api';
 import { Helmet } from 'react-helmet';
+import { Banner } from '../../components/Banner/Banner';
 
 class Categories extends Component {
   constructor(props) {
@@ -40,18 +41,11 @@ class Categories extends Component {
     const classNames = getStyle();
     return (
       <Stack className={classNames.categoryWrapper}>
-        <div className={classNames.imageWrapper}>
-          <Image
-            src={this.state.seoData.image}
-            alt="image"
-            height={250}
-            imageFit={ImageFit.cover}
-            className={classNames.image}
-          />
-          <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
-            <Text variant="superLarge" className={css(classNames.headerText, classNames.whiteText)}>Categories</Text>
-          </Stack>
-        </div>
+        <Banner
+          image={this.state.seoData.image}
+          height={250}
+          primaryText='Categories'
+        />
         <MainContent isChild={true}>
           <Helmet>
             <title>{this.state.seoData.title}</title>

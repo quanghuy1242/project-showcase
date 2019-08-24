@@ -5,6 +5,7 @@ import { ProjectAPI } from '../../api/projects.api';
 import { getStyle } from './Projects.style';
 import { Helmet } from 'react-helmet';
 import { Stack, Image, ImageFit, css, Text } from 'office-ui-fabric-react';
+import { Banner } from '../../components/Banner/Banner';
 
 class Home extends Component {
   constructor(props) {
@@ -46,18 +47,11 @@ class Home extends Component {
           <meta name="twitter:image:alt" content="Project Showcase" />
           <meta name="twitter:description" content="How my own world begins" />
         </Helmet>
-        <div className={classNames.imageWrapper}>
-          <Image
-            src="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/8/23/photo-1566545455366-bcae28fd3929.jpeg"
-            alt="image"
-            height={250}
-            imageFit={ImageFit.cover}
-            className={classNames.image}
-          />
-          <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
-            <Text variant="superLarge" className={classNames.headerText}>Projects</Text>
-          </Stack>
-        </div>
+        <Banner
+          image='https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/8/23/photo-1566545455366-bcae28fd3929.jpeg'
+          height={250}
+          primaryText='Projects'
+        />
         <MainContent isChild={true}>
           <ProjectCollection
             title="Projects List"

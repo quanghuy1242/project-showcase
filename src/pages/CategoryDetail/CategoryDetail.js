@@ -5,6 +5,7 @@ import MainContent from '../../components/MainContent/MainContent';
 import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
 import { Helmet } from 'react-helmet';
 import { Stack, Image, ImageFit, css, Text } from 'office-ui-fabric-react';
+import { Banner } from '../../components/Banner/Banner';
 
 class CategoryDetail extends Component {
   constructor(props) {
@@ -61,19 +62,13 @@ class CategoryDetail extends Component {
           <meta name="twitter:image:alt" content={this.state.seoData.description} />
           <meta name="twitter:description" content={this.state.seoData.description} />
         </Helmet>
-        <div className={classNames.imageWrapper}>
-          <Image
-            src={this.state.category.image}
-            alt="image"
-            height={250}
-            imageFit={ImageFit.cover}
-            className={classNames.image}
-          />
-          <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
-            <Text variant="superLarge" className={classNames.headerText}>{this.state.category.name}</Text>
-            <Text variant="mediumPlus" className={classNames.headerText}>{this.state.category.description}</Text>
-          </Stack>
-        </div>
+        <Banner
+          image={this.state.category.image}
+          height={250}
+          primaryText={this.state.category.name}
+          secondaryText={this.state.category.description}
+          isBlur={true}
+        />
         <MainContent isChild={true}>
           <ProjectCollection
             title="Projects List"

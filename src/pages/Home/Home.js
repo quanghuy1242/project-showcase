@@ -5,6 +5,7 @@ import { PrimaryButton, Stack, ImageFit, Image, css } from 'office-ui-fabric-rea
 import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import MainContent from '../../components/MainContent/MainContent';
+import { Banner } from '../../components/Banner/Banner';
 
 class Home extends Component {
   render() {
@@ -14,19 +15,12 @@ class Home extends Component {
         <Helmet>
           <title>Home - Project Showcase</title>
         </Helmet>
-        <div className={classNames.imageWrapper}>
-          <Image
-            src="https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1517511620798-cec17d428bc0.jpg"
-            alt="image"
-            height={250}
-            imageFit={ImageFit.cover}
-            className={classNames.image}
-          />
-          <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
-            <Text variant="superLarge" className={classNames.bannerText}>Project Showcase</Text>
-            <Text variant="xLarge" className={classNames.bannerText}>How my own world begins</Text>
-          </Stack>
-        </div>
+        <Banner
+          image='https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1517511620798-cec17d428bc0.jpg'
+          height={250}
+          primaryText='Project Showcase'
+          secondaryText='How my own world begins'
+        />
         <MainContent isChild={true}>
           <Stack verticalAlign='center' horizontalAlign='center' style={{ marginTop: '1rem', textAlign: 'center' }}>
             <Text
