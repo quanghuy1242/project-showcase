@@ -4,7 +4,7 @@ import { getStyle } from './CategoryDetail.style';
 import MainContent from '../../components/MainContent/MainContent';
 import ProjectCollection from '../../components/ProjectCollection/ProjectCollection';
 import { Helmet } from 'react-helmet';
-import { Stack, Image, ImageFit, css, Text } from 'office-ui-fabric-react';
+import { Stack } from 'office-ui-fabric-react';
 import { Banner } from '../../components/Banner/Banner';
 
 class CategoryDetail extends Component {
