@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import { Text } from 'office-ui-fabric-react/lib/Text';
 import { getStyle } from './Banner.style';
 import { css } from '@uifabric/utilities';
+import { Image, ImageFit, Stack, Text } from 'office-ui-fabric-react';
 
-class Banner extends Component {
+export class Banner extends Component {
   render() {
     const classNames = getStyle(this.props);
     return (
-      <div className={css(classNames.bannerWrapper, this.props.className)}>
-        <div className={classNames.textWrapper}>
-          <Text variant="superLarge" className={classNames.headerText}>
-            {this.props.title}
-          </Text>
-          <Text variant="xLarge" className={classNames.headerText}>
-            {this.props.subTitle}
-          </Text>
-          {this.props.children}
-        </div>
-        {this.props.hasOverlay && <div className={css(classNames.overlay, 'overlay')}></div>}
+      <div className={classNames.imageWrapper}>
+        <Image
+          src={this.props.image}
+          alt="image"
+          height={this.props.height}
+          imageFit={ImageFit.cover}
+          className={classNames.image}
+        />
+        <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
+          <Text variant="superLarge" className={classNames.bannerText}>{this.props.primaryText}</Text>
+          {!this.props.secondaryText || <Text variant="xLarge" className={classNames.bannerText}>{this.props.secondaryText}</Text>}
+        </Stack>
       </div>
     );
   }
 }
-
-export default Banner;

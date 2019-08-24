@@ -1,36 +1,32 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
+import { Depths } from '@uifabric/fluent-theme';
 
-export const getStyle = ({ image, height }) => {
+export const getStyle = ({ isBlur = false }) => {
   return mergeStyleSets({
-    bannerWrapper: {
-      width: '100%',
-      height: height || 250,
-      ...(image) && { backgroundImage: `url(${image})` },
-      ...(!image) && { backgroundColor: 'rgb(0, 120, 212)' },
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center',
-      display: 'grid',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative'
+    image: {
+      boxShadow: Depths.depth8,
+      borderRadius: 2,
+      ...(!isBlur || { filter: 'saturate(180%) blur(15px)' })
     },
-    textWrapper: {
-      textAlign: 'center', 
-      zIndex: 20
+    imageWrapper: {
+      overflow: 'hidden',
+      position: 'relative',
+      marginBottom: '0.5rem',
+      selectors: {
+        '& .detail': {
+          position: 'absolute',
+          left: 0,
+          bottom: 0,
+          top: 0,
+          right: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          padding: '1rem'
+        }
+      }
     },
-    headerText: {
+    bannerText: {
       color: 'white',
-      display: 'block',
-      marginBottom: '0.5rem'
-    },
-    overlay: {
-      backgroundColor: 'black',
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      opacity: 0.2
+      textAlign: 'center',
     }
   })
 }
