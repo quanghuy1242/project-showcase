@@ -2,8 +2,6 @@ import { mergeStyleSets } from 'office-ui-fabric-react';
 import { Depths } from '@uifabric/fluent-theme';
 import ColorThief from 'colorthief';
 
-let color = [0, 0, 0];
-
 const getImageColor = image => {
   const colorThief = new ColorThief();
 
@@ -13,7 +11,7 @@ const getImageColor = image => {
 
   if (image) {
     imgData.onload = function() {
-      color = colorThief.getColor(imgData);
+      const color = colorThief.getColor(imgData);
       document.querySelector('.bannerBorder').style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
     }
   }
