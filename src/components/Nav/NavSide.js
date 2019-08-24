@@ -68,20 +68,15 @@ class NavSide extends Component {
     return (
       /^(http|https).+/.test(props.href)
         ? (
-          <TooltipHost 
-            content='External link'
-            delay={0}
+          <a 
+            className={props.className} 
+            style={{color: 'inherit', boxSizing: 'border-box'}}
+            href={props.href}
+            target='_blank'
+            rel='noopener noreferrer'
           >
-            <a 
-              className={props.className} 
-              style={{color: 'inherit', boxSizing: 'border-box'}}
-              href={props.href}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              {content}
-            </a>
-          </TooltipHost>
+            {content}
+          </a>
         )
         : (
           <Link 
