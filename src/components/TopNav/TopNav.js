@@ -46,15 +46,17 @@ class TopNav extends Component {
                 <Stack.Item disableShrink grow>
                   {this.state.isSearchBoxShow ? <SearchBox className={classNames.searchBox} /> : <></>}
                 </Stack.Item>
-                <CommandButton
-                  iconProps={{
-                    iconName: this.state.isSearchBoxShow ? 'Cancel' : 'Search',
-                    styles: { root: { color: 'black' } } 
-                  }}
-                  onClick={() => {
-                    this.setState({ isSearchBoxShow: !this.state.isSearchBoxShow })
-                  }}
-                />
+                {this.state.isSearchBoxShow || (
+                  <CommandButton
+                    iconProps={{
+                      iconName: this.state.isSearchBoxShow ? 'Cancel' : 'Search',
+                      styles: { root: { color: 'black' } } 
+                    }}
+                    onClick={() => {
+                      this.setState({ isSearchBoxShow: !this.state.isSearchBoxShow })
+                    }}
+                  />
+                )}
               </Stack>
             </Stack.Item>
             {!this.state.isSearchBoxShow

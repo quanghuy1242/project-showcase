@@ -1,5 +1,6 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
 import { Depths } from '@uifabric/fluent-theme/lib/fluent/FluentDepths';
+import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
 
 export const getStyle = () => {
   return mergeStyleSets({
@@ -49,6 +50,8 @@ export const getStyle = () => {
       }
     },
     searchBox: {
+      animation: MotionAnimations.slideDownIn,
+      animationDuration: MotionDurations.duration3,
       selectors: {
         '& input': {
           width: 20
