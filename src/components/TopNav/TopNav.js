@@ -62,7 +62,7 @@ class TopNav extends Component {
               <CommandButton
                 className={classNames.findMeButton}
                 iconProps={{ iconName: 'World' }}
-                onRenderMenuIcon={() => false}
+                text='Find me'
                 menuProps={{
                   className: classNames.findMeButtonMenu,
                   styles: { root: { zIndex: 1001 } },
