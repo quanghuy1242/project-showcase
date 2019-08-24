@@ -77,6 +77,7 @@ class NavSide extends Component {
               style={{color: 'inherit', boxSizing: 'border-box'}}
               href={props.href}
               target='_blank'
+              rel='noopener noreferrer'
             >
               {content}
             </a>
