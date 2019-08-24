@@ -65,12 +65,12 @@ class CategoryDetail extends Component {
           <Image
             src={this.state.category.image}
             alt="image"
-            height={350}
+            height={250}
             imageFit={ImageFit.cover}
             className={classNames.image}
           />
-          <Stack className={css("detail")}>
-            <Text variant="xxLarge" className={classNames.headerText}>{this.state.category.name}</Text>
+          <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
+            <Text variant="superLarge" className={classNames.headerText}>{this.state.category.name}</Text>
             <Text variant="mediumPlus" className={classNames.headerText}>{this.state.category.description}</Text>
           </Stack>
         </div>
