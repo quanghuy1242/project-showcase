@@ -4,7 +4,7 @@ import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { initializeIcons } from '@uifabric/icons';
 import { Link, withRouter } from 'react-router-dom';
 import { getStyle } from './NavSide.style';
-import { Stack, Text, Separator } from 'office-ui-fabric-react';
+import { Stack, Text, Separator, TooltipHost } from 'office-ui-fabric-react';
 initializeIcons()
 
 class NavSide extends Component {
@@ -31,6 +31,12 @@ class NavSide extends Component {
           icon: 'Taskboard'
         },
         {
+          name: 'Blog',
+          url: 'https://quanghuy.netlify.com/home',
+          key: 'keyBlog',
+          icon: 'ReadingMode'
+        },
+        {
           name: 'About',
           url: '/about',
           key: 'keyAbout',
@@ -54,13 +60,37 @@ class NavSide extends Component {
   }
 
   onRenderLink = (props) => {
+    const content =
+      <span style={{display: 'flex'}}>
+        { props.iconProps && <Icon style={{margin: '0 10px', fontSize: '20px'}} {...props.iconProps} /> }
+        {props.children}
+      </span>
     return (
-      <Link className={props.className} style={{color: 'inherit', boxSizing: 'border-box'}} to={props.href}>
-        <span style={{display: 'flex'}}>
-          { props.iconProps && <Icon style={{margin: '0 10px', fontSize: '20px'}} {...props.iconProps} /> }
-          {props.children}
-        </span>
-      </Link>
+      /^(http|https).+/.test(props.href)
+        ? (
+          <TooltipHost 
+            content='External link'
+            delay={0}
+          >
+            <a 
+              className={props.className} 
+              style={{color: 'inherit', boxSizing: 'border-box'}}
+              href={props.href}
+              target='_blank'
+            >
+              {content}
+            </a>
+          </TooltipHost>
+        )
+        : (
+          <Link 
+            className={props.className}
+            style={{color: 'inherit', boxSizing: 'border-box'}}
+            to={props.href}
+          >
+            {content}
+          </Link>
+        )
     );
   }
 
