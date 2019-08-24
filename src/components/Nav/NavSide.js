@@ -4,7 +4,7 @@ import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { initializeIcons } from '@uifabric/icons';
 import { Link, withRouter } from 'react-router-dom';
 import { getStyle } from './NavSide.style';
-import { Stack, Text, Separator, TooltipHost } from 'office-ui-fabric-react';
+import { Stack, Text, Separator } from 'office-ui-fabric-react';
 initializeIcons()
 
 class NavSide extends Component {
