@@ -6,6 +6,7 @@ import ProjectCollection from '../../components/ProjectCollection/ProjectCollect
 import { Helmet } from 'react-helmet';
 import { Stack } from 'office-ui-fabric-react';
 import { Banner } from '../../components/Banner/Banner';
+import { getImageColor } from '../../util/ImageColor';
 
 class CategoryDetail extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class CategoryDetail extends Component {
         projects: []
       },
       seoData: {},
-      isLoading: false
+      isLoading: false,
+      color: [0, 0, 0]
     }
   }
 
@@ -27,6 +29,7 @@ class CategoryDetail extends Component {
     try {
       this.onToggleLoading();
       const category = await CategoryAPI.getCategory(this.props.match.params.nameId);
+      const color = await getImageColor(category.image);
       this.setState({
         category: category,
         seoData: {
@@ -34,7 +37,8 @@ class CategoryDetail extends Component {
           description: `${category.description}`,
           url: `${this.context.baseUrl}${this.props.match.url}`,
           image: category.image
-        }
+        },
+        color
       });
       this.onToggleLoading();
     } catch (error) {
@@ -68,6 +72,7 @@ class CategoryDetail extends Component {
           primaryText={this.state.category.name}
           secondaryText={this.state.category.description}
           isBlur={true}
+          color={this.state.color}
         />
         <MainContent isChild={true}>
           <ProjectCollection

@@ -1,24 +1,7 @@
 import { mergeStyleSets } from 'office-ui-fabric-react';
 import { Depths } from '@uifabric/fluent-theme';
-import ColorThief from 'colorthief';
-
-const getImageColor = image => {
-  const colorThief = new ColorThief();
-
-  const imgData = new Image();
-  imgData.crossOrigin = 'Anonymous';
-  imgData.src = image;
-
-  if (image) {
-    imgData.onload = function() {
-      const color = colorThief.getColor(imgData);
-      document.querySelector('.bannerBorder').style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-    }
-  }
-}
 
 export const getStyle = ({ isBlur = false, image }) => {
-  getImageColor(image);
   return mergeStyleSets({
     image: {
       boxShadow: Depths.depth8,

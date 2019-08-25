@@ -42,7 +42,7 @@ class Categories extends Component {
     return (
       <Stack className={classNames.categoryWrapper}>
         <Banner
-          image={this.state.seoData.image}
+          image='https://raw.githubusercontent.com/quanghuy1242/MyLibary/master/images/2019/5/20/photo-1461958508236-9a742665a0d5.jpg'
           height={250}
           primaryText='Categories'
         />
