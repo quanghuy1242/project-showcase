@@ -21,6 +21,7 @@ import { ProjectAPI } from '../../api/projects.api';
 import { AppContext } from '../../context/AppContext';
 import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import './github-markdown.css';
 
 class ProjectDetail extends Component {
   constructor(props) {
@@ -210,8 +211,8 @@ class ProjectDetail extends Component {
                 <Pivot className={classNames.othersWrapper}>
                   <PivotItem headerText="Description">
                     <div 
-                      className={classNames.pivotItem}
-                      dangerouslySetInnerHTML={{ __html: this.state.project.description }}
+                      className={css(classNames.pivotItem, 'markdown-body')}
+                      dangerouslySetInnerHTML={{ __html: this.state.project.descriptionHTML }}
                     >
                     </div>
                   </PivotItem>
