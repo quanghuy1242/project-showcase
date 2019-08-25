@@ -2,13 +2,39 @@ import React, { Component } from 'react';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import { Text } from 'office-ui-fabric-react/lib/Text';
 import { style } from './ProjectCollection.style';
-import { Spinner, SpinnerSize } from 'office-ui-fabric-react';
+import { Spinner, SpinnerSize, Stack, IconButton, TooltipHost } from 'office-ui-fabric-react';
 
 class ProjectCollection extends Component {
   render() {
     return (
       <div className={style.projectCollectionWrapper}>
-        <Text variant="xLarge" className={style.headerText}>{this.props.title}</Text>
+        <Stack horizontal>
+          <Stack.Item grow disableShrink>
+            <Text variant="xLarge" className={style.headerText}>{this.props.title}</Text>
+          </Stack.Item>
+          <Stack>
+            <TooltipHost content='Filter'>
+              <IconButton
+                iconProps={{ iconName: 'PageListFilter', styles: { root: { color: 'black' } } }}
+                onRenderMenuIcon={() => false}
+                menuProps={{
+                  items: [
+                    {
+                      key: '1',
+                      text: 'Sort by Name',
+                      iconProps: { iconName: 'HalfAlpha' }
+                    },
+                    {
+                      key: '2',
+                      text: 'Sort by Date',
+                      iconProps: { iconName: 'EventDate' }
+                    }
+                  ]
+                }}
+              />
+            </TooltipHost>
+          </Stack>
+        </Stack>
         {
           this.props.isLoading
             ? <Spinner size={SpinnerSize.large} />
