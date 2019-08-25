@@ -16,8 +16,7 @@ class CategoryDetail extends Component {
         projects: []
       },
       seoData: {},
-      isLoading: false,
-      color: [0, 0, 0]
+      isLoading: false
     }
   }
 

@@ -5,20 +5,22 @@ import { Image, ImageFit, Stack, Text } from 'office-ui-fabric-react';
 import { getImageColor } from '../../util/ImageColor';
 
 export class Banner extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: [0, 0, 0]
-    };
-  }
-
   async componentDidMount() {
     this.props.color || this.setState({ color: await getImageColor(this.props.image) });
   }
 
+  getColorFromStateProp = () => {
+    if (this.props.color) { return this.props.color; }
+    if (this.state) {
+      if (this.state.color) {
+        return this.state.color
+      }
+    }
+  }
+
   render() {
     const classNames = getStyle(this.props);
-    const color = this.props.color || this.state.color;
+    const color = this.getColorFromStateProp();
     return (
       <div className={css(classNames.imageWrapper, 'imageWrapper')}>
         <Image
@@ -36,7 +38,7 @@ export class Banner extends Component {
         <div
           className={css(classNames.bannerBorder, 'bannerBorder')}
           style={{
-            backgroundColor: `rgb(${color[0]}, ${color[1]}, ${color[2]})`
+            backgroundColor: color ? `rgb(${color[0]}, ${color[1]}, ${color[2]})` : null
           }}  
         />
       </div>
