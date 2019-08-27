@@ -43,7 +43,7 @@ class ProjectItem extends Component {
             shouldTruncate={true}
           />
           <DocumentCardActivity
-            activity={new Date(this.props.date).toLocaleString()}
+            activity={new Date(this.props.date).toLocaleDateString()}
             people={[
               {
                 name: this.context.administrator.name,
