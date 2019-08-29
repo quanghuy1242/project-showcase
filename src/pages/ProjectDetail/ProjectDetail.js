@@ -1,21 +1,13 @@
 ﻿import React, { Component } from 'react';
 import MainContent from '../../components/MainContent/MainContent';
-import {
-  Text,
-  Pivot,
-  PivotItem,
-  PrimaryButton,
-  css,
-  Spinner,
-  SpinnerSize,
-  Dialog, 
-  DialogType,
-  DialogFooter,
-  DefaultButton,
-  Stack,
-  Image,
-  ImageFit
-} from 'office-ui-fabric-react';
+import { Text } from 'office-ui-fabric-react/lib/Text';
+import { Pivot, PivotItem } from 'office-ui-fabric-react/lib/Pivot';
+import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/Spinner';
+import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog';
+import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Image, ImageFit } from 'office-ui-fabric-react/lib/Image';
+import { css } from '@uifabric/utilities';
 import { getstyle } from './ProjectDetail.style'
 import { ProjectAPI } from '../../api/projects.api';
 import { AppContext } from '../../context/AppContext';

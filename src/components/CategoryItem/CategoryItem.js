@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ImageFit } from 'office-ui-fabric-react';
+import { Image, ImageFit } from 'office-ui-fabric-react/lib/Image';
 import { getStyle } from './CategoryItem.style';
 import { Link } from 'react-router-dom';
 

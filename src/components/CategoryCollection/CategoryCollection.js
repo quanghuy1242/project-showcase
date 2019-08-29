@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CategoryItem from '../CategoryItem/CategoryItem';
 import { getStyle } from './CategoryCollection.style';
-import { Spinner, SpinnerSize } from 'office-ui-fabric-react';
+import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/Spinner';
 
 class CategorieCollection extends Component {
   render() {

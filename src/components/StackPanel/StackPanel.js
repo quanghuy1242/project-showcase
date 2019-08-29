@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getStyle } from './StackPanel.style';
-import { css } from 'office-ui-fabric-react';
+import { css } from '@uifabric/utilities';
 
 class StackPanel extends Component {
   render() {

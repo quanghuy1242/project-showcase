@@ -1,4 +1,4 @@
-import { mergeStyleSets } from 'office-ui-fabric-react';
+import { mergeStyleSets } from '@uifabric/styling';
 
 export const style = mergeStyleSets({
   navLink: {

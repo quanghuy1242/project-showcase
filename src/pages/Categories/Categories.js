@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainContent from '../../components/MainContent/MainContent';
-import { Text, Stack } from 'office-ui-fabric-react';
+import { Text } from 'office-ui-fabric-react/lib/Text';
+import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import StackPanel from '../../components/StackPanel/StackPanel';
 import CategorieCollection from '../../components/CategoryCollection/CategoryCollection';
 import { getStyle } from './Categories.style';

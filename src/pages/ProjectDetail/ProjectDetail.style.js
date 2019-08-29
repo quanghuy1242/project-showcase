@@ -1,6 +1,5 @@
-import { mergeStyleSets } from 'office-ui-fabric-react';
-import { Depths } from '@uifabric/fluent-theme';
-import { MotionAnimations, MotionDurations, CommunicationColors } from '@uifabric/fluent-theme';
+import { mergeStyleSets } from '@uifabric/styling';
+import { MotionAnimations, MotionDurations, CommunicationColors, Depths } from '@uifabric/fluent-theme';
 
 export const getstyle = ({ image }) => {
   const isMobile = window.matchMedia("(max-width: 599px)").matches;

@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import { Text } from 'office-ui-fabric-react/lib/Text';
 import { style } from './ProjectCollection.style';
-import { Spinner, SpinnerSize, Stack, IconButton, TooltipHost } from 'office-ui-fabric-react';
+import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/Spinner';
+import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { TooltipHost } from 'office-ui-fabric-react/lib/Tooltip';
+import { IconButton } from 'office-ui-fabric-react/lib/Button';
 
 class ProjectCollection extends Component {
   render() {

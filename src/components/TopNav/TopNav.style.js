@@ -1,4 +1,4 @@
-import { mergeStyleSets } from 'office-ui-fabric-react';
+import { mergeStyleSets } from '@uifabric/styling';
 import { Depths } from '@uifabric/fluent-theme/lib/fluent/FluentDepths';
 import { MotionAnimations, MotionDurations } from '@uifabric/fluent-theme';
 

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { getStyle } from './Banner.style';
 import { css } from '@uifabric/utilities';
-import { Image, ImageFit, Stack, Text } from 'office-ui-fabric-react';
+import { Image, ImageFit } from 'office-ui-fabric-react/lib/Image';
+import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Text } from 'office-ui-fabric-react/lib/Text';
 import { getImageColor } from '../../util/ImageColor';
 
 export class Banner extends Component {

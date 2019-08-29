@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Text } from 'office-ui-fabric-react/lib/Text';
 import { getStyle } from './Home.style';
-import { PrimaryButton, Stack } from 'office-ui-fabric-react';
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import MainContent from '../../components/MainContent/MainContent';

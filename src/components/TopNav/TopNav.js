@@ -3,7 +3,8 @@ import { Text } from 'office-ui-fabric-react/lib/Text';
 import { IconButton, CommandButton } from 'office-ui-fabric-react/lib/Button';
 import NavLink from '../NavLink/NavLink';
 import { getStyle } from './TopNav.style';
-import { Stack, SearchBox } from 'office-ui-fabric-react';
+import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 
 class TopNav extends Component {
   constructor(props) {

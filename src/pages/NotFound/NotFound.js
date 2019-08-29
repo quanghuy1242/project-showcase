@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'office-ui-fabric-react/lib/Text';
 import { getStyle } from './NotFound.style';
-import { PrimaryButton } from 'office-ui-fabric-react';
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import { withRouter } from 'react-router-dom';
 
 class NotFound extends Component {

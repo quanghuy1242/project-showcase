@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { getStyle } from './About.style';
-import { Text, Pivot, PivotItem, Stack, Image, ImageFit } from 'office-ui-fabric-react';
+import { Text } from 'office-ui-fabric-react/lib/Text';
+import { Pivot, PivotItem } from 'office-ui-fabric-react/lib/Pivot';
+import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Image, ImageFit } from 'office-ui-fabric-react/lib/Image';
 import { AppContext } from '../../context/AppContext';
 import { Helmet } from 'react-helmet';
 
