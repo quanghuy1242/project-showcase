@@ -214,12 +214,14 @@ class ProjectDetail extends Component {
                         ? this.state.project.screenshots.length !== 0
                           ? this.state.project.screenshots.map(
                                 (screenshot, index) => (
-                                  <img
-                                    src={screenshot}
-                                    key={index}
-                                    alt="Hmmmm"
-                                    className={classNames.screenshot}
-                                  />
+                                  screenshot
+                                    ? <img
+                                        src={screenshot}
+                                        key={index}
+                                        alt="Hmmmm"
+                                        className={classNames.screenshot}
+                                      />
+                                    : null
                                 )
                               )
                             : (<div>Không có ảnh chụp màn hình</div>)
