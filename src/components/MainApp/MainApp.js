@@ -43,7 +43,15 @@ class MainApp extends Component {
             isOverlay={this.state.isOverlay} 
             onDismiss={() => this.toggleSideBar()}
           />
-          {this.props.children}
+          <div
+            style={{
+              marginLeft: this.state.isOverlay ? 0 : this.state.isCollapsed ? -250 : 0,
+              transition: 'margin 0.36s cubic-bezier(0.4, 0, 0.2, 1)',
+              flexGrow: 1
+            }}
+          >
+            {this.props.children}
+          </div>
         </div>
       </div>
     );

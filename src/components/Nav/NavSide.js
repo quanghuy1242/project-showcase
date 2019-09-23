@@ -96,7 +96,7 @@ class NavSide extends Component {
     let selectedKey = this.state.selectedKey ? this.state.selectedKey : null;
     const classNames = getStyle(this.props);
     return (
-      <div>
+      <>
         <div className={classNames.navWrapper}>
           {/* <div className={classNames.searchBoxWrapper}>
             <SearchBoxTop />
@@ -108,13 +108,12 @@ class NavSide extends Component {
             onLinkClick={() => {}}
             styles={{
               root: {
-                width: this.props.isCollapsed ? 0 : 250,
+                width: 250,
                 boxSizing: 'border-box',
                 overflowY: 'auto',
-                transition: '0.2s',
                 zIndex: 98,
                 height: 'calc(100vh - 180px)',
-                marginTop: '0.5rem'
+                marginTop: '0.5rem',
               }
             }}
             groups={[{ links: this.state.links }]}
@@ -133,7 +132,7 @@ class NavSide extends Component {
               : <></>
             : <></>
         }
-      </div>
+      </>
     );
   }
 }

@@ -8,14 +8,16 @@ export const getStyle = ({ isCollapsed, isOverlay }) => {
       display: 'flex',
       flexDirection: 'column',
       height: 'calc(100vh - 57px)',
-      transition: '0.2s',
       backgroundColor: 'white',
       zIndex: 100,
-      width: isCollapsed ? 0 : 250,
+      width: 250,
       position: isOverlay ? 'absolute' : 'initial',
       boxShadow: isOverlay ? customDepth : 'none',
       border: isCollapsed ? 'none' : '1px solid #eee',
       overflowY: 'auto',
+      transition: 'transform 0.36s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.36s cubic-bezier(0.4, 0, 0.2, 1)',
+      transform: `translateX(${isCollapsed ? '-250px' : '0px'})`,
+      opacity: isCollapsed ? 0 : 1,
       selectors: {
         '& .ms-FocusZone': {
           flexGrow: 1
