@@ -11,6 +11,7 @@ export const getStyle = ({ isCollapsed, isOverlay }) => {
       backgroundColor: 'white',
       zIndex: 100,
       width: 250,
+      minWidth: 250,
       position: isOverlay ? 'absolute' : 'initial',
       boxShadow: isOverlay ? customDepth : 'none',
       border: isCollapsed ? 'none' : '1px solid #eee',
