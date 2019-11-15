@@ -121,18 +121,18 @@ class ProjectDetail extends Component {
                     imageFit={ImageFit.cover}
                     className={classNames.bigImage}
                   />
-                  <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
+                  <Stack horizontal={!isMobile} tokens={{ childrenGap: 10 }} className={classNames.basicInfoWrapper}>
                     <Stack.Item>
                       <div className={classNames.imagePreview}></div>
                     </Stack.Item>
                     <Stack.Item grow disableShrink>
-                      <Stack horizontal={!isMobile} style={{ height: '100%' }}>
+                      <Stack horizontal={!isMobile} style={{ height: '100%' }} tokens={{ childrenGap: 8 }}>
                         <Stack.Item grow disableShrink>
                           <Stack horizontalAlign="start" verticalAlign="center" style={{ height: '100%' }}>
                             <Text variant={isMobile ? "xLarge" : "superLarge"} className={classNames.whiteText}>{this.state.project.name}</Text>
                             {!isMobile
                               ? (
-                                  <Text variant="mediumPlus" className={css(classNames.whiteText, classNames.date)}>
+                                  <Text variant="medium" className={css(classNames.whiteText, classNames.date)}>
                                     {
                                       this.state.project.date
                                         ? new Date(this.state.project.date).toLocaleDateString()
@@ -209,7 +209,10 @@ class ProjectDetail extends Component {
                     </div>
                   </PivotItem>
                   <PivotItem headerText="Screenshots">
-                    <div className={css(classNames.pivotItem, classNames.screenshotWrapper)}>
+                    <Stack
+                      tokens={{ childrenGap: 8 }}
+                      className={css(classNames.pivotItem, classNames.screenshotWrapper)}
+                    >
                       {this.state.project.screenshots
                         ? this.state.project.screenshots.length !== 0
                           ? this.state.project.screenshots.map(
@@ -226,13 +229,7 @@ class ProjectDetail extends Component {
                               )
                             : (<div>Không có ảnh chụp màn hình</div>)
                         : <></>}
-                    </div>
-                  </PivotItem>
-                  <PivotItem headerText="Changelog" className={classNames.pivotItem}>
-                    Changelog
-                  </PivotItem>
-                  <PivotItem headerText="Upcoming features" className={classNames.pivotItem}>
-                    Upcoming features
+                    </Stack>
                   </PivotItem>
                 </Pivot>
               </Stack.Item>

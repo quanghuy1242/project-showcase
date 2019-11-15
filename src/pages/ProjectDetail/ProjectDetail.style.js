@@ -33,6 +33,7 @@ export const getstyle = ({ image }) => {
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))'
     },
     othersWrapper: {
+      ...isMobile && { width: 'calc(100vw - 2rem)' },
       selectors: {
         '& .ms-FocusZone': {
           position: 'sticky',
@@ -41,7 +42,7 @@ export const getstyle = ({ image }) => {
         },
         '& .ms-Pivot': {
           display: 'flex',
-          justifyContent: isMobile ? 'flex-start' : 'center',
+          justifyContent: 'center',
           overflowX: 'auto',
           overflowY: 'hidden',
           borderBottom: '1px solid rgb(218, 218, 218)',
@@ -62,6 +63,7 @@ export const getstyle = ({ image }) => {
     },
     screenshot: {
       width: '100%',
+      boxShadow: Depths.depth4
     },
     link: {
       textDecoration: 'none'
