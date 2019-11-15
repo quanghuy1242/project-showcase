@@ -34,7 +34,7 @@ class NavSide extends Component {
         },
         {
           name: 'Blog',
-          url: 'https://quanghuy.netlify.com/home',
+          url: 'http://quanghuy.web.app/home',
           key: 'keyBlog',
           icon: 'ReadingMode'
         },
