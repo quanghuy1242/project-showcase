@@ -36,6 +36,7 @@ export class Banner extends Component {
         <Stack className={css("detail")} horizontalAlign="center" verticalAlign="center">
           <Text variant="superLarge" className={classNames.bannerText}>{this.props.primaryText}</Text>
           {!this.props.secondaryText || <Text variant="xLarge" className={classNames.bannerText}>{this.props.secondaryText}</Text>}
+          {this.props.children}
         </Stack>
         <div
           className={css(classNames.bannerBorder, 'bannerBorder')}

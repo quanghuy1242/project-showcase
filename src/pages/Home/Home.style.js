@@ -10,6 +10,10 @@ export const getStyle = () => {
     },
     headerText: {
       fontWeight: 400,
+    },
+    headerWrapper: {
+      width: '100%',
+      color: 'white'
     }
   })
 }

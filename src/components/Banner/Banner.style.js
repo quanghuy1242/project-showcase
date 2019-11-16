@@ -11,7 +11,6 @@ export const getStyle = ({ isBlur = false, image }) => {
     imageWrapper: {
       overflow: 'hidden',
       position: 'relative',
-      marginBottom: '0.5rem',
       selectors: {
         '& .detail': {
           position: 'absolute',
