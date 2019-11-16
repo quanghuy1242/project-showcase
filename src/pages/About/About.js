@@ -87,7 +87,12 @@ class About extends Component {
                   />
                 </Stack>
                 <Stack verticalAlign="center">
-                  <Text variant="superLarge" className={classNames.nameHeader}>{this.context.administrator.name}</Text>
+                  <Text
+                    variant={isMobile ? 'xxLarge': 'superLarge'}
+                    className={classNames.nameHeader}
+                  >
+                    {this.context.administrator.name}
+                  </Text>
                   <Stack horizontal tokens={{ childrenGap: 10 }} className={classNames.actionButton}>
                     {/* <DefaultButton text="Facebook" /> */}
                   </Stack>
