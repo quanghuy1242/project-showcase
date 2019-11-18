@@ -10,4 +10,14 @@ export class ProjectAPI {
     let projectRespone = await api.get(`/projects/${projectsId}`);
     return projectRespone.data.project;
   }
+
+  static async search(word) {
+    let projectsRespone = await api.get('/projects', {
+      params: {
+        query: encodeURI(word),
+        compact: true
+      }
+    });
+    return projectsRespone.data.projects;
+  }
 }

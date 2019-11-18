@@ -6,9 +6,10 @@ import { getStyle } from './TopNav.style';
 import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 import { AppContext } from '../../context/AppContext';
-import { Callout, List } from 'office-ui-fabric-react';
-import { mergeStyleSets } from '@uifabric/styling';
+import { Callout, List, Spinner } from 'office-ui-fabric-react';
 import { CommunicationColors } from '@uifabric/fluent-theme';
+import { ProjectAPI } from '../../api/projects.api';
+import { Link } from 'react-router-dom';
 
 class TopNav extends Component {
   constructor(props) {
@@ -19,13 +20,23 @@ class TopNav extends Component {
       ],
       isSearchBoxShow: false,
       isSuggestionHide: true,
-      searchContent: ''
+      searchContent: '',
+      searchResuilt: [],
+      isSearchDone: true
     };
     this.searchBoxRef = React.createRef();
+    this.delayFunc = 0;
   }
 
   setIsSuggestionHide(bool) {
     this.setState({ isSuggestionHide: bool });
+  }
+
+  closeSearchBoxAndRelatedThing() {
+    this.setState({
+      isSearchBoxShow: false,
+      isSuggestionHide: true
+    });
   }
 
   render() {
@@ -62,12 +73,27 @@ class TopNav extends Component {
                         <SearchBox
                           className={classNames.searchBox}
                           autoFocus={true}
+                          autoComplete="off"
+                          placeholder="Type a part of name..."
                           onChange={e => {
+                            const text = e.target.value;
                             if (e) {
-                              e.target.value.trim() !== ''
-                                ? this.setIsSuggestionHide(false)
-                                : this.setIsSuggestionHide(true);
-                              this.setState({ searchContent: e.target.value });
+                              this.setState({ isSearchDone: false });
+                              if (text.trim() !== '') {
+                                this.setState({ searchResuilt: [] })
+                                this.setIsSuggestionHide(false);
+                              } else {
+                                this.setIsSuggestionHide(true)
+                              }
+                              this.setState({ searchContent: text });
+                              
+                              clearTimeout(this.delayFunc);
+                              this.delayFunc = setTimeout(async () => {
+                                this.setState({
+                                  searchResuilt: await ProjectAPI.search(text),
+                                  isSearchDone: true
+                                });
+                              }, 1000);
                             }
                           }}
                         />
@@ -77,6 +103,7 @@ class TopNav extends Component {
                         target={this.searchBoxRef.current}
                         isBeakVisible={false}
                         gapSpace={2}
+                        style={{ width: 260 }}
                       >
                         <Stack
                           verticalAlign="center"
@@ -88,43 +115,37 @@ class TopNav extends Component {
                         >
                           <Text variant="medium" style={{ color: CommunicationColors.primary }}>Result</Text>
                         </Stack>
-                        <List
-                          style={{ width: 260 }}
-                          items={[
-                            { content: 'Đây là cái số 1' },
-                            { content: 'Và đây là cái số 2' },
-                            { content: 'Cái số 3 đây nè' },
-                            { content: 'Ủa cái số 4 đâu rồi?' },
-                            { content: 'Số 5! Cái số 4 núp rồi' }
-                          ]}
-                          onRenderCell={(item, index) => {
-                            const styles = mergeStyleSets({
-                              cell: {
-                                height: 32,
-                                padding: '0 1rem',
-                                cursor: 'pointer',
-                                selectors: {
-                                  "&:hover": {
-                                    backgroundColor: 'rgb(243, 242, 241)',
-                                    color: 'rgb(32, 31, 30)'
-                                  },
-                                  "&:active": {
-                                    backgroundColor: 'rgb(237, 235, 233)'
-                                  }
-                                }
-                              }
-                            });
-                            return (
+                        {this.state.searchResuilt.length
+                          ? (
+                            <List
+                              style={{ width: 260 }}
+                              items={this.state.searchResuilt}
+                              onRenderCell={(item, index) => {
+                                return (
+                                  <Link to={`/project/${item._id}`} className={classNames.link}>
+                                    <Stack
+                                      key={index}
+                                      className={classNames.cell}
+                                      verticalAlign="center"
+                                      onClick={() => this.closeSearchBoxAndRelatedThing()}
+                                    >
+                                      {item.name} - {item.technology.name}
+                                    </Stack>
+                                  </Link>
+                                );
+                              }}
+                            />
+                          )
+                          : !this.state.isSearchDone
+                            ? <Spinner style={{ margin: '1rem' }} />
+                            : (
                               <Stack
-                                key={index}
-                                className={styles.cell}
+                                style={{ height: 32, padding: '0 1rem' }}
                                 verticalAlign="center"
                               >
-                                {item.content}
+                                <span className={classNames.overflowText}>Không tìm thấy</span>
                               </Stack>
-                            );
-                          }}
-                        />
+                            )}
                       </Callout>
                     </>
                   ) : (
@@ -201,12 +222,7 @@ class TopNav extends Component {
             {this.state.isSearchBoxShow ? (
               <div
                 className={classNames.overlay}
-                onClick={() => {
-                  this.setState({
-                    isSearchBoxShow: false,
-                    isSuggestionHide: true
-                  });
-                }}
+                onClick={() => this.closeSearchBoxAndRelatedThing()}
               ></div>
             ) : null}
           </Stack>

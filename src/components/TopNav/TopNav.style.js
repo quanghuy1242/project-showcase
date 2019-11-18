@@ -64,6 +64,29 @@ export const getStyle = () => {
       bottom: 0,
       right: 0,
       left: 0
+    },
+    overflowText: {
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+    },
+    cell: {
+      height: 32,
+      padding: '0 1rem',
+      cursor: 'pointer',
+      selectors: {
+        "&:hover": {
+          backgroundColor: 'rgb(243, 242, 241)',
+          color: 'rgb(32, 31, 30)'
+        },
+        "&:active": {
+          backgroundColor: 'rgb(237, 235, 233)'
+        }
+      }
+    },
+    link: {
+      textDecoration: 'none',
+      color: 'black'
     }
   })
 }
