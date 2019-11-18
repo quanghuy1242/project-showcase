@@ -6,6 +6,9 @@ import { getStyle } from './TopNav.style';
 import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 import { AppContext } from '../../context/AppContext';
+import { Callout, List } from 'office-ui-fabric-react';
+import { mergeStyleSets } from '@uifabric/styling';
+import { CommunicationColors } from '@uifabric/fluent-theme';
 
 class TopNav extends Component {
   constructor(props) {
@@ -14,8 +17,15 @@ class TopNav extends Component {
       links: [
         { name: 'Project Showcase', href: '/' },
       ],
-      isSearchBoxShow: false
+      isSearchBoxShow: false,
+      isSuggestionHide: true,
+      searchContent: ''
     };
+    this.searchBoxRef = React.createRef();
+  }
+
+  setIsSuggestionHide(bool) {
+    this.setState({ isSuggestionHide: bool });
   }
 
   render() {
@@ -47,7 +57,76 @@ class TopNav extends Component {
               <Stack horizontal verticalAlign='center'>
                 <Stack.Item disableShrink grow>
                   {this.state.isSearchBoxShow ? (
-                    <SearchBox className={classNames.searchBox} />
+                    <>
+                      <div ref={this.searchBoxRef}>
+                        <SearchBox
+                          className={classNames.searchBox}
+                          autoFocus={true}
+                          onChange={e => {
+                            if (e) {
+                              e.target.value.trim() !== ''
+                                ? this.setIsSuggestionHide(false)
+                                : this.setIsSuggestionHide(true);
+                              this.setState({ searchContent: e.target.value });
+                            }
+                          }}
+                        />
+                      </div>
+                      <Callout
+                        hidden={this.state.isSuggestionHide}
+                        target={this.searchBoxRef.current}
+                        isBeakVisible={false}
+                        gapSpace={2}
+                      >
+                        <Stack
+                          verticalAlign="center"
+                          style={{
+                            height: 40,
+                            padding: '0.25rem 1rem 0 1rem',
+                            borderBottom: '1px solid rgb(237, 235, 233)'
+                          }}
+                        >
+                          <Text variant="medium" style={{ color: CommunicationColors.primary }}>Result</Text>
+                        </Stack>
+                        <List
+                          style={{ width: 260 }}
+                          items={[
+                            { content: 'Đây là cái số 1' },
+                            { content: 'Và đây là cái số 2' },
+                            { content: 'Cái số 3 đây nè' },
+                            { content: 'Ủa cái số 4 đâu rồi?' },
+                            { content: 'Số 5! Cái số 4 núp rồi' }
+                          ]}
+                          onRenderCell={(item, index) => {
+                            const styles = mergeStyleSets({
+                              cell: {
+                                height: 32,
+                                padding: '0 1rem',
+                                cursor: 'pointer',
+                                selectors: {
+                                  "&:hover": {
+                                    backgroundColor: 'rgb(243, 242, 241)',
+                                    color: 'rgb(32, 31, 30)'
+                                  },
+                                  "&:active": {
+                                    backgroundColor: 'rgb(237, 235, 233)'
+                                  }
+                                }
+                              }
+                            });
+                            return (
+                              <Stack
+                                key={index}
+                                className={styles.cell}
+                                verticalAlign="center"
+                              >
+                                {item.content}
+                              </Stack>
+                            );
+                          }}
+                        />
+                      </Callout>
+                    </>
                   ) : (
                     <></>
                   )}
@@ -124,7 +203,8 @@ class TopNav extends Component {
                 className={classNames.overlay}
                 onClick={() => {
                   this.setState({
-                    isSearchBoxShow: !this.state.isSearchBoxShow
+                    isSearchBoxShow: false,
+                    isSuggestionHide: true
                   });
                 }}
               ></div>
