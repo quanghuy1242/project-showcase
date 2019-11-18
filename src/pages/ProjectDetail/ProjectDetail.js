@@ -177,11 +177,6 @@ class ProjectDetail extends Component {
                                     key: 'repository',
                                     text: 'Repository',
                                     iconProps: { iconName: 'Repo' },
-                                  },
-                                  {
-                                    key: 'shareFacebook',
-                                    text: 'Share',
-                                    iconProps: { iconName: 'Share' }
                                   }
                                 ],
                                 alignTargetEdge: true
