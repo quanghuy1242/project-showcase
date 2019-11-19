@@ -122,7 +122,7 @@ class TopNav extends Component {
                               items={this.state.searchResuilt}
                               onRenderCell={(item, index) => {
                                 return (
-                                  <Link to={`/project/${item._id}`} className={classNames.link}>
+                                  <Link to={`/projects/${item._id}`} className={classNames.link}>
                                     <Stack
                                       key={index}
                                       className={classNames.cell}

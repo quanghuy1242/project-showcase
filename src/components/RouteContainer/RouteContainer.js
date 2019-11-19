@@ -1,5 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { Spinner, SpinnerSize } from 'office-ui-fabric-react';
 const Projects = lazy(() => import('../../pages/Projects/Projects'));
 const Home = lazy(() => import('../../pages/Home/Home'));
@@ -21,6 +21,7 @@ class RouteContainer extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/projects" exact component={Projects} />
           <Route path="/project/:id" component={ProjectDetail} />
+          <Redirect from="/projects/:id" to="/project/:id" />
           <Route path="/categories" exact component={Categories} />
           <Route path="/categories/:nameId" component={CategoryDetail} />
           <Route path="/about" component={About} />
