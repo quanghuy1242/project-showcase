@@ -96,7 +96,7 @@ class TopNav extends Component {
                                     searchResuilt: await ProjectAPI.search(text),
                                     isSearchDone: true
                                   });
-                                }, 1000);
+                                }, 600);
                               }
                             }}
                           />
