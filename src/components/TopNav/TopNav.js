@@ -41,6 +41,7 @@ class TopNav extends Component {
 
   render() {
     const classNames = getStyle();
+    const isMobile = window.matchMedia("(max-width: 599px)").matches;
     return (
       <Stack verticalAlign='center' horizontal className={classNames.topNav}>
         {!this.state.isSearchBoxShow ? (
@@ -67,37 +68,40 @@ class TopNav extends Component {
             <Stack.Item disableShrink grow>
               <Stack horizontal verticalAlign='center'>
                 <Stack.Item disableShrink grow>
-                  {this.state.isSearchBoxShow ? (
+                  {(this.state.isSearchBoxShow || !isMobile) ? (
                     <>
-                      <div ref={this.searchBoxRef}>
-                        <SearchBox
-                          className={classNames.searchBox}
-                          autoFocus={true}
-                          autoComplete="off"
-                          placeholder="Type a part of name..."
-                          onChange={e => {
-                            const text = e.target.value;
-                            if (e) {
-                              this.setState({ isSearchDone: false });
-                              if (text.trim() !== '') {
-                                this.setState({ searchResuilt: [] })
-                                this.setIsSuggestionHide(false);
-                              } else {
-                                this.setIsSuggestionHide(true)
+                      <Stack horizontalAlign="end">
+                        <div ref={this.searchBoxRef} {...isMobile && { style: { width: '100%' } }}>
+                          <SearchBox
+                            className={classNames.searchBox}
+                            {...!isMobile && { styles: { root: { width: 260 } }}}
+                            autoComplete="off"
+                            placeholder="Type a part of name..."
+                            onClear={() => this.setIsSuggestionHide(true)}
+                            onChange={e => {
+                              if (e) {
+                                const text = e.target.value;
+                                this.setState({ isSearchDone: false });
+                                if (text.trim() !== '') {
+                                  this.setState({ searchResuilt: [] })
+                                  this.setIsSuggestionHide(false);
+                                } else {
+                                  this.setIsSuggestionHide(true)
+                                }
+                                this.setState({ searchContent: text });
+                                
+                                clearTimeout(this.delayFunc);
+                                this.delayFunc = setTimeout(async () => {
+                                  this.setState({
+                                    searchResuilt: await ProjectAPI.search(text),
+                                    isSearchDone: true
+                                  });
+                                }, 1000);
                               }
-                              this.setState({ searchContent: text });
-                              
-                              clearTimeout(this.delayFunc);
-                              this.delayFunc = setTimeout(async () => {
-                                this.setState({
-                                  searchResuilt: await ProjectAPI.search(text),
-                                  isSearchDone: true
-                                });
-                              }, 1000);
-                            }
-                          }}
-                        />
-                      </div>
+                            }}
+                          />
+                        </div>
+                      </Stack>
                       <Callout
                         hidden={this.state.isSuggestionHide}
                         target={this.searchBoxRef.current}
@@ -152,7 +156,7 @@ class TopNav extends Component {
                     <></>
                   )}
                 </Stack.Item>
-                {this.state.isSearchBoxShow || (
+                {(this.state.isSearchBoxShow || !isMobile) || (
                   <CommandButton
                     iconProps={{
                       iconName: this.state.isSearchBoxShow
