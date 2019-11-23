@@ -179,7 +179,8 @@ class ProjectDetail extends Component {
                                     iconProps: { iconName: 'Repo' },
                                   }
                                 ],
-                                alignTargetEdge: true
+                                alignTargetEdge: true,
+                                gapSpace: 4
                               }}
                             />
                           </Stack>
