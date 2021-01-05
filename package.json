@@ -8,7 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@uifabric/fluent-theme": "^7.1.20",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "colorthief": "^2.3.0",
     "office-ui-fabric-react": "^7.93.0",
     "react": "^16.12.0",
